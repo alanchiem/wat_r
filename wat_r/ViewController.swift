@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     
     
     @objc func Action() {
-        timerDisplayed += 2
+        timerDisplayed += 1
         Label.text = String(timerDisplayed)
     }
     
