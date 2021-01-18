@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     
     @objc func Action() {
         timerDisplayed += 1
-        animationView.play()
+        setupAnimation()
         Label.text = String(timerDisplayed)
     }
     

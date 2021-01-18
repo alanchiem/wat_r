@@ -30,10 +30,10 @@ class SettingsScreenViewController: UIViewController {
     
     @IBAction func DarkModeAction(_ sender: Any) {
         if outletSwitch.isOn == true {
-            view.backgroundColor = UIColor.black
+           // view.backgroundColor = UIColor.black
         }
         else {
-            view.backgroundColor = UIColor.white
+           // view.backgroundColor = UIColor.white
         }
     }
     
