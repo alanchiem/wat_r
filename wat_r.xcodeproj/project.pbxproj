@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E9EEA6F8F59082FD872645B /* Pods_wat_rTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60827382A5D260D697BA63A0 /* Pods_wat_rTests.framework */; };
+		B9CB04F2A66ACB9032E66478 /* Pods_wat_r_wat_rUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20CA6DB4F430DB5F09CCC60F /* Pods_wat_r_wat_rUITests.framework */; };
+		E72623EB25B560FD00BDEACF /* falling-drop-of-water.json in Resources */ = {isa = PBXBuildFile; fileRef = E72623EA25B560FD00BDEACF /* falling-drop-of-water.json */; };
 		E75C74CC25AED25500071F18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C74CB25AED25500071F18 /* AppDelegate.swift */; };
 		E75C74D025AED25500071F18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C74CF25AED25500071F18 /* ViewController.swift */; };
 		E75C74D325AED25500071F18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E75C74D125AED25500071F18 /* Main.storyboard */; };
@@ -16,6 +19,7 @@
 		E75C74EE25AED25600071F18 /* wat_rUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C74ED25AED25600071F18 /* wat_rUITests.swift */; };
 		E75C750225AEDB1B00071F18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C750125AEDB1B00071F18 /* SceneDelegate.swift */; };
 		E76AA06025B0182000759D36 /* SettingsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76AA05F25B0182000759D36 /* SettingsScreenViewController.swift */; };
+		EA0E4BD9EA7120B26A87D044 /* Pods_wat_r.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D094E509F8A78CDE62164D84 /* Pods_wat_r.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A0311365365752712E3908B /* Pods-wat_rTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wat_rTests.release.xcconfig"; path = "Target Support Files/Pods-wat_rTests/Pods-wat_rTests.release.xcconfig"; sourceTree = "<group>"; };
+		1F35C65BF7E52BD6BB03B6B5 /* Pods-wat_r-wat_rUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wat_r-wat_rUITests.release.xcconfig"; path = "Target Support Files/Pods-wat_r-wat_rUITests/Pods-wat_r-wat_rUITests.release.xcconfig"; sourceTree = "<group>"; };
+		20CA6DB4F430DB5F09CCC60F /* Pods_wat_r_wat_rUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wat_r_wat_rUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		493C2370E24CAEAA6996D754 /* Pods-wat_rTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wat_rTests.debug.xcconfig"; path = "Target Support Files/Pods-wat_rTests/Pods-wat_rTests.debug.xcconfig"; sourceTree = "<group>"; };
+		50F70F4244D92CC5F69DD6E6 /* Pods-wat_r.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wat_r.release.xcconfig"; path = "Target Support Files/Pods-wat_r/Pods-wat_r.release.xcconfig"; sourceTree = "<group>"; };
+		577ABBA5A4D4B7DDB5C40AAC /* Pods-wat_r.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wat_r.debug.xcconfig"; path = "Target Support Files/Pods-wat_r/Pods-wat_r.debug.xcconfig"; sourceTree = "<group>"; };
+		5C334775C6E4E2DEC5DD7DF3 /* Pods-wat_r-wat_rUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wat_r-wat_rUITests.debug.xcconfig"; path = "Target Support Files/Pods-wat_r-wat_rUITests/Pods-wat_r-wat_rUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		60827382A5D260D697BA63A0 /* Pods_wat_rTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wat_rTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D094E509F8A78CDE62164D84 /* Pods_wat_r.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wat_r.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E72623EA25B560FD00BDEACF /* falling-drop-of-water.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "falling-drop-of-water.json"; sourceTree = "<group>"; };
 		E75C74C825AED25500071F18 /* wat_r.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wat_r.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E75C74CB25AED25500071F18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E75C74CF25AED25500071F18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA0E4BD9EA7120B26A87D044 /* Pods_wat_r.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E9EEA6F8F59082FD872645B /* Pods_wat_rTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +88,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9CB04F2A66ACB9032E66478 /* Pods_wat_r_wat_rUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77C98D6B5B408A85D7C1542C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				577ABBA5A4D4B7DDB5C40AAC /* Pods-wat_r.debug.xcconfig */,
+				50F70F4244D92CC5F69DD6E6 /* Pods-wat_r.release.xcconfig */,
+				5C334775C6E4E2DEC5DD7DF3 /* Pods-wat_r-wat_rUITests.debug.xcconfig */,
+				1F35C65BF7E52BD6BB03B6B5 /* Pods-wat_r-wat_rUITests.release.xcconfig */,
+				493C2370E24CAEAA6996D754 /* Pods-wat_rTests.debug.xcconfig */,
+				1A0311365365752712E3908B /* Pods-wat_rTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E75C74BF25AED25500071F18 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +115,8 @@
 				E75C74E125AED25600071F18 /* wat_rTests */,
 				E75C74EC25AED25600071F18 /* wat_rUITests */,
 				E75C74C925AED25500071F18 /* Products */,
+				77C98D6B5B408A85D7C1542C /* Pods */,
+				F1B5EF5BC133A42F8446BEF7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +133,7 @@
 		E75C74CA25AED25500071F18 /* wat_r */ = {
 			isa = PBXGroup;
 			children = (
+				E72623EA25B560FD00BDEACF /* falling-drop-of-water.json */,
 				E75C74CB25AED25500071F18 /* AppDelegate.swift */,
 				E75C750125AEDB1B00071F18 /* SceneDelegate.swift */,
 				E75C74CF25AED25500071F18 /* ViewController.swift */,
@@ -131,6 +164,16 @@
 			path = wat_rUITests;
 			sourceTree = "<group>";
 		};
+		F1B5EF5BC133A42F8446BEF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D094E509F8A78CDE62164D84 /* Pods_wat_r.framework */,
+				20CA6DB4F430DB5F09CCC60F /* Pods_wat_r_wat_rUITests.framework */,
+				60827382A5D260D697BA63A0 /* Pods_wat_rTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E75C74F225AED25600071F18 /* Build configuration list for PBXNativeTarget "wat_r" */;
 			buildPhases = (
+				4491A3661CDB57C7C6B5540D /* [CP] Check Pods Manifest.lock */,
 				E75C74C425AED25500071F18 /* Sources */,
 				E75C74C525AED25500071F18 /* Frameworks */,
 				E75C74C625AED25500071F18 /* Resources */,
+				2E9B86CE97773A9F29D54D36 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +200,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E75C74F525AED25600071F18 /* Build configuration list for PBXNativeTarget "wat_rTests" */;
 			buildPhases = (
+				2C7A4539C61CDB21896B9E82 /* [CP] Check Pods Manifest.lock */,
 				E75C74DA25AED25600071F18 /* Sources */,
 				E75C74DB25AED25600071F18 /* Frameworks */,
 				E75C74DC25AED25600071F18 /* Resources */,
@@ -173,9 +219,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E75C74F825AED25600071F18 /* Build configuration list for PBXNativeTarget "wat_rUITests" */;
 			buildPhases = (
+				9F28641707C44447FD8D63DE /* [CP] Check Pods Manifest.lock */,
 				E75C74E525AED25600071F18 /* Sources */,
 				E75C74E625AED25600071F18 /* Frameworks */,
 				E75C74E725AED25600071F18 /* Resources */,
+				A906A88A2C46C8D2B1EC83B5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -237,6 +285,7 @@
 				E75C74D825AED25500071F18 /* LaunchScreen.storyboard in Resources */,
 				E75C74D525AED25500071F18 /* Assets.xcassets in Resources */,
 				E75C74D325AED25500071F18 /* Main.storyboard in Resources */,
+				E72623EB25B560FD00BDEACF /* falling-drop-of-water.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +304,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C7A4539C61CDB21896B9E82 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-wat_rTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2E9B86CE97773A9F29D54D36 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-wat_r/Pods-wat_r-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-wat_r/Pods-wat_r-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-wat_r/Pods-wat_r-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4491A3661CDB57C7C6B5540D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-wat_r-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F28641707C44447FD8D63DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-wat_r-wat_rUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A906A88A2C46C8D2B1EC83B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-wat_r-wat_rUITests/Pods-wat_r-wat_rUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-wat_r-wat_rUITests/Pods-wat_r-wat_rUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-wat_r-wat_rUITests/Pods-wat_r-wat_rUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E75C74C425AED25500071F18 /* Sources */ = {
@@ -437,11 +589,13 @@
 		};
 		E75C74F325AED25600071F18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 577ABBA5A4D4B7DDB5C40AAC /* Pods-wat_r.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N7XTJ3T26Z;
+				HEADER_SEARCH_PATHS = "${SRCROOT}";
 				INFOPLIST_FILE = wat_r/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -456,11 +610,13 @@
 		};
 		E75C74F425AED25600071F18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50F70F4244D92CC5F69DD6E6 /* Pods-wat_r.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N7XTJ3T26Z;
+				HEADER_SEARCH_PATHS = "${SRCROOT}";
 				INFOPLIST_FILE = wat_r/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -475,6 +631,7 @@
 		};
 		E75C74F625AED25600071F18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 493C2370E24CAEAA6996D754 /* Pods-wat_rTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -497,6 +654,7 @@
 		};
 		E75C74F725AED25600071F18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A0311365365752712E3908B /* Pods-wat_rTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -519,6 +677,7 @@
 		};
 		E75C74F925AED25600071F18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C334775C6E4E2DEC5DD7DF3 /* Pods-wat_r-wat_rUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -539,6 +698,7 @@
 		};
 		E75C74FA25AED25600071F18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F35C65BF7E52BD6BB03B6B5 /* Pods-wat_r-wat_rUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
