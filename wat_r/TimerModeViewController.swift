@@ -1,76 +1,90 @@
 //
-//  ViewController.swift
+//  TimerModeViewController.swift
 //  wat_r
 //
-//  Created by Alan Chiem on 1/12/21.
+//  Created by Ricky Kuang on 1/28/21.
 //
 
 import UIKit
 import Foundation
 import Lottie
 
-class ViewController: UIViewController {
+class TimerModeViewController: UIViewController {
+    
+    // Labels
+    @IBOutlet weak var Label: UILabel!
+    @IBOutlet weak var TimerLabel: UILabel!
+    
     
     // For the water droplets counter
     var OurTimer = Timer()
     var timerDisplayed = 0
-    var timerActivated = false
-    var paused = false
     
     
     // For the stopwatch timer
-    var stopWatch = Timer()
-    var counter = 0
+    var countDownTimer = Timer()
+    var counter = 10 // have to change the code so that this is a user input
+    
+    
+    // Tracks whether timer started and whether timer has been paused
+    var timerActivated = false
+    var paused = true
     
     
     // Animation
     let animationView = AnimationView()
-
     
     
     // Start button, starts the timer
     @IBAction func StartBTN(_ sender: Any) {
+        // Case for when timer has not been started
+        // If timer has been started, then button doesn't work
         if (timerActivated == false) {
+            // lines 44 and 45 are for displaying the inputted time when "start" is clicked
+            let time = convertToHourMinSecond(seconds: counter)
+            TimerLabel.text = getStringOfTime(hours: time.0, minutes: time.1, seconds: time.2)
+            
             OurTimer = Timer.scheduledTimer(timeInterval: 2,
                                             target: self,
                                             selector: #selector(Action),
                                             userInfo: nil,
                                             repeats: true)
             
-            stopWatch = Timer.scheduledTimer(timeInterval: 1,
+            countDownTimer = Timer.scheduledTimer(timeInterval: 1,
                                              target: self,
                                              selector: #selector(timerCounter),
                                              userInfo: nil,
                                              repeats: true)
             
             timerActivated = true
-        }
-        
-        else if (timerActivated == true)
-        {
-            // do nothing
-            // wow this actually worked
+            paused = false
         }
     }
     
     
     // Pause button, stops the timer
     @IBAction func PauseBTN(_ sender: Any) {
-        if (paused == false) {
+        // Case for when the timer isn't paused.
+        // Stopwatch and "droplet" timer stop, as well as animation
+        // Timer has to be already activated initially.
+        if (paused == false && timerActivated == true) {
             OurTimer.invalidate()
-            stopWatch.invalidate()
+            countDownTimer.invalidate()
             animationView.pause()
             paused = true
         }
         
-        else if (paused == true) {
+        // Case for when the timer is paused
+        // Stopwatch and "droplet" timer start again, as well as animation
+        // Conditional also prevents pause button from working when time has already reached 0
+        else if (paused == true && counter > 0 && timerActivated == true) {
             OurTimer = Timer.scheduledTimer(timeInterval: 2,
                                             target: self,
                                             selector: #selector(Action),
                                             userInfo: nil,
                                             repeats: true)
             
-            stopWatch = Timer.scheduledTimer(timeInterval: 1,
+            countDownTimer = Timer.scheduledTimer(timeInterval: 1,
                                              target: self,
                                              selector: #selector(timerCounter),
                                              userInfo: nil,
@@ -82,23 +96,25 @@ class ViewController: UIViewController {
     }
     
     
-    // Reset button, sets timer back to 0
+    // Reset button, sets timers back to 0
     @IBAction func ResetBTN(_ sender: Any) {
         OurTimer.invalidate()
-        timerActivated = false
         timerDisplayed = 0
         Label.text = "0"
         
-        stopWatch.invalidate()
-        counter = 0
-        TimerLabel.text = "00 : 00 : 00"
+        countDownTimer.invalidate()
+        counter = 10 // change this to user input
+        TimerLabel.text = "-- : -- : --"
         
         setupAnimation()
         animationView.pause()
+        
+        timerActivated = false
+        paused = true
     }
     
     
-    
+    // Action to display the amount of droplets as well as the animation
     @objc func Action() {
         timerDisplayed += 1
         setupAnimation()
@@ -106,18 +122,30 @@ class ViewController: UIViewController {
     }
     
     
+    // Action function to display the time
     @objc func timerCounter() {
-        counter += 1
+        counter -= 1
         let time = convertToHourMinSecond(seconds: counter)
         TimerLabel.text = getStringOfTime(hours: time.0, minutes: time.1, seconds: time.2)
+        
+        // If statement for when the timer is done. Stops the timers and animation.
+        if (counter == 0) {
+            OurTimer.invalidate()
+            countDownTimer.invalidate()
+            animationView.pause()
+            timerActivated = false
+            paused = true
+        }
     }
     
     
+    // Converts seconds into Hour : Minute : Second format
     func convertToHourMinSecond(seconds: Int) -> (Int, Int, Int) {
         return ((seconds / 3600), ((seconds % 3600) / 60), ((seconds % 3600) % 60))
     }
     
     
+    // Returns the string version of the time converted into Hour : Minute : String format
     func getStringOfTime(hours: Int, minutes: Int, seconds: Int) -> String {
         var timeString = ""
         timeString += String(format: "%02d", hours)
@@ -129,18 +157,14 @@ class ViewController: UIViewController {
         return timeString
     }
     
-    
-    @IBOutlet weak var Label: UILabel!
-    @IBOutlet weak var TimerLabel: UILabel!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Animation cont
         setupAnimation()
         animationView.pause()
-        
     }
+    
     
     private func setupAnimation() {
         animationView.animation = Animation.named("falling-drop-of-water")
