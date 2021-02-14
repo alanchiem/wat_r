@@ -3,23 +3,24 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Storage-->
+        <!--Initial View-->
         <scene sceneID="2zM-RL-s4C">
             <objects>
-                <tabBarController title="Storage" id="NVI-fC-MtL" sceneMemberID="viewController">
+                <tabBarController title="Initial View" id="NVI-fC-MtL" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XJH-Uz-SR4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="wZT-lq-1sU" kind="relationship" relationship="viewControllers" id="63P-wa-u0B"/>
+                        <segue destination="wZT-lq-1sU" kind="relationship" relationship="viewControllers" id="B7d-uh-Iwt"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="pit-Jc-nVm"/>
                         <segue destination="pju-Wt-DN7" kind="relationship" relationship="viewControllers" id="WJ7-p5-Vf6"/>
                         <segue destination="qSx-RD-hb0" kind="relationship" relationship="viewControllers" id="U72-vU-QAe"/>
@@ -74,7 +75,7 @@
                                     <action selector="StartBTN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z8k-CT-8iu"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stopwatch Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khR-v9-Ltj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stopwatch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khR-v9-Ltj">
                                 <rect key="frame" x="143" y="93" width="129" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -92,7 +93,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="Background"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Stopwatch" id="ETq-22-J9D"/>
+                    <tabBarItem key="tabBarItem" title="Stopwatch" image="stopwatch" catalog="system" selectedImage="stopwatch" id="ETq-22-J9D"/>
                     <navigationItem key="navigationItem" id="DxV-4T-jR1"/>
                     <connections>
                         <outlet property="Label" destination="dVh-Qn-nWc" id="zgU-2t-qWD"/>
@@ -101,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="448" y="92"/>
+            <point key="canvasLocation" x="535" y="92"/>
         </scene>
         <!--Settings-->
         <scene sceneID="9jN-PP-Otd">
@@ -168,7 +169,7 @@
                         <viewLayoutGuide key="safeArea" id="5Sr-n9-uwD"/>
                         <color key="backgroundColor" name="Background"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="CJw-LZ-OLJ"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" selectedImage="gearshape" id="CJw-LZ-OLJ"/>
                     <navigationItem key="navigationItem" id="Qxa-v0-wx5"/>
                     <connections>
                         <outlet property="DarkModeLabel" destination="nDF-Ig-6vR" id="6pd-Eu-ua4"/>
@@ -178,7 +179,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CK3-1j-FuJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Q0r-6V-Elk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1886" y="92"/>
+            <point key="canvasLocation" x="1801" y="92"/>
         </scene>
         <!--Storage-->
         <scene sceneID="CJr-wg-HXZ">
@@ -199,11 +200,13 @@
                         <viewLayoutGuide key="safeArea" id="sI9-w2-Jhz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Storage" id="R5R-KM-e1s"/>
+                    <tabBarItem key="tabBarItem" title="Storage" image="cube.box" catalog="system" id="R5R-KM-e1s">
+                        <imageReference key="selectedImage" image="shippingbox" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PqR-NA-AFu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-242" y="92"/>
+            <point key="canvasLocation" x="-96" y="92"/>
         </scene>
         <!--Timer-->
         <scene sceneID="ht2-So-uFC">
@@ -250,7 +253,7 @@
                                     <action selector="StartBTN:" destination="pju-Wt-DN7" eventType="touchUpInside" id="IpU-zz-DAv"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timer Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o80-cF-gzm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o80-cF-gzm">
                                 <rect key="frame" x="143" y="93" width="129" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -268,7 +271,7 @@
                         <viewLayoutGuide key="safeArea" id="gPa-l9-A8A"/>
                         <color key="backgroundColor" name="Background"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Timer" id="Ear-oQ-2Pm"/>
+                    <tabBarItem key="tabBarItem" title="Timer" image="timer" catalog="system" selectedImage="timer" id="Ear-oQ-2Pm"/>
                     <navigationItem key="navigationItem" id="8DM-iu-vua"/>
                     <connections>
                         <outlet property="Label" destination="2aO-aj-MAD" id="JCh-hC-Wbi"/>
@@ -277,10 +280,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CjO-L2-7MO" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="92"/>
+            <point key="canvasLocation" x="1170" y="92"/>
         </scene>
     </scenes>
     <resources>
+        <image name="cube.box" catalog="system" width="128" height="124"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="shippingbox" catalog="system" width="128" height="124"/>
+        <image name="stopwatch" catalog="system" width="121" height="128"/>
+        <image name="timer" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
