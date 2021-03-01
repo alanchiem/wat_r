@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E9EEA6F8F59082FD872645B /* Pods_wat_rTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60827382A5D260D697BA63A0 /* Pods_wat_rTests.framework */; };
+		403ED9CE25E3755800422DFC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403ED9CD25E3755800422DFC /* ContentView.swift */; };
 		40F8244125C3F6D20007F6B6 /* TimerModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F8244025C3F6D20007F6B6 /* TimerModeViewController.swift */; };
 		B9CB04F2A66ACB9032E66478 /* Pods_wat_r_wat_rUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20CA6DB4F430DB5F09CCC60F /* Pods_wat_r_wat_rUITests.framework */; };
 		E72623EB25B560FD00BDEACF /* falling-drop-of-water.json in Resources */ = {isa = PBXBuildFile; fileRef = E72623EA25B560FD00BDEACF /* falling-drop-of-water.json */; };
@@ -15,7 +16,6 @@
 		E75C74D025AED25500071F18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C74CF25AED25500071F18 /* ViewController.swift */; };
 		E75C74D325AED25500071F18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E75C74D125AED25500071F18 /* Main.storyboard */; };
 		E75C74D525AED25500071F18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E75C74D425AED25500071F18 /* Assets.xcassets */; };
-		E75C74D825AED25500071F18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E75C74D625AED25500071F18 /* LaunchScreen.storyboard */; };
 		E75C74E325AED25600071F18 /* wat_rTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C74E225AED25600071F18 /* wat_rTests.swift */; };
 		E75C74EE25AED25600071F18 /* wat_rUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C74ED25AED25600071F18 /* wat_rUITests.swift */; };
 		E75C750225AEDB1B00071F18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C750125AEDB1B00071F18 /* SceneDelegate.swift */; };
@@ -44,6 +44,7 @@
 		1A0311365365752712E3908B /* Pods-wat_rTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wat_rTests.release.xcconfig"; path = "Target Support Files/Pods-wat_rTests/Pods-wat_rTests.release.xcconfig"; sourceTree = "<group>"; };
 		1F35C65BF7E52BD6BB03B6B5 /* Pods-wat_r-wat_rUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wat_r-wat_rUITests.release.xcconfig"; path = "Target Support Files/Pods-wat_r-wat_rUITests/Pods-wat_r-wat_rUITests.release.xcconfig"; sourceTree = "<group>"; };
 		20CA6DB4F430DB5F09CCC60F /* Pods_wat_r_wat_rUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wat_r_wat_rUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		403ED9CD25E3755800422DFC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		40F8244025C3F6D20007F6B6 /* TimerModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModeViewController.swift; sourceTree = "<group>"; };
 		493C2370E24CAEAA6996D754 /* Pods-wat_rTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wat_rTests.debug.xcconfig"; path = "Target Support Files/Pods-wat_rTests/Pods-wat_rTests.debug.xcconfig"; sourceTree = "<group>"; };
 		50F70F4244D92CC5F69DD6E6 /* Pods-wat_r.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wat_r.release.xcconfig"; path = "Target Support Files/Pods-wat_r/Pods-wat_r.release.xcconfig"; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		E75C74CF25AED25500071F18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E75C74D225AED25500071F18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E75C74D425AED25500071F18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E75C74D725AED25500071F18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E75C74D925AED25500071F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E75C74DE25AED25600071F18 /* wat_rTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wat_rTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E75C74E225AED25600071F18 /* wat_rTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wat_rTests.swift; sourceTree = "<group>"; };
@@ -141,9 +141,9 @@
 				E75C74CF25AED25500071F18 /* ViewController.swift */,
 				E76AA05F25B0182000759D36 /* SettingsScreenViewController.swift */,
 				40F8244025C3F6D20007F6B6 /* TimerModeViewController.swift */,
+				403ED9CD25E3755800422DFC /* ContentView.swift */,
 				E75C74D125AED25500071F18 /* Main.storyboard */,
 				E75C74D425AED25500071F18 /* Assets.xcassets */,
-				E75C74D625AED25500071F18 /* LaunchScreen.storyboard */,
 				E75C74D925AED25500071F18 /* Info.plist */,
 			);
 			path = wat_r;
@@ -285,7 +285,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E75C74D825AED25500071F18 /* LaunchScreen.storyboard in Resources */,
 				E75C74D525AED25500071F18 /* Assets.xcassets in Resources */,
 				E75C74D325AED25500071F18 /* Main.storyboard in Resources */,
 				E72623EB25B560FD00BDEACF /* falling-drop-of-water.json in Resources */,
@@ -417,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E75C74D025AED25500071F18 /* ViewController.swift in Sources */,
+				403ED9CE25E3755800422DFC /* ContentView.swift in Sources */,
 				40F8244125C3F6D20007F6B6 /* TimerModeViewController.swift in Sources */,
 				E76AA06025B0182000759D36 /* SettingsScreenViewController.swift in Sources */,
 				E75C74CC25AED25500071F18 /* AppDelegate.swift in Sources */,
@@ -462,14 +462,6 @@
 				E75C74D225AED25500071F18 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E75C74D625AED25500071F18 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E75C74D725AED25500071F18 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

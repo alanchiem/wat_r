@@ -14,6 +14,7 @@ class TimerModeViewController: UIViewController {
     // Labels
     @IBOutlet weak var Label: UILabel!
     @IBOutlet weak var TimerLabel: UILabel!
+    @IBOutlet var picker: UIPickerView!
     
     
     // For the water droplets counter
@@ -23,13 +24,12 @@ class TimerModeViewController: UIViewController {
     
     // For the stopwatch timer
     var countDownTimer = Timer()
-    var counter = 10 // have to change the code so that this is a user input
+    var counter = 60 // have to change the code so that this is a user input
     
     
     // Tracks whether timer started and whether timer has been paused
     var timerActivated = false
     var paused = true
-    
     
     // Animation
     let animationView = AnimationView()
@@ -163,6 +163,24 @@ class TimerModeViewController: UIViewController {
         // Animation cont
         setupAnimation()
         animationView.pause()
+        picker.dataSource = self
+        picker.delegate = self
+        
+        pickerData = [["0", "1", "2", "3", "4"],
+                      
+                      ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+                      "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+                      "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
+                      "31", "32", "33", "34", "35", "36", "37", "38", "39", "40",
+                      "41", "42", "43", "44", "45", "46", "47", "48", "49", "50",
+                      "51", "52", "53", "54", "55", "56", "57", "58", "59"],
+                      
+                      ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+                      "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+                      "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
+                      "31", "32", "33", "34", "35", "36", "37", "38", "39", "40",
+                      "41", "42", "43", "44", "45", "46", "47", "48", "49", "50",
+                      "51", "52", "53", "54", "55", "56", "57", "58", "59"]]
     }
     
     
@@ -174,5 +192,23 @@ class TimerModeViewController: UIViewController {
         animationView.loopMode = .loop
         animationView.play()
         view.addSubview(animationView)
+    }
+    
+    var pickerData: [[String]] = [[String]]()
+}
+
+extension TimerModeViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 3
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData[component].count
+    }
+}
+
+extension TimerModeViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[component][row]
     }
 }
