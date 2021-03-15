@@ -15,10 +15,13 @@ class TimerModeViewController: UIViewController {
     @IBOutlet weak var Label: UILabel!
     @IBOutlet weak var TimerLabel: UILabel!
     @IBOutlet var picker: UIPickerView!
+    @IBOutlet weak var hourText: UILabel!
+    @IBOutlet weak var minText: UILabel!
+    @IBOutlet weak var secText: UILabel!
+    
     var hour = 0
     var min = 0
     var sec = 0
-    
     
     // For the water droplets counter
     var OurTimer = Timer()
@@ -28,6 +31,7 @@ class TimerModeViewController: UIViewController {
     // For the stopwatch timer
     var countDownTimer = Timer()
     var counter = 0 // have to change the code so that this is a user input
+    var secondsLost = 0
     
     
     // Tracks whether timer started and whether timer has been paused
@@ -42,9 +46,16 @@ class TimerModeViewController: UIViewController {
     @IBAction func StartBTN(_ sender: Any) {
         // Case for when timer has not been started
         // If timer has been started, then button doesn't work
-        if (timerActivated == false) {
+        if (timerActivated == false && counter > 0) {
+            picker.isHidden = true
+            hourText.isHidden = true
+            minText.isHidden = true
+            secText.isHidden = true
+            TimerLabel.isHidden = false
+            
             // lines 44 and 45 are for displaying the inputted time when "start" is clicked
             let time = convertToHourMinSecond(seconds: counter)
+            secondsLost = 0
             TimerLabel.text = getStringOfTime(hours: time.0, minutes: time.1, seconds: time.2)
             
             OurTimer = Timer.scheduledTimer(timeInterval: 2,
@@ -75,6 +86,7 @@ class TimerModeViewController: UIViewController {
             countDownTimer.invalidate()
             animationView.pause()
             paused = true
+            
         }
         
         // Case for when the timer is paused
@@ -105,12 +117,15 @@ class TimerModeViewController: UIViewController {
         timerDisplayed = 0
         Label.text = "0"
         
+        counter += secondsLost
+        secondsLost = 0
         countDownTimer.invalidate()
-        counter = 0 // change this to user input
-        hour = 0
-        min = 0
-        sec = 0
         TimerLabel.text = "-- : -- : --"
+        TimerLabel.isHidden = true
+        picker.isHidden = false
+        hourText.isHidden = false
+        minText.isHidden = false
+        secText.isHidden = false
         
         setupAnimation()
         animationView.pause()
@@ -131,6 +146,8 @@ class TimerModeViewController: UIViewController {
     // Action function to display the time
     @objc func timerCounter() {
         counter -= 1
+        secondsLost += 1
+        
         let time = convertToHourMinSecond(seconds: counter)
         TimerLabel.text = getStringOfTime(hours: time.0, minutes: time.1, seconds: time.2)
         
@@ -171,6 +188,11 @@ class TimerModeViewController: UIViewController {
         animationView.pause()
         picker.dataSource = self
         picker.delegate = self
+        TimerLabel.isHidden = true
+        picker.isHidden = false
+        hourText.isHidden = false
+        minText.isHidden = false
+        secText.isHidden = false
         
         pickerData = [["0", "1", "2", "3", "4"],
                       

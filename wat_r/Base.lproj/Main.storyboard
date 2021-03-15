@@ -223,7 +223,7 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="PauseBTN:" destination="pju-Wt-DN7" eventType="touchUpInside" id="xj1-3a-aoy"/>
+                                    <action selector="PauseBTN:" destination="pju-Wt-DN7" eventType="touchUpInside" id="FBU-8p-sZZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5s-dz-gCt">
@@ -267,32 +267,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IbJ-I9-sK6">
-                                <rect key="frame" x="174" y="55" width="67" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Set Timer"/>
-                            </button>
                             <pickerView opaque="NO" contentMode="bottom" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9CV-3C-dff">
-                                <rect key="frame" x="55" y="740" width="263" height="73"/>
+                                <rect key="frame" x="76" y="116" width="263" height="73"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="Background"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FU4-nx-VUM">
-                                <rect key="frame" x="113" y="767" width="44" height="21"/>
+                                <rect key="frame" x="138" y="142" width="44" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iD-Hm-k1d">
-                                <rect key="frame" x="213" y="766" width="28" height="21"/>
+                                <rect key="frame" x="232" y="142" width="28" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sec" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vev-hD-1KC">
-                                <rect key="frame" x="291" y="767" width="27" height="22"/>
+                                <rect key="frame" x="312" y="142" width="27" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -307,7 +302,10 @@
                     <connections>
                         <outlet property="Label" destination="2aO-aj-MAD" id="JCh-hC-Wbi"/>
                         <outlet property="TimerLabel" destination="2W5-FH-qMh" id="VUZ-GL-tv6"/>
+                        <outlet property="hourText" destination="FU4-nx-VUM" id="arc-mI-0zY"/>
+                        <outlet property="minText" destination="4iD-Hm-k1d" id="2Ug-Me-biN"/>
                         <outlet property="picker" destination="9CV-3C-dff" id="tZH-3D-vNB"/>
+                        <outlet property="secText" destination="vev-hD-1KC" id="7hA-1s-xly"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CjO-L2-7MO" sceneMemberID="firstResponder"/>
