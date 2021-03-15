@@ -15,6 +15,9 @@ class TimerModeViewController: UIViewController {
     @IBOutlet weak var Label: UILabel!
     @IBOutlet weak var TimerLabel: UILabel!
     @IBOutlet var picker: UIPickerView!
+    var hour = 0
+    var min = 0
+    var sec = 0
     
     
     // For the water droplets counter
@@ -24,7 +27,7 @@ class TimerModeViewController: UIViewController {
     
     // For the stopwatch timer
     var countDownTimer = Timer()
-    var counter = 60 // have to change the code so that this is a user input
+    var counter = 0 // have to change the code so that this is a user input
     
     
     // Tracks whether timer started and whether timer has been paused
@@ -103,7 +106,10 @@ class TimerModeViewController: UIViewController {
         Label.text = "0"
         
         countDownTimer.invalidate()
-        counter = 10 // change this to user input
+        counter = 0 // change this to user input
+        hour = 0
+        min = 0
+        sec = 0
         TimerLabel.text = "-- : -- : --"
         
         setupAnimation()
@@ -195,9 +201,13 @@ class TimerModeViewController: UIViewController {
     }
     
     var pickerData: [[String]] = [[String]]()
+    
+    func view(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        return
+    }
 }
 
-extension TimerModeViewController: UIPickerViewDataSource {
+extension TimerModeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
     }
@@ -205,10 +215,24 @@ extension TimerModeViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData[component].count
     }
-}
-
-extension TimerModeViewController: UIPickerViewDelegate {
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[component][row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // ISSUE: has to be moved in order to reset the timer
+        if (component == 0) {
+            hour = (pickerData[component][row] as NSString).integerValue
+        }
+        
+        if (component == 1) {
+            min = (pickerData[component][row] as NSString).integerValue
+        }
+        
+        if (component == 2) {
+            sec = (pickerData[component][row] as NSString).integerValue
+        }
+        counter = (hour * 60 * 60) + (min * 60) + sec
     }
 }
