@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     var OurTimer = Timer()
     var timerDisplayed = 0
     var timerActivated = false
-    var paused = false
+    var paused = true
     
     
     // For the stopwatch timer
@@ -44,6 +44,7 @@ class ViewController: UIViewController {
                                              repeats: true)
             
             timerActivated = true
+            paused = false
         }
         
         else if (timerActivated == true)
@@ -61,23 +62,28 @@ class ViewController: UIViewController {
             stopWatch.invalidate()
             animationView.pause()
             paused = true
+            timerActivated = true
+            PauseButton.setTitle("Play", for: UIControl.State.normal)
         }
         
-        else if (paused == true) {
+        else if (paused == true && timerActivated == true) {
+            // for the drops
             OurTimer = Timer.scheduledTimer(timeInterval: 2,
                                             target: self,
                                             selector: #selector(Action),
                                             userInfo: nil,
                                             repeats: true)
             
+            // for the time
             stopWatch = Timer.scheduledTimer(timeInterval: 1,
                                              target: self,
                                              selector: #selector(timerCounter),
                                              userInfo: nil,
                                              repeats: true)
             
-            animationView.play()
-            paused = false
+            animationView.play() // play animation
+            paused = false // timer isn't paused
+            PauseButton.setTitle("Pause", for: UIControl.State.normal)
         }
     }
     
@@ -95,6 +101,7 @@ class ViewController: UIViewController {
         
         setupAnimation()
         animationView.pause()
+        PauseButton.setTitle("Pause", for: UIControl.State.normal)
     }
     
     
@@ -132,6 +139,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var Label: UILabel!
     @IBOutlet weak var TimerLabel: UILabel!
+    @IBOutlet var PauseButton: UIButton!
     
 
     override func viewDidLoad() {
@@ -139,7 +147,6 @@ class ViewController: UIViewController {
         // Animation cont
         setupAnimation()
         animationView.pause()
-        
     }
     
     private func setupAnimation() {

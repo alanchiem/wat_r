@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NVI-fC-MtL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NVI-fC-MtL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -97,6 +97,7 @@
                     <navigationItem key="navigationItem" id="DxV-4T-jR1"/>
                     <connections>
                         <outlet property="Label" destination="dVh-Qn-nWc" id="zgU-2t-qWD"/>
+                        <outlet property="PauseButton" destination="vX9-SF-mbA" id="exn-Fn-xXQ"/>
                         <outlet property="TimerLabel" destination="V1Z-dM-DOv" id="gbf-Nz-buN"/>
                     </connections>
                 </viewController>
@@ -301,6 +302,7 @@
                     <navigationItem key="navigationItem" id="8DM-iu-vua"/>
                     <connections>
                         <outlet property="Label" destination="2aO-aj-MAD" id="JCh-hC-Wbi"/>
+                        <outlet property="PauseButton" destination="WAu-nU-6VH" id="RXD-QO-fw8"/>
                         <outlet property="TimerLabel" destination="2W5-FH-qMh" id="VUZ-GL-tv6"/>
                         <outlet property="hourText" destination="FU4-nx-VUM" id="arc-mI-0zY"/>
                         <outlet property="minText" destination="4iD-Hm-k1d" id="2Ug-Me-biN"/>

@@ -18,6 +18,7 @@ class TimerModeViewController: UIViewController {
     @IBOutlet weak var hourText: UILabel!
     @IBOutlet weak var minText: UILabel!
     @IBOutlet weak var secText: UILabel!
+    @IBOutlet var PauseButton: UIButton!
     
     var hour = 0
     var min = 0
@@ -86,7 +87,7 @@ class TimerModeViewController: UIViewController {
             countDownTimer.invalidate()
             animationView.pause()
             paused = true
-            
+            PauseButton.setTitle("Play", for: UIControl.State.normal)
         }
         
         // Case for when the timer is paused
@@ -107,6 +108,7 @@ class TimerModeViewController: UIViewController {
             
             animationView.play()
             paused = false
+            PauseButton.setTitle("Pause", for: UIControl.State.normal)
         }
     }
     
@@ -132,6 +134,7 @@ class TimerModeViewController: UIViewController {
         
         timerActivated = false
         paused = true
+        PauseButton.setTitle("Pause", for: UIControl.State.normal)
     }
     
     
