@@ -48,16 +48,6 @@
                                     <action selector="PauseBTN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t6m-3E-3BQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQ1-2X-bXh">
-                                <rect key="frame" x="188" y="702" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Reset">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="ResetBTN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wQS-QB-QW5"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVh-Qn-nWc">
                                 <rect key="frame" x="169" y="214" width="76" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -66,7 +56,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TnN-bz-V94">
-                                <rect key="frame" x="41" y="668" width="34" height="30"/>
+                                <rect key="frame" x="41" y="668" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" systemColor="labelColor"/>
@@ -98,12 +88,13 @@
                     <connections>
                         <outlet property="Label" destination="dVh-Qn-nWc" id="zgU-2t-qWD"/>
                         <outlet property="PauseButton" destination="vX9-SF-mbA" id="exn-Fn-xXQ"/>
+                        <outlet property="StartButton" destination="TnN-bz-V94" id="27J-P9-jCI"/>
                         <outlet property="TimerLabel" destination="V1Z-dM-DOv" id="gbf-Nz-buN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="535" y="92"/>
+            <point key="canvasLocation" x="534.78260869565224" y="91.741071428571431"/>
         </scene>
         <!--Settings-->
         <scene sceneID="9jN-PP-Otd">
@@ -182,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="1801" y="92"/>
         </scene>
-        <!--Storage-->
+        <!--StorageViewController-->
         <scene sceneID="CJr-wg-HXZ">
             <objects>
-                <viewController title="Storage" id="wZT-lq-1sU" sceneMemberID="viewController">
+                <viewController title="StorageViewController" id="wZT-lq-1sU" customClass="StorageViewController" customModule="wat_r" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ta6-h0-jds">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -197,17 +188,53 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HIgh Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecA-u2-kQk">
+                                <rect key="frame" x="149" y="273" width="200" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHO-PD-ozD">
+                                <rect key="frame" x="253" y="415" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="ResetActionWithSender:" destination="wZT-lq-1sU" eventType="touchUpInside" id="JOH-9C-XMV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ex2-vd-0CW">
+                                <rect key="frame" x="123" y="415" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Counter"/>
+                                <connections>
+                                    <action selector="CounterActionWithSender:" destination="wZT-lq-1sU" eventType="touchUpInside" id="B0J-RD-26N"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRd-dw-KDr">
+                                <rect key="frame" x="144" y="220" width="126" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sI9-w2-Jhz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Storage" image="cube.box" catalog="system" id="R5R-KM-e1s">
+                    <tabBarItem key="tabBarItem" title="Storage" image="shippingbox" catalog="system" id="R5R-KM-e1s">
                         <imageReference key="selectedImage" image="shippingbox" catalog="system" symbolScale="large"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="Counter" destination="Ex2-vd-0CW" id="EBH-BE-gfz"/>
+                        <outlet property="HighScoreLabel" destination="ecA-u2-kQk" id="Slc-e5-pFx"/>
+                        <outlet property="Reset" destination="bHO-PD-ozD" id="U9h-9M-CqW"/>
+                        <outlet property="ScoreLabel" destination="nRd-dw-KDr" id="VK0-b0-neu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PqR-NA-AFu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-96" y="92"/>
+            <point key="canvasLocation" x="-97.101449275362327" y="91.741071428571431"/>
         </scene>
         <!--Timer-->
         <scene sceneID="ht2-So-uFC">
@@ -227,16 +254,6 @@
                                     <action selector="PauseBTN:" destination="pju-Wt-DN7" eventType="touchUpInside" id="FBU-8p-sZZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5s-dz-gCt">
-                                <rect key="frame" x="188" y="702" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Reset">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="ResetBTN:" destination="pju-Wt-DN7" eventType="touchUpInside" id="AmI-ez-gVs"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aO-aj-MAD">
                                 <rect key="frame" x="169" y="214" width="76" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -245,7 +262,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLx-Ow-cph">
-                                <rect key="frame" x="41" y="668" width="34" height="30"/>
+                                <rect key="frame" x="41" y="668" width="64" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" systemColor="labelColor"/>
@@ -303,6 +320,7 @@
                     <connections>
                         <outlet property="Label" destination="2aO-aj-MAD" id="JCh-hC-Wbi"/>
                         <outlet property="PauseButton" destination="WAu-nU-6VH" id="RXD-QO-fw8"/>
+                        <outlet property="StartButton" destination="eLx-Ow-cph" id="wr7-ke-hc0"/>
                         <outlet property="TimerLabel" destination="2W5-FH-qMh" id="VUZ-GL-tv6"/>
                         <outlet property="hourText" destination="FU4-nx-VUM" id="arc-mI-0zY"/>
                         <outlet property="minText" destination="4iD-Hm-k1d" id="2Ug-Me-biN"/>
@@ -316,7 +334,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cube.box" catalog="system" width="128" height="124"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="shippingbox" catalog="system" width="128" height="124"/>
         <image name="stopwatch" catalog="system" width="121" height="128"/>

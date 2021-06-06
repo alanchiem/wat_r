@@ -19,6 +19,7 @@ class TimerModeViewController: UIViewController {
     @IBOutlet weak var minText: UILabel!
     @IBOutlet weak var secText: UILabel!
     @IBOutlet var PauseButton: UIButton!
+    @IBOutlet var StartButton: UIButton!
     
     var hour = 0
     var min = 0
@@ -73,6 +74,34 @@ class TimerModeViewController: UIViewController {
             
             timerActivated = true
             paused = false
+            StartButton.setTitleColor(UIColor.red, for: UIControl.State.normal)
+            StartButton.setTitle("Reset", for: UIControl.State.normal)
+        }
+        
+        else if (timerActivated == true) {
+            OurTimer.invalidate()
+            timerDisplayed = 0
+            Label.text = "0"
+            
+            counter += secondsLost
+            secondsLost = 0
+            countDownTimer.invalidate()
+            TimerLabel.text = "-- : -- : --"
+            TimerLabel.isHidden = true
+            picker.isHidden = false
+            hourText.isHidden = false
+            minText.isHidden = false
+            secText.isHidden = false
+            
+            setupAnimation()
+            animationView.pause()
+            
+            timerActivated = false
+            paused = true
+            PauseButton.setTitle("Pause", for: UIControl.State.normal)
+            PauseButton.setTitleColor(UIColor.cyan, for: UIControl.State.normal)
+            StartButton.setTitle("Start", for: UIControl.State.normal)
+            StartButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
         }
     }
     
@@ -88,6 +117,7 @@ class TimerModeViewController: UIViewController {
             animationView.pause()
             paused = true
             PauseButton.setTitle("Play", for: UIControl.State.normal)
+            PauseButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
         }
         
         // Case for when the timer is paused
@@ -109,32 +139,8 @@ class TimerModeViewController: UIViewController {
             animationView.play()
             paused = false
             PauseButton.setTitle("Pause", for: UIControl.State.normal)
+            PauseButton.setTitleColor(UIColor.cyan, for: UIControl.State.normal)
         }
-    }
-    
-    
-    // Reset button, sets timers back to 0
-    @IBAction func ResetBTN(_ sender: Any) {
-        OurTimer.invalidate()
-        timerDisplayed = 0
-        Label.text = "0"
-        
-        counter += secondsLost
-        secondsLost = 0
-        countDownTimer.invalidate()
-        TimerLabel.text = "-- : -- : --"
-        TimerLabel.isHidden = true
-        picker.isHidden = false
-        hourText.isHidden = false
-        minText.isHidden = false
-        secText.isHidden = false
-        
-        setupAnimation()
-        animationView.pause()
-        
-        timerActivated = false
-        paused = true
-        PauseButton.setTitle("Pause", for: UIControl.State.normal)
     }
     
     
@@ -197,6 +203,11 @@ class TimerModeViewController: UIViewController {
         minText.isHidden = false
         secText.isHidden = false
         
+        // Set color for the buttons
+        StartButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
+        PauseButton.setTitleColor(UIColor.cyan, for: UIControl.State.normal)
+        
+        // Hours, minutes, seconds for the picker
         pickerData = [["0", "1", "2", "3", "4"],
                       
                       ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",

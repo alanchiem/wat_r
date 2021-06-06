@@ -10,13 +10,19 @@ import Foundation
 import Lottie
 
 class ViewController: UIViewController {
+    // Labels
+    @IBOutlet weak var Label: UILabel!
+    @IBOutlet weak var TimerLabel: UILabel!
+    
+    // Buttons
+    @IBOutlet var PauseButton: UIButton!
+    @IBOutlet var StartButton: UIButton!
     
     // For the water droplets counter
     var OurTimer = Timer()
     var timerDisplayed = 0
     var timerActivated = false
     var paused = true
-    
     
     // For the stopwatch timer
     var stopWatch = Timer()
@@ -45,12 +51,29 @@ class ViewController: UIViewController {
             
             timerActivated = true
             paused = false
+            StartButton.setTitle("Reset", for: UIControl.State.normal)
+            StartButton.setTitleColor(UIColor.red, for: UIControl.State.normal)
         }
         
+        // when timer is already activated, just reset 
         else if (timerActivated == true)
         {
-            // do nothing
-            // wow this actually worked
+            OurTimer.invalidate()
+            paused = true
+            timerActivated = false
+            timerDisplayed = 0
+            Label.text = "0"
+            
+            stopWatch.invalidate()
+            counter = 0
+            TimerLabel.text = "00 : 00 : 00"
+            
+            setupAnimation()
+            animationView.pause()
+            PauseButton.setTitle("Pause", for: UIControl.State.normal)
+            PauseButton.setTitleColor(UIColor.cyan, for: UIControl.State.normal)
+            StartButton.setTitle("Start", for: UIControl.State.normal)
+            StartButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
         }
     }
     
@@ -64,6 +87,7 @@ class ViewController: UIViewController {
             paused = true
             timerActivated = true
             PauseButton.setTitle("Play", for: UIControl.State.normal)
+            PauseButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
         }
         
         else if (paused == true && timerActivated == true) {
@@ -84,26 +108,9 @@ class ViewController: UIViewController {
             animationView.play() // play animation
             paused = false // timer isn't paused
             PauseButton.setTitle("Pause", for: UIControl.State.normal)
+            PauseButton.setTitleColor(UIColor.cyan, for: UIControl.State.normal)
         }
     }
-    
-    
-    // Reset button, sets timer back to 0
-    @IBAction func ResetBTN(_ sender: Any) {
-        OurTimer.invalidate()
-        timerActivated = false
-        timerDisplayed = 0
-        Label.text = "0"
-        
-        stopWatch.invalidate()
-        counter = 0
-        TimerLabel.text = "00 : 00 : 00"
-        
-        setupAnimation()
-        animationView.pause()
-        PauseButton.setTitle("Pause", for: UIControl.State.normal)
-    }
-    
     
     
     @objc func Action() {
@@ -136,17 +143,14 @@ class ViewController: UIViewController {
         return timeString
     }
     
-    
-    @IBOutlet weak var Label: UILabel!
-    @IBOutlet weak var TimerLabel: UILabel!
-    @IBOutlet var PauseButton: UIButton!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Animation cont
         setupAnimation()
         animationView.pause()
+        StartButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
+        PauseButton.setTitleColor(UIColor.cyan, for: UIControl.State.normal)
     }
     
     private func setupAnimation() {
