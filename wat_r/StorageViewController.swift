@@ -46,7 +46,7 @@ class StorageViewController: UIViewController {
         Score = 0
         ScoreLabel.text = String(format: "Score : %i", Score)
     }
-    
+    // hello
     // Counter button
     @IBAction func CounterAction(sender: AnyObject) {
         Score+=1
