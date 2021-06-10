@@ -225,7 +225,7 @@ class TimerModeViewController: UIViewController {
                       "51", "52", "53", "54", "55", "56", "57", "58", "59"]]
     }
     
-    
+    // for drops animation
     private func setupAnimation() {
         animationView.animation = Animation.named("falling-drop-of-water")
         animationView.frame = CGRect(x: 0, y: 0, width: 400, height: 400)

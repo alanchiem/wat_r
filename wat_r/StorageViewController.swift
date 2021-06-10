@@ -27,7 +27,7 @@ class StorageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var HighscoreDefault = UserDefaults.standard
+        let HighscoreDefault = UserDefaults.standard
         
         // if the high score was previously stored, then set the text to that label
         if (HighscoreDefault.value(forKey: "HighScore") != nil) {
@@ -55,7 +55,7 @@ class StorageViewController: UIViewController {
             HighScore = Score
             HighScoreLabel.text = String(format: "High Score : %i", HighScore)
             
-            var HighscoreDefault = UserDefaults.standard
+            let HighscoreDefault = UserDefaults.standard
             HighscoreDefault.setValue(HighScore, forKey: "HighScore")
             HighscoreDefault.synchronize()
         }
