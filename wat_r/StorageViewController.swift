@@ -39,7 +39,7 @@ class StorageViewController: UIViewController {
     
     @objc func didGetNotification(_ notification: Notification) {
         let text = notification.object as! String?
-        HighScoreLabel.text = text!.toInt() + HighScoreLabel.text!.toInt()
+        HighScoreLabel.text = String(Int(text!)! + HighScore)
     }
     
     // override "didReceiveMemoryWarning" function
@@ -57,8 +57,8 @@ class StorageViewController: UIViewController {
     @IBAction func CounterAction(sender: AnyObject) {
         Score+=1
         ScoreLabel.text = String(format: "Score : %i", Score)
-        if (Score > HighScore) {
-            HighScore = Score
+        if (Score < HighScore) {
+            HighScore = 2
             HighScoreLabel.text = String(format: "High Score : %i", HighScore)
             
             let HighscoreDefault = UserDefaults.standard
