@@ -26,6 +26,7 @@ class StorageViewController: UIViewController {
     // The high score label should be the last saved High Score from previous use
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(didGetNotification(_:)), name: Notification.Name("text"), object: nil)
         
         let HighscoreDefault = UserDefaults.standard
         
@@ -34,6 +35,11 @@ class StorageViewController: UIViewController {
             HighScore = HighscoreDefault.value(forKey: "HighScore") as! NSInteger
             HighScoreLabel.text = String(format: "HighScore : %i", HighScore)
         }
+    }
+    
+    @objc func didGetNotification(_ notification: Notification) {
+        let text = notification.object as! String?
+        HighScoreLabel.text = text!.toInt() + HighScoreLabel.text!.toInt()
     }
     
     // override "didReceiveMemoryWarning" function

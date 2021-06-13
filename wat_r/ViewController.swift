@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     // For the water droplets counter
     var OurTimer = Timer()
-    var timerDisplayed = 0
+    public var timerDisplayed = 0
     var timerActivated = false
     var paused = true
     
@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     
     // Animation
     let animationView = AnimationView()
+    
     
     // Start button, starts the timer
     @IBAction func StartBTN(_ sender: Any) {
@@ -62,6 +63,10 @@ class ViewController: UIViewController {
             OurTimer.invalidate()
             paused = true
             timerActivated = false
+            
+            NotificationCenter.default.post(name: Notification.Name("text"), object: Label.text)
+            //dismiss(animated: true, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+            
             timerDisplayed = 0
             Label.text = "0"
             
