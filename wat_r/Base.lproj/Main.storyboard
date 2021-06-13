@@ -21,7 +21,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="wZT-lq-1sU" kind="relationship" relationship="viewControllers" id="B7d-uh-Iwt"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="pit-Jc-nVm"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="WOn-Xm-G6W"/>
                         <segue destination="pju-Wt-DN7" kind="relationship" relationship="viewControllers" id="WJ7-p5-Vf6"/>
                         <segue destination="qSx-RD-hb0" kind="relationship" relationship="viewControllers" id="U72-vU-QAe"/>
                     </connections>
@@ -33,7 +33,7 @@
         <!--Stopwatch-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Stopwatch" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="wat_r" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Stopwatch" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="StopwatchModeViewController" customModule="wat_r" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,7 +45,7 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="PauseBTN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t6m-3E-3BQ"/>
+                                    <action selector="PauseBTN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T4g-mY-Jzf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVh-Qn-nWc">
@@ -62,7 +62,7 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="StartBTN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z8k-CT-8iu"/>
+                                    <action selector="StartBTN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mve-Co-fMx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stopwatch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khR-v9-Ltj">
@@ -86,10 +86,10 @@
                     <tabBarItem key="tabBarItem" title="Stopwatch" image="stopwatch" catalog="system" selectedImage="stopwatch" id="ETq-22-J9D"/>
                     <navigationItem key="navigationItem" id="DxV-4T-jR1"/>
                     <connections>
-                        <outlet property="Label" destination="dVh-Qn-nWc" id="zgU-2t-qWD"/>
-                        <outlet property="PauseButton" destination="vX9-SF-mbA" id="exn-Fn-xXQ"/>
-                        <outlet property="StartButton" destination="TnN-bz-V94" id="27J-P9-jCI"/>
-                        <outlet property="TimerLabel" destination="V1Z-dM-DOv" id="gbf-Nz-buN"/>
+                        <outlet property="DropsLabel" destination="dVh-Qn-nWc" id="Dyh-n4-BlC"/>
+                        <outlet property="PauseButton" destination="vX9-SF-mbA" id="9NP-3L-sZu"/>
+                        <outlet property="StartButton" destination="TnN-bz-V94" id="r0C-Zu-8et"/>
+                        <outlet property="TimerLabel" destination="V1Z-dM-DOv" id="esf-H9-NIO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -181,38 +181,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Drops: 500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZk-ED-9MX">
-                                <rect key="frame" x="144" y="150" width="127" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HIgh Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecA-u2-kQk">
-                                <rect key="frame" x="149" y="273" width="200" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Drops (Timer) : 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRd-dw-KDr">
+                                <rect key="frame" x="122" y="220" width="171" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHO-PD-ozD">
-                                <rect key="frame" x="253" y="415" width="39" height="30"/>
+                                <rect key="frame" x="188" y="412" width="39" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Reset"/>
                                 <connections>
                                     <action selector="ResetActionWithSender:" destination="wZT-lq-1sU" eventType="touchUpInside" id="JOH-9C-XMV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ex2-vd-0CW">
-                                <rect key="frame" x="123" y="415" width="56" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Counter"/>
-                                <connections>
-                                    <action selector="CounterActionWithSender:" destination="wZT-lq-1sU" eventType="touchUpInside" id="B0J-RD-26N"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRd-dw-KDr">
-                                <rect key="frame" x="144" y="220" width="126" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Drops (Stopwatch) : 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecA-u2-kQk">
+                                <rect key="frame" x="69" y="268" width="276" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -226,10 +211,9 @@
                         <imageReference key="selectedImage" image="shippingbox" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="Counter" destination="Ex2-vd-0CW" id="EBH-BE-gfz"/>
-                        <outlet property="HighScoreLabel" destination="ecA-u2-kQk" id="Slc-e5-pFx"/>
                         <outlet property="Reset" destination="bHO-PD-ozD" id="U9h-9M-CqW"/>
-                        <outlet property="ScoreLabel" destination="nRd-dw-KDr" id="VK0-b0-neu"/>
+                        <outlet property="StopwatchDropsLabel" destination="ecA-u2-kQk" id="9iE-S1-a0X"/>
+                        <outlet property="TimerDropsLabel" destination="nRd-dw-KDr" id="6AY-fQ-hgo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PqR-NA-AFu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -318,7 +302,7 @@
                     <tabBarItem key="tabBarItem" title="Timer" image="timer" catalog="system" selectedImage="timer" id="Ear-oQ-2Pm"/>
                     <navigationItem key="navigationItem" id="8DM-iu-vua"/>
                     <connections>
-                        <outlet property="Label" destination="2aO-aj-MAD" id="JCh-hC-Wbi"/>
+                        <outlet property="DropsLabel" destination="2aO-aj-MAD" id="Fid-48-3Yn"/>
                         <outlet property="PauseButton" destination="WAu-nU-6VH" id="RXD-QO-fw8"/>
                         <outlet property="StartButton" destination="eLx-Ow-cph" id="wr7-ke-hc0"/>
                         <outlet property="TimerLabel" destination="2W5-FH-qMh" id="VUZ-GL-tv6"/>

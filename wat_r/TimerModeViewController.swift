@@ -12,15 +12,20 @@ import Lottie
 class TimerModeViewController: UIViewController {
     
     // Labels
-    @IBOutlet weak var Label: UILabel!
+    @IBOutlet weak var DropsLabel: UILabel!
     @IBOutlet weak var TimerLabel: UILabel!
+    
+    // Picker
     @IBOutlet var picker: UIPickerView!
     @IBOutlet weak var hourText: UILabel!
     @IBOutlet weak var minText: UILabel!
     @IBOutlet weak var secText: UILabel!
+    
+    // Buttons
     @IBOutlet var PauseButton: UIButton!
     @IBOutlet var StartButton: UIButton!
     
+    // Hour, minutes, seconds
     var hour = 0
     var min = 0
     var sec = 0
@@ -81,7 +86,9 @@ class TimerModeViewController: UIViewController {
         else if (timerActivated == true) {
             OurTimer.invalidate()
             timerDisplayed = 0
-            Label.text = "0"
+            DropsLabel.text = "0"
+            
+            NotificationCenter.default.post(name: Notification.Name("timer"), object: DropsLabel.text)
             
             counter += secondsLost
             secondsLost = 0
@@ -148,7 +155,7 @@ class TimerModeViewController: UIViewController {
     @objc func Action() {
         timerDisplayed += 1
         setupAnimation()
-        Label.text = String(timerDisplayed)
+        DropsLabel.text = String(timerDisplayed)
     }
     
     

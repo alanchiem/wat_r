@@ -10,9 +10,9 @@ import UIKit
 import Foundation
 import Lottie
 
-class ViewController: UIViewController {
+class StopwatchModeViewController: UIViewController {
     // Labels
-    @IBOutlet weak var Label: UILabel! // displays number of droplets
+    @IBOutlet weak var DropsLabel: UILabel! // displays number of droplets
     @IBOutlet weak var TimerLabel: UILabel! // displays time
     
     // Buttons
@@ -20,8 +20,8 @@ class ViewController: UIViewController {
     @IBOutlet var StartButton: UIButton!
     
     // For the water droplets counter
-    var OurTimer = Timer()
-    public var timerDisplayed = 0
+    var droplets = Timer()
+    var dropsDisplayed = 0
     var timerActivated = false
     var paused = true
     
@@ -32,12 +32,21 @@ class ViewController: UIViewController {
     // Animation
     let animationView = AnimationView()
     
+    // when the app launches
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Animation cont
+        setupAnimation()
+        animationView.pause()
+        StartButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
+        PauseButton.setTitleColor(UIColor.cyan, for: UIControl.State.normal)
+    }
     
     // Start button, starts the timer
     @IBAction func StartBTN(_ sender: Any) {
         if (timerActivated == false) {
             // increment water droplets by 2
-            OurTimer = Timer.scheduledTimer(timeInterval: 2,
+            droplets = Timer.scheduledTimer(timeInterval: 2,
                                             target: self,
                                             selector: #selector(Action),
                                             userInfo: nil,
@@ -60,15 +69,14 @@ class ViewController: UIViewController {
         // when timer is already activated, just reset 
         else if (timerActivated == true)
         {
-            OurTimer.invalidate()
+            droplets.invalidate()
             paused = true
             timerActivated = false
             
-            NotificationCenter.default.post(name: Notification.Name("text"), object: Label.text)
-            //dismiss(animated: true, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+            NotificationCenter.default.post(name: Notification.Name("text"), object: DropsLabel.text)
             
-            timerDisplayed = 0
-            Label.text = "0"
+            dropsDisplayed = 0
+            DropsLabel.text = "0"
             
             stopWatch.invalidate()
             counter = 0
@@ -88,7 +96,7 @@ class ViewController: UIViewController {
     @IBAction func PauseBTN(_ sender: Any) {
         // if stopwatch is in play
         if (paused == false) {
-            OurTimer.invalidate()
+            droplets.invalidate()
             stopWatch.invalidate()
             animationView.pause()
             paused = true
@@ -100,7 +108,7 @@ class ViewController: UIViewController {
         // if the stopwatch is currently paused and timer has been activated
         else if (paused == true && timerActivated == true) {
             // for the drops
-            OurTimer = Timer.scheduledTimer(timeInterval: 2,
+            droplets = Timer.scheduledTimer(timeInterval: 2,
                                             target: self,
                                             selector: #selector(Action),
                                             userInfo: nil,
@@ -122,9 +130,9 @@ class ViewController: UIViewController {
     
     // increments the water droplet count displayed
     @objc func Action() {
-        timerDisplayed += 1
+        dropsDisplayed += 1
         setupAnimation()
-        Label.text = String(timerDisplayed)
+        DropsLabel.text = String(dropsDisplayed)
     }
     
     // increments the stopwatch displayed
@@ -149,16 +157,6 @@ class ViewController: UIViewController {
         timeString += String(format: "%02d", seconds)
         
         return timeString
-    }
-    
-    // when the app launches
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Animation cont
-        setupAnimation()
-        animationView.pause()
-        StartButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
-        PauseButton.setTitleColor(UIColor.cyan, for: UIControl.State.normal)
     }
     
     // function for animation
