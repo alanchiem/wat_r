@@ -85,11 +85,12 @@ class TimerModeViewController: UIViewController {
         
         else if (timerActivated == true) {
             OurTimer.invalidate()
-            timerDisplayed = 0
-            DropsLabel.text = "0"
+
             
             NotificationCenter.default.post(name: Notification.Name("timer"), object: DropsLabel.text)
             
+            timerDisplayed = 0
+            DropsLabel.text = "0"
             counter += secondsLost
             secondsLost = 0
             countDownTimer.invalidate()
