@@ -66,6 +66,7 @@ class StorageViewController: UIViewController {
         
         // 6. Play animation
         animationView!.play()
+        animationView!.backgroundBehavior = .pauseAndRestore
     }
     
     // add notification thing for the timer
