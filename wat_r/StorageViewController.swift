@@ -11,15 +11,14 @@ import Lottie
 
 class StorageViewController: UIViewController {
     // Labels
-    @IBOutlet var StopwatchDropsLabel: UILabel!
-    @IBOutlet var TimerDropsLabel: UILabel!
+    @IBOutlet var TotalDropsLabel: UILabel!
+    
     
     // Reset Button: resets total drops accumulated
     @IBOutlet var Reset: UIButton!
     
     // Score labels
-    var TimerDrops = 0
-    var StopwatchDrops = 0
+    var TotalDrops = 0
     
     // When code launches
     // The high score label should be the last saved High Score from previous use
@@ -28,43 +27,39 @@ class StorageViewController: UIViewController {
         
         // set up exchange data for stopwatch
         NotificationCenter.default.addObserver(self, selector: #selector(notificationForStopwatch(_:)), name: Notification.Name("text"), object: nil)
-        let StopwatchDropDefault = UserDefaults.standard
-        if (StopwatchDropDefault.value(forKey: "StopwatchDrops") != nil) {
-            StopwatchDrops = StopwatchDropDefault.value(forKey: "StopwatchDrops") as! NSInteger
-            StopwatchDropsLabel.text = String(format: "Total Drops : %i", StopwatchDrops)
+        let DropDefault = UserDefaults.standard
+        if (DropDefault.value(forKey: "TotalDrops") != nil) {
+            TotalDrops = DropDefault.value(forKey: "TotalDrops") as! NSInteger
+            TotalDropsLabel.text = String(format: "Total Drops : %i", TotalDrops)
         }
         
         // set up exchange data for timer
         NotificationCenter.default.addObserver(self, selector: #selector(notificationForTimer(_:)), name: Notification.Name("timer"), object: nil)
-        let TimerDropDefault = UserDefaults.standard
-        if (TimerDropDefault.value(forKey: "TimerDrops") != nil) {
-           TimerDrops = TimerDropDefault.value(forKey: "TimerDrops") as! NSInteger
-           TimerDropsLabel.text = String(format: "Total Drops (Timer) : %i", TimerDrops)
-        }
+
     }
     
     // add notification thing for the timer
     @objc func notificationForTimer(_ notification: Notification) {
         let text = notification.object as! String?
-        StopwatchDropsLabel.text = String(Int(text!)! + StopwatchDrops)
-        StopwatchDrops = Int(StopwatchDropsLabel.text!)!
+        TotalDropsLabel.text = String(Int(text!)! + TotalDrops)
+        TotalDrops = Int(TotalDropsLabel.text!)!
        
-        let StopwatchDropDefault = UserDefaults.standard
-        StopwatchDropDefault.setValue(StopwatchDrops, forKey: "StopwatchDrops")
-        StopwatchDropDefault.synchronize()
-        StopwatchDropsLabel.text = String(format: "Total Drops : %i", StopwatchDrops)
+        let DropDefault = UserDefaults.standard
+        DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
+        DropDefault.synchronize()
+        TotalDropsLabel.text = String(format: "Total Drops : %i", TotalDrops)
     }
     
     // notification thing for the stopwatch
     @objc func notificationForStopwatch(_ notification: Notification) {
         let text = notification.object as! String?
-        StopwatchDropsLabel.text = String(Int(text!)! + StopwatchDrops)
-        StopwatchDrops = Int(StopwatchDropsLabel.text!)!
+        TotalDropsLabel.text = String(Int(text!)! + TotalDrops)
+        TotalDrops = Int(TotalDropsLabel.text!)!
        
-        let StopwatchDropDefault = UserDefaults.standard
-        StopwatchDropDefault.setValue(StopwatchDrops, forKey: "StopwatchDrops")
-        StopwatchDropDefault.synchronize()
-        StopwatchDropsLabel.text = String(format: "Total Drops : %i", StopwatchDrops)
+        let DropDefault = UserDefaults.standard
+        DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
+        DropDefault.synchronize()
+        TotalDropsLabel.text = String(format: "Total Drops : %i", TotalDrops)
     }
     
     // override "didReceiveMemoryWarning" function
@@ -74,10 +69,10 @@ class StorageViewController: UIViewController {
     
     // Reset Button
     @IBAction func ResetAction(sender: AnyObject) {
-        StopwatchDrops = 0
-        let StopwatchDropDefault = UserDefaults.standard
-        StopwatchDropDefault.setValue(StopwatchDrops, forKey: "StopwatchDrops")
-        StopwatchDropDefault.synchronize()
-        StopwatchDropsLabel.text = String(format: "Total Drops : %i", StopwatchDrops)
+        TotalDrops = 0
+        let DropDefault = UserDefaults.standard
+        DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
+        DropDefault.synchronize()
+        TotalDropsLabel.text = String(format: "Total Drops : %i", TotalDrops)
     }
 }
