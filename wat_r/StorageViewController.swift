@@ -13,12 +13,23 @@ class StorageViewController: UIViewController {
     // Labels
     @IBOutlet var TotalDropsLabel: UILabel!
     
+    @IBOutlet weak var MeasurementLabel: UILabel!
+
     
     // Reset Button: resets total drops accumulated
     @IBOutlet var Reset: UIButton!
     
     // Score labels
     var TotalDrops = 0
+    
+    // Changes the MeasurementLabel based on # of TotalDrops
+    func updateMeasurement () {
+        MeasurementLabel.text = "1 Tablespoon (296)"
+    }
+    
+    // 1. Create the AnimationView
+    private var animationView: AnimationView?
+    
     
     // When code launches
     // The high score label should be the last saved High Score from previous use
@@ -35,7 +46,26 @@ class StorageViewController: UIViewController {
         
         // set up exchange data for timer
         NotificationCenter.default.addObserver(self, selector: #selector(notificationForTimer(_:)), name: Notification.Name("timer"), object: nil)
+        
+        updateMeasurement()
 
+        // 2. Start AnimationView with animation name (without extension)
+        animationView = .init(name: "storage_water")
+        animationView!.frame = view.bounds
+        
+        // 3. Set animation content mode
+        animationView!.contentMode = .scaleAspectFit
+        animationView!.transform = CGAffineTransform(rotationAngle: .pi)
+        
+        // 4. Set animation loop mode
+        animationView!.loopMode = .loop
+        
+        // 5. Adjust animation speed
+        animationView!.animationSpeed = 0.5
+        view.addSubview(animationView!)
+        
+        // 6. Play animation
+        animationView!.play()
     }
     
     // add notification thing for the timer

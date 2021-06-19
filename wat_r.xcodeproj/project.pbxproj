@@ -13,6 +13,7 @@
 		44BA1546DE3D404BEEE6986E /* Pods_wat_r_wat_rUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875BA4EE13043436C02764E1 /* Pods_wat_r_wat_rUITests.framework */; };
 		80914F6926E1F0241F95972E /* Pods_wat_rTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D35A3C1127F253A06A04B0 /* Pods_wat_rTests.framework */; };
 		E72623EB25B560FD00BDEACF /* falling-drop-of-water.json in Resources */ = {isa = PBXBuildFile; fileRef = E72623EA25B560FD00BDEACF /* falling-drop-of-water.json */; };
+		E72F5B43267E945200BFE14B /* storage_water.json in Resources */ = {isa = PBXBuildFile; fileRef = E72F5B42267E945200BFE14B /* storage_water.json */; };
 		E75C74CC25AED25500071F18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C74CB25AED25500071F18 /* AppDelegate.swift */; };
 		E75C74D025AED25500071F18 /* StopwatchModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C74CF25AED25500071F18 /* StopwatchModeViewController.swift */; };
 		E75C74D325AED25500071F18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E75C74D125AED25500071F18 /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		A5944601B461011E01AC0F47 /* Pods-wat_rTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wat_rTests.release.xcconfig"; path = "Target Support Files/Pods-wat_rTests/Pods-wat_rTests.release.xcconfig"; sourceTree = "<group>"; };
 		D094E509F8A78CDE62164D84 /* Pods_wat_r.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wat_r.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E72623EA25B560FD00BDEACF /* falling-drop-of-water.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "falling-drop-of-water.json"; sourceTree = "<group>"; };
+		E72F5B42267E945200BFE14B /* storage_water.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = storage_water.json; sourceTree = "<group>"; };
 		E75C74C825AED25500071F18 /* wat_r.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wat_r.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E75C74CB25AED25500071F18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E75C74CF25AED25500071F18 /* StopwatchModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchModeViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				E72623EA25B560FD00BDEACF /* falling-drop-of-water.json */,
+				E72F5B42267E945200BFE14B /* storage_water.json */,
 				E75C74CB25AED25500071F18 /* AppDelegate.swift */,
 				403ED9CD25E3755800422DFC /* ContentView.swift */,
 				E75C750125AEDB1B00071F18 /* SceneDelegate.swift */,
@@ -289,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E75C74D525AED25500071F18 /* Assets.xcassets in Resources */,
+				E72F5B43267E945200BFE14B /* storage_water.json in Resources */,
 				E75C74D325AED25500071F18 /* Main.storyboard in Resources */,
 				E72623EB25B560FD00BDEACF /* falling-drop-of-water.json in Resources */,
 			);
