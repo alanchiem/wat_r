@@ -24,7 +24,74 @@ class StorageViewController: UIViewController {
     
     // Changes the MeasurementLabel based on # of TotalDrops
     func updateMeasurement () {
-        MeasurementLabel.text = "1 Tablespoon (296)"
+        if (TotalDrops < 567) {
+            MeasurementLabel.text = "1 Tablespoon (296)"
+        }
+        
+        else if (TotalDrops >= 567 && TotalDrops < 4732) {
+            MeasurementLabel.text = "1 Ounce (567)"
+        }
+                
+        else if (TotalDrops >= 4732 && TotalDrops < 6804) {
+            MeasurementLabel.text = "1 Cup (4732)"
+        }
+                
+        else if (TotalDrops >= 6804 && TotalDrops < 10206) {
+            MeasurementLabel.text = "12 Ounces (6804)"
+        }
+        
+        else if (TotalDrops >= 10206 && TotalDrops < 11340) {
+            MeasurementLabel.text = "18 ounces"
+        }
+        
+        else if (TotalDrops >= 11340 && TotalDrops < 11970) {
+            MeasurementLabel.text = "20 ounces"
+        }
+        
+        else if (TotalDrops >= 11970 && TotalDrops < 13608) {
+            MeasurementLabel.text = "21 ounces"
+        }
+        
+        // 9-15
+        else if (TotalDrops >= 13608 && TotalDrops < 18144) {
+            MeasurementLabel.text = "24 Ounces (13608)"
+        }
+                
+        else if (TotalDrops >= 18144 && TotalDrops < 20000) {
+            MeasurementLabel.text = "32 Ounces (18144)"
+        }
+                
+        else if (TotalDrops >= 20000 && TotalDrops < 22680) {
+            MeasurementLabel.text = "1 Liter (20000)"
+        }
+                
+        else if (TotalDrops >= 22680 && TotalDrops < 36288) {
+            MeasurementLabel.text = "40 Ounces (22680)"
+        }
+                
+        else if (TotalDrops >= 36288 && TotalDrops < 75708) {
+            MeasurementLabel.text = "64 Ounces (36288)"
+        }
+                
+        else if (TotalDrops >= 75708 && TotalDrops < 30093930) {
+            MeasurementLabel.text = "1 Gallon (75708)"
+        }
+                
+        else if (TotalDrops >= 30093930 && TotalDrops < 14372709552) {
+            MeasurementLabel.text = "Average Hot Tub - 397.5 Gallons (30093930)"
+        }
+        
+        else if (TotalDrops >= 14372709552 && TotalDrops < 49967280000) {
+            MeasurementLabel.text = "Avg Swimming Pool SCY"
+        }
+        
+        else if (TotalDrops >= 49967280000 && TotalDrops < 393681600000) {
+            MeasurementLabel.text = "Avg Swimming Pool LCM"
+        }
+        
+        else if (TotalDrops >= 393681600000 && TotalDrops < 15200000000000) {
+            MeasurementLabel.text = "Mississippi River"
+        }
     }
     
     // 1. Create the AnimationView
@@ -52,7 +119,6 @@ class StorageViewController: UIViewController {
         // 2. Start AnimationView with animation name (without extension)
         animationView = .init(name: "storage_water")
         animationView!.frame = view.bounds
-        animationView!.center = CGPoint(x: 207.5, y: 720)
         
         // 3. Set animation content mode
         animationView!.contentMode = .scaleAspectFit
