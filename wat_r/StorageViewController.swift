@@ -52,10 +52,12 @@ class StorageViewController: UIViewController {
         // 2. Start AnimationView with animation name (without extension)
         animationView = .init(name: "storage_water")
         animationView!.frame = view.bounds
+        animationView!.center = CGPoint(x: 207.5, y: 720)
         
         // 3. Set animation content mode
         animationView!.contentMode = .scaleAspectFit
         animationView!.transform = CGAffineTransform(rotationAngle: .pi)
+    
         
         // 4. Set animation loop mode
         animationView!.loopMode = .loop
