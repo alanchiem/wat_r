@@ -15,6 +15,7 @@ class StorageViewController: UIViewController {
     
     @IBOutlet weak var MeasurementLabel: UILabel!
 
+    @IBOutlet weak var TESTLABEL: UILabel!
     
     // Reset Button: resets total drops accumulated
     @IBOutlet var Reset: UIButton!
@@ -22,22 +23,35 @@ class StorageViewController: UIViewController {
     // Score labels
     var TotalDrops = 0
     
+    // container
+    var measurementInt = 296
+    
+    
     // Changes the MeasurementLabel based on # of TotalDrops
     func updateMeasurement () {
-        if (TotalDrops < 567) {
+        if (TotalDrops < 296) {
             MeasurementLabel.text = "1 Tablespoon (296)"
+            measurementInt = 296
+        }
+        
+        if (TotalDrops >= 296) {
+            MeasurementLabel.text = "1 Ounce (567)"
+            measurementInt = 567
         }
         
         else if (TotalDrops >= 567 && TotalDrops < 4732) {
             MeasurementLabel.text = "1 Ounce (567)"
+            measurementInt = 567
         }
                 
         else if (TotalDrops >= 4732 && TotalDrops < 6804) {
             MeasurementLabel.text = "1 Cup (4732)"
+            measurementInt = 4732
         }
                 
         else if (TotalDrops >= 6804 && TotalDrops < 10206) {
             MeasurementLabel.text = "12 Ounces (6804)"
+            measurementInt = 6804
         }
         
         else if (TotalDrops >= 10206 && TotalDrops < 11340) {
@@ -94,6 +108,15 @@ class StorageViewController: UIViewController {
         }
     }
     
+    func updateAnimation() {
+        let waterRatio = Float(TotalDrops) / Float(measurementInt)
+        let yValueUpsideDown = waterRatio * 660
+        //FOR TROUBLESHOOTING
+        TESTLABEL.text = "Water Ratio: " + String(waterRatio)
+        let yValue = 760 - yValueUpsideDown
+        animationView!.center = CGPoint(x: 208, y: Int(yValue))
+    }
+    
     // 1. Create the AnimationView
     private var animationView: AnimationView?
     
@@ -119,6 +142,9 @@ class StorageViewController: UIViewController {
         // 2. Start AnimationView with animation name (without extension)
         animationView = .init(name: "newWave")
         animationView!.frame = view.bounds
+        animationView!.center = CGPoint(x: 208, y: 660)
+        
+        updateAnimation()
         
         // 3. Set animation content mode
         animationView!.contentMode = .scaleAspectFit
@@ -135,7 +161,10 @@ class StorageViewController: UIViewController {
         // 6. Play animation
         animationView!.play()
         animationView!.backgroundBehavior = .pauseAndRestore
+        
+        view.bringSubviewToFront(Reset)
     }
+    
     
     // add notification thing for the timer
     @objc func notificationForTimer(_ notification: Notification) {
@@ -147,18 +176,35 @@ class StorageViewController: UIViewController {
         DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
         DropDefault.synchronize()
         TotalDropsLabel.text = String(format: "Total Drops : %i", TotalDrops)
+        
+        updateMeasurement()
+        
+        updateAnimation()
+
+        
+        view.bringSubviewToFront(Reset)
     }
+    
+        
     
     // notification thing for the stopwatch
     @objc func notificationForStopwatch(_ notification: Notification) {
         let text = notification.object as! String?
         TotalDropsLabel.text = String(Int(text!)! + TotalDrops)
         TotalDrops = Int(TotalDropsLabel.text!)!
-       
+        
+
+    
         let DropDefault = UserDefaults.standard
         DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
         DropDefault.synchronize()
         TotalDropsLabel.text = String(format: "Total Drops : %i", TotalDrops)
+        
+        updateMeasurement()
+        
+        updateAnimation()
+        
+        view.bringSubviewToFront(Reset)
     }
     
     // override "didReceiveMemoryWarning" function
@@ -173,5 +219,8 @@ class StorageViewController: UIViewController {
         DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
         DropDefault.synchronize()
         TotalDropsLabel.text = String(format: "Total Drops : %i", TotalDrops)
+        
+        updateMeasurement()
+        updateAnimation()
     }
 }
