@@ -117,7 +117,7 @@ class StorageViewController: UIViewController {
         updateMeasurement()
 
         // 2. Start AnimationView with animation name (without extension)
-        animationView = .init(name: "storage_water")
+        animationView = .init(name: "newWave")
         animationView!.frame = view.bounds
         
         // 3. Set animation content mode

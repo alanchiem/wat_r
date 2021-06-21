@@ -161,7 +161,7 @@ class StopwatchModeViewController: UIViewController {
     
     // function for animation
     private func setupAnimation() {
-        animationView.animation = Animation.named("falling-drop-of-water")
+        animationView.animation = Animation.named("newWaterdrop")
         animationView.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
         animationView.center = view.center
         animationView.contentMode = .scaleAspectFit

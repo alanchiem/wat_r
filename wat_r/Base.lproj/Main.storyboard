@@ -17,7 +17,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XJH-Uz-SR4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="wZT-lq-1sU" kind="relationship" relationship="viewControllers" id="B7d-uh-Iwt"/>
@@ -52,7 +52,7 @@
                                 <rect key="frame" x="169" y="214" width="76" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="25"/>
-                                <color key="textColor" name="AccentColor"/>
+                                <color key="textColor" red="0.44869632059999998" green="0.83292328140000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TnN-bz-V94">
@@ -81,7 +81,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="Background"/>
+                        <color key="backgroundColor" red="1" green="0.99215686274509807" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Stopwatch" image="stopwatch" catalog="system" selectedImage="stopwatch" id="ETq-22-J9D"/>
                     <navigationItem key="navigationItem" id="DxV-4T-jR1"/>
@@ -205,7 +205,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sI9-w2-Jhz"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="0.99215686274509807" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Storage" image="shippingbox" catalog="system" id="R5R-KM-e1s">
                         <imageReference key="selectedImage" image="shippingbox" catalog="system" symbolScale="large"/>
@@ -333,9 +333,6 @@
         </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
