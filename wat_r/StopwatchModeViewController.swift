@@ -163,10 +163,18 @@ class StopwatchModeViewController: UIViewController {
     private func setupAnimation() {
         animationView.animation = Animation.named("newWaterdrop")
         animationView.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
-        animationView.center = view.center
+        
+        //Randomize droplet location
+        let xValue = Int.random(in: 6..<410)
+        let yValue = Int.random(in: 60..<800)
+        animationView.center = CGPoint(x: xValue, y: yValue)
+        
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .loop
         animationView.play()
         view.addSubview(animationView)
+        view.bringSubviewToFront(PauseButton)
+        view.bringSubviewToFront(StartButton)
+
     }
 }
