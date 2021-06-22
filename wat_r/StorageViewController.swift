@@ -114,10 +114,10 @@ class StorageViewController: UIViewController {
         let waterRatio = Float(TotalDrops) / Float(measurementInt)
         let yValueUpsideDown = waterRatio * 660
         //FOR TROUBLESHOOTING
-        TESTLABEL.text = "Water Ratio: " + String(waterRatio)
+        //TESTLABEL.text = "Water Ratio: " + String(waterRatio)
         let yValue = 760 - yValueUpsideDown
         animationView!.center = CGPoint(x: 208, y: Int(yValue))
-        waterRectangle.center = CGPoint(x: 208, y: Int(yValue) + 525)
+        waterRectangle.center = CGPoint(x: 208, y: Int(yValue) + 520)
     }
     
     // 1. Create the AnimationView
@@ -144,7 +144,7 @@ class StorageViewController: UIViewController {
 
         // 2. Start AnimationView with animation name (without extension)
         animationView = .init(name: "newWave")
-        animationView!.frame = view.bounds
+        animationView!.frame = CGRect(x: 0, y: 0, width: 420, height: 420)
         animationView!.center = CGPoint(x: 208, y: 660)
         
         updateAnimation()
