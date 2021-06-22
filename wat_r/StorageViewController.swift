@@ -113,8 +113,10 @@ class StorageViewController: UIViewController {
     func updateAnimation() {
         let waterRatio = Float(TotalDrops) / Float(measurementInt)
         let yValueUpsideDown = waterRatio * 660
+        
         //FOR TROUBLESHOOTING
-        //TESTLABEL.text = "Water Ratio: " + String(waterRatio)
+        print("Water Ratio: " + String(waterRatio))
+        
         let yValue = 760 - yValueUpsideDown
         animationView!.center = CGPoint(x: 208, y: Int(yValue))
         waterRectangle.center = CGPoint(x: 208, y: Int(yValue) + 520)

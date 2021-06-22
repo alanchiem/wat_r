@@ -165,8 +165,8 @@ class StopwatchModeViewController: UIViewController {
         animationView.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
         
         //Randomize droplet location
-        let xValue = Int.random(in: 6..<410)
-        let yValue = Int.random(in: 60..<800)
+        let xValue = Int.random(in: Int(self.view.frame.minX)..<Int(self.view.frame.maxX))
+        let yValue = Int.random(in: Int(self.view.frame.minY)..<Int(self.view.frame.maxY))
         animationView.center = CGPoint(x: xValue, y: yValue)
         
         animationView.contentMode = .scaleAspectFit
