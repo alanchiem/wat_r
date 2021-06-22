@@ -20,6 +20,8 @@ class StorageViewController: UIViewController {
     // Reset Button: resets total drops accumulated
     @IBOutlet var Reset: UIButton!
     
+    @IBOutlet weak var waterRectangle: UIImageView!
+    
     // Score labels
     var TotalDrops = 0
     
@@ -115,6 +117,7 @@ class StorageViewController: UIViewController {
         TESTLABEL.text = "Water Ratio: " + String(waterRatio)
         let yValue = 760 - yValueUpsideDown
         animationView!.center = CGPoint(x: 208, y: Int(yValue))
+        waterRectangle.center = CGPoint(x: 208, y: Int(yValue) + 525)
     }
     
     // 1. Create the AnimationView

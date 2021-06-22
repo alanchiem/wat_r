@@ -210,6 +210,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ihX-Ne-PPa">
+                                <rect key="frame" x="-197" y="168" width="824" height="721"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.5607843137254902" green="0.96470588235294119" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <imageReference key="image" image="rectangle.portrait.fill" catalog="system" renderingMode="template"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sI9-w2-Jhz"/>
                         <color key="backgroundColor" name="Background"/>
@@ -222,6 +229,7 @@
                         <outlet property="Reset" destination="bHO-PD-ozD" id="U9h-9M-CqW"/>
                         <outlet property="TESTLABEL" destination="MDf-VG-Rgw" id="v0z-lR-9zM"/>
                         <outlet property="TotalDropsLabel" destination="ecA-u2-kQk" id="L8K-7h-Sjf"/>
+                        <outlet property="waterRectangle" destination="ihX-Ne-PPa" id="A2I-Lc-a69"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PqR-NA-AFu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -327,6 +335,7 @@
     </scenes>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="rectangle.portrait.fill" catalog="system" width="115" height="128"/>
         <image name="shippingbox" catalog="system" width="128" height="124"/>
         <image name="stopwatch" catalog="system" width="121" height="128"/>
         <image name="timer" catalog="system" width="128" height="121"/>
