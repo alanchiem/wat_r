@@ -14,8 +14,8 @@ class StorageViewController: UIViewController {
     @IBOutlet var TotalDropsLabel: UILabel!
     
     @IBOutlet weak var MeasurementLabel: UILabel!
-
-    @IBOutlet weak var TESTLABEL: UILabel!
+    
+    @IBOutlet weak var halfLabel: UILabel!
     
     // Reset Button: resets total drops accumulated
     @IBOutlet var Reset: UIButton!
@@ -27,17 +27,18 @@ class StorageViewController: UIViewController {
     
     // container
     var measurementInt = 296
+
     
     
     // Changes the MeasurementLabel based on # of TotalDrops
     func updateMeasurement () {
         if (TotalDrops < 296) {
-            MeasurementLabel.text = "1 Tablespoon (296)"
+            MeasurementLabel.text = "1TBSP"
             measurementInt = 296
         }
         
         if (TotalDrops >= 296) {
-            MeasurementLabel.text = "1 Ounce (567)"
+            MeasurementLabel.text = "OUNCE"
             measurementInt = 567
         }
         
@@ -118,8 +119,10 @@ class StorageViewController: UIViewController {
         print("Water Ratio: " + String(waterRatio))
         
         let yValue = 760 - yValueUpsideDown
+        print("y Value: " + String(yValue))
+        print("y Value int: " + String(Int(yValue) + 520))
         animationView!.center = CGPoint(x: 208, y: Int(yValue))
-        waterRectangle.center = CGPoint(x: 208, y: Int(yValue) + 520)
+        waterRectangle.center = CGPoint(x: 208, y: Int(yValue) + 500)
     }
     
     // 1. Create the AnimationView
@@ -136,25 +139,27 @@ class StorageViewController: UIViewController {
         let DropDefault = UserDefaults.standard
         if (DropDefault.value(forKey: "TotalDrops") != nil) {
             TotalDrops = DropDefault.value(forKey: "TotalDrops") as! NSInteger
-            TotalDropsLabel.text = String(format: "Total Drops : %i", TotalDrops)
+            TotalDropsLabel.text = String(format: "Total Drops: %i", TotalDrops)
         }
         
         // set up exchange data for timer
         NotificationCenter.default.addObserver(self, selector: #selector(notificationForTimer(_:)), name: Notification.Name("timer"), object: nil)
         
-        updateMeasurement()
+        
 
         // 2. Start AnimationView with animation name (without extension)
         animationView = .init(name: "newWave")
         animationView!.frame = CGRect(x: 0, y: 0, width: 420, height: 420)
         animationView!.center = CGPoint(x: 208, y: 660)
         
-        updateAnimation()
+        
         
         // 3. Set animation content mode
         animationView!.contentMode = .scaleAspectFit
         animationView!.transform = CGAffineTransform(rotationAngle: .pi)
-    
+        
+        updateMeasurement()
+        updateAnimation()
         
         // 4. Set animation loop mode
         animationView!.loopMode = .loop
@@ -167,9 +172,13 @@ class StorageViewController: UIViewController {
         animationView!.play()
         animationView!.backgroundBehavior = .pauseAndRestore
         
+        updateMeasurement()
+        updateAnimation()
+        
         view.bringSubviewToFront(Reset)
+        view.bringSubviewToFront(halfLabel)
+        view.bringSubviewToFront(MeasurementLabel)
     }
-    
     
     // add notification thing for the timer
     @objc func notificationForTimer(_ notification: Notification) {
@@ -180,7 +189,7 @@ class StorageViewController: UIViewController {
         let DropDefault = UserDefaults.standard
         DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
         DropDefault.synchronize()
-        TotalDropsLabel.text = String(format: "Total Drops : %i", TotalDrops)
+        TotalDropsLabel.text = String(format: "Total Drops: %i", TotalDrops)
         
         updateMeasurement()
         
@@ -188,6 +197,8 @@ class StorageViewController: UIViewController {
 
         
         view.bringSubviewToFront(Reset)
+        view.bringSubviewToFront(halfLabel)
+        view.bringSubviewToFront(MeasurementLabel)
     }
     
         
@@ -210,6 +221,8 @@ class StorageViewController: UIViewController {
         updateAnimation()
         
         view.bringSubviewToFront(Reset)
+        view.bringSubviewToFront(halfLabel)
+        view.bringSubviewToFront(MeasurementLabel)
     }
     
     // override "didReceiveMemoryWarning" function

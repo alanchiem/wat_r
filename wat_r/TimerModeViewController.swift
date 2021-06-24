@@ -55,9 +55,9 @@ class TimerModeViewController: UIViewController {
         // If timer has been started, then button doesn't work
         if (timerActivated == false && counter > 0) {
             picker.isHidden = true
-            hourText.isHidden = true
-            minText.isHidden = true
-            secText.isHidden = true
+            //hourText.isHidden = true
+            //minText.isHidden = true
+            //secText.isHidden = true
             TimerLabel.isHidden = false
             
             // lines 44 and 45 are for displaying the inputted time when "start" is clicked
@@ -97,9 +97,9 @@ class TimerModeViewController: UIViewController {
             TimerLabel.text = "-- : -- : --"
             TimerLabel.isHidden = true
             picker.isHidden = false
-            hourText.isHidden = false
-            minText.isHidden = false
-            secText.isHidden = false
+            //hourText.isHidden = false
+            //minText.isHidden = false
+            //secText.isHidden = false
             
             setupAnimation()
             animationView.pause()
@@ -207,9 +207,9 @@ class TimerModeViewController: UIViewController {
         picker.delegate = self
         TimerLabel.isHidden = true
         picker.isHidden = false
-        hourText.isHidden = false
-        minText.isHidden = false
-        secText.isHidden = false
+        //hourText.isHidden = false
+        //minText.isHidden = false
+        //secText.isHidden = false
         
         // Set color for the buttons
         StartButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
@@ -235,13 +235,18 @@ class TimerModeViewController: UIViewController {
     
     // for drops animation
     private func setupAnimation() {
-        animationView.animation = Animation.named("falling-drop-of-water")
-        animationView.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
-        animationView.center = view.center
+        animationView.animation = Animation.named("oldWaterDrop(newColor)")
+        animationView.frame = CGRect(x: 0, y: 0, width: 1000, height: 1000)
+
+        animationView.center = CGPoint(x: 207 ,y: 375)
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .loop
         animationView.play()
         view.addSubview(animationView)
+        
+        view.bringSubviewToFront(picker)
+        view.bringSubviewToFront(PauseButton)
+        view.bringSubviewToFront(StartButton)
     }
     
     var pickerData: [[String]] = [[String]]()
