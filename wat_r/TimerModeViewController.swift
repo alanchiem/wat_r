@@ -65,17 +65,7 @@ class TimerModeViewController: UIViewController {
             secondsLost = 0
             TimerLabel.text = getStringOfTime(hours: time.0, minutes: time.1, seconds: time.2)
             
-            OurTimer = Timer.scheduledTimer(timeInterval: 2,
-                                            target: self,
-                                            selector: #selector(Action),
-                                            userInfo: nil,
-                                            repeats: true)
-            
-            countDownTimer = Timer.scheduledTimer(timeInterval: 1,
-                                             target: self,
-                                             selector: #selector(timerCounter),
-                                             userInfo: nil,
-                                             repeats: true)
+            setUpTimerIntervals()
             
             timerActivated = true
             paused = false
@@ -84,33 +74,22 @@ class TimerModeViewController: UIViewController {
         }
         
         else if (timerActivated == true) {
-            OurTimer.invalidate()
-
-            
-            NotificationCenter.default.post(name: Notification.Name("timer"), object: DropsLabel.text)
-            
-            timerDisplayed = 0
-            DropsLabel.text = "0"
-            counter += secondsLost
-            secondsLost = 0
-            countDownTimer.invalidate()
-            TimerLabel.text = "-- : -- : --"
-            TimerLabel.isHidden = true
-            picker.isHidden = false
-            //hourText.isHidden = false
-            //minText.isHidden = false
-            //secText.isHidden = false
-            
-            setupAnimation()
-            animationView.pause()
-            
-            timerActivated = false
-            paused = true
-            PauseButton.setTitle("Pause", for: UIControl.State.normal)
-            PauseButton.setTitleColor(UIColor.cyan, for: UIControl.State.normal)
-            StartButton.setTitle("Start", for: UIControl.State.normal)
-            StartButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
+            resetTimerValues()
         }
+    }
+    
+    @objc func setUpTimerIntervals() {
+        OurTimer = Timer.scheduledTimer(timeInterval: 2,
+                                        target: self,
+                                        selector: #selector(Action),
+                                        userInfo: nil,
+                                        repeats: true)
+        
+        countDownTimer = Timer.scheduledTimer(timeInterval: 1,
+                                         target: self,
+                                         selector: #selector(timerCounter),
+                                         userInfo: nil,
+                                         repeats: true)
     }
     
     
@@ -132,17 +111,7 @@ class TimerModeViewController: UIViewController {
         // Stopwatch and "droplet" timer start again, as well as animation
         // Conditional also prevents pause button from working when time has already reached 0
         else if (paused == true && counter > 0 && timerActivated == true) {
-            OurTimer = Timer.scheduledTimer(timeInterval: 2,
-                                            target: self,
-                                            selector: #selector(Action),
-                                            userInfo: nil,
-                                            repeats: true)
-            
-            countDownTimer = Timer.scheduledTimer(timeInterval: 1,
-                                             target: self,
-                                             selector: #selector(timerCounter),
-                                             userInfo: nil,
-                                             repeats: true)
+            setUpTimerIntervals()
             
             animationView.play()
             paused = false
@@ -170,12 +139,35 @@ class TimerModeViewController: UIViewController {
         
         // If statement for when the timer is done. Stops the timers and animation.
         if (counter == 0) {
-            OurTimer.invalidate()
-            countDownTimer.invalidate()
-            animationView.pause()
-            timerActivated = false
-            paused = true
+            resetTimerValues()
         }
+    }
+    
+    @objc func resetTimerValues() {
+        OurTimer.invalidate()
+        NotificationCenter.default.post(name: Notification.Name("timer"), object: DropsLabel.text)
+        
+        timerDisplayed = 0
+        //DropsLabel.text = "0" // I removed this so that when the timer stops, the total drops is still displayed
+        counter += secondsLost
+        secondsLost = 0
+        countDownTimer.invalidate()
+        TimerLabel.text = "-- : -- : --"
+        TimerLabel.isHidden = true
+        picker.isHidden = false
+        //hourText.isHidden = false
+        //minText.isHidden = false
+        //secText.isHidden = false
+        
+        setupAnimation()
+        animationView.pause()
+        
+        timerActivated = false
+        paused = true
+        PauseButton.setTitle("Pause", for: UIControl.State.normal)
+        PauseButton.setTitleColor(UIColor.cyan, for: UIControl.State.normal)
+        StartButton.setTitle("Start", for: UIControl.State.normal)
+        StartButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
     }
     
     
@@ -196,7 +188,6 @@ class TimerModeViewController: UIViewController {
         
         return timeString
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
