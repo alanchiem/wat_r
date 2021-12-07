@@ -169,6 +169,21 @@ class StopwatchModeViewController: UIViewController {
         let yValue = Int.random(in: Int(self.view.frame.minY)..<Int(self.view.frame.maxY))
         animationView.center = CGPoint(x: xValue, y: yValue)
         
+        //Changing Color of the droplet
+        var dropColor = Color(r: (66/255), g: (130/255), b: (174/255), a: 1)
+        
+        if UITraitCollection.current.userInterfaceStyle == .dark {
+                dropColor = Color(r: (27/255), g: (83/255), b: (132/255), a: 1)
+            }
+            else {
+            }
+        
+        let waveColorValueProvider = ColorValueProvider(dropColor)
+
+        // Set color value provider to animation view
+        let keyPath = AnimationKeypath(keypath: "**.Color")
+        animationView.setValueProvider(waveColorValueProvider, keypath: keyPath)
+        
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .loop
         animationView.play()
