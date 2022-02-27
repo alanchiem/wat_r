@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 import Lottie
 
-class StorageViewController: UIViewController {
+class ShopViewController: UIViewController {
     // Labels
     @IBOutlet var TotalDropsLabel: UILabel!
     
@@ -104,4 +104,13 @@ class StorageViewController: UIViewController {
         DropDefault.synchronize()
         TotalDropsLabel.text = String(TotalDrops)
     }
+    
+    @IBAction func ExpandUpgrade(_ sender: Any) {
+        TotalDrops -= 100
+        let DropDefault = UserDefaults.standard
+        DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
+        DropDefault.synchronize()
+        TotalDropsLabel.text = String(TotalDrops)
+    }
+    
 }
