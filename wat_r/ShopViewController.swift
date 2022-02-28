@@ -36,7 +36,6 @@ class ShopViewController: UIViewController {
 
     }
     
-    
 
     // 1. Create the AnimationView
     private var animationView: AnimationView?
@@ -54,11 +53,7 @@ class ShopViewController: UIViewController {
             TotalDrops = DropDefault.value(forKey: "TotalDrops") as! NSInteger
             TotalDropsLabel.text = String(TotalDrops)
         }
-        
-        // set up exchange data for timer
-        NotificationCenter.default.addObserver(self, selector: #selector(notificationForTimer(_:)), name: Notification.Name("timer"), object: nil)
-        
-
+   
     }
     
     // notification thing for the stopwatch
@@ -73,22 +68,12 @@ class ShopViewController: UIViewController {
         DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
         DropDefault.synchronize()
         TotalDropsLabel.text = String(TotalDrops)
-    
-    }
-    
-    // add notification thing for the timer
-    @objc func notificationForTimer(_ notification: Notification) {
-        let text = notification.object as! String?
-        TotalDropsLabel.text = String(Int(text!)! + TotalDrops)
-        TotalDrops = Int(TotalDropsLabel.text!)!
-       
-        let DropDefault = UserDefaults.standard
-        DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
-        DropDefault.synchronize()
-        TotalDropsLabel.text = String(TotalDrops)
         
+        // Achievements
+        if (TotalDrops > 2000) {
+        print("wow")
+        }
 
-    
     }
     
     // override "didReceiveMemoryWarning" function

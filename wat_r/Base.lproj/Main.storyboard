@@ -24,7 +24,6 @@
                         <color key="selectedImageTintColor" red="1" green="0.77927889449999999" blue="0.44718021000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
-                        <segue destination="qSx-RD-hb0" kind="relationship" relationship="viewControllers" id="U72-vU-QAe"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="vey-fU-pr2"/>
                         <segue destination="wZT-lq-1sU" kind="relationship" relationship="viewControllers" id="oNa-lX-puq"/>
                     </connections>
@@ -115,31 +114,6 @@
             </objects>
             <point key="canvasLocation" x="571" y="92"/>
         </scene>
-        <!--Achievement Screen View Controller-->
-        <scene sceneID="9jN-PP-Otd">
-            <objects>
-                <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="qSx-RD-hb0" customClass="AchievementScreenViewController" customModule="wat_r" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="f5w-vP-OK2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Achievements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKU-0Y-sRE">
-                                <rect key="frame" x="37" y="70" width="165" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="5Sr-n9-uwD"/>
-                        <color key="backgroundColor" name="Background"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="triangle" catalog="system" selectedImage="triangle.fill" id="CJw-LZ-OLJ"/>
-                    <navigationItem key="navigationItem" id="Qxa-v0-wx5"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CK3-1j-FuJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-232" y="92"/>
-        </scene>
         <!--StorageViewController-->
         <scene sceneID="CJr-wg-HXZ">
             <objects>
@@ -202,8 +176,6 @@
         <image name="drop" catalog="system" width="101" height="128"/>
         <image name="drop.fill" catalog="system" width="101" height="128"/>
         <image name="stopwatch" catalog="system" width="121" height="128"/>
-        <image name="triangle" catalog="system" width="128" height="112"/>
-        <image name="triangle.fill" catalog="system" width="128" height="112"/>
         <namedColor name="Background">
             <color red="0.99599999189376831" green="1" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
