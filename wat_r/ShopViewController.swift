@@ -13,28 +13,14 @@ class ShopViewController: UIViewController {
     // Labels
     @IBOutlet var TotalDropsLabel: UILabel!
     
-    @IBOutlet weak var MeasurementLabel: UILabel!
-    
-    @IBOutlet weak var fullLabel: UILabel!
-    @IBOutlet weak var threeFourthsLabel: UILabel!
-    @IBOutlet weak var halfLabel: UILabel!
-    @IBOutlet weak var quarterLabel: UILabel!
-    
     // Reset Button: resets total drops accumulated
     @IBOutlet var Reset: UIButton!
+
     
-    @IBOutlet weak var waterRectangle: UIImageView!
+    @IBOutlet weak var StatsLabel: UILabel!
     
     // Score labels
     var TotalDrops = 0
-    
-    // container
-    var measurementInt = 2000
-
-    
-    override func viewWillAppear(_ animated: Bool) {
-
-    }
     
 
     // 1. Create the AnimationView
@@ -53,7 +39,25 @@ class ShopViewController: UIViewController {
             TotalDrops = DropDefault.value(forKey: "TotalDrops") as! NSInteger
             TotalDropsLabel.text = String(TotalDrops)
         }
-   
+        
+//        let n = TotalDrops
+//        let days =  n / (24 * 3600)
+//        let hours =  (n % (24 * 3600)) / 3600
+//        let minutes =  (n % (24 * 3600 * 3600)) / 60
+//        let seconds =  (n % (24 * 3600 * 3600 * 60)) / 60
+//        StatsLabel.text = String(days) + " days" + String(hours) + " hours" + String(minutes) + " minutes" + String(seconds) + " seconds"
+        var n = TotalDrops * 2
+        let days = n / (24 * 3600)
+     
+        n = n % (24 * 3600)
+        let hours = n / 3600
+     
+        n %= 3600
+        let minutes = n / 60
+     
+        n %= 60
+        let seconds = n
+        StatsLabel.text = String(days) + " days" + String(hours) + " hours" + String(minutes) + " minutes" + String(seconds) + " seconds"
     }
     
     // notification thing for the stopwatch
@@ -69,10 +73,19 @@ class ShopViewController: UIViewController {
         DropDefault.synchronize()
         TotalDropsLabel.text = String(TotalDrops)
         
-        // Achievements
-        if (TotalDrops > 2000) {
-        print("wow")
-        }
+        
+        var n = TotalDrops * 2
+        let days = n / (24 * 3600)
+     
+        n = n % (24 * 3600)
+        let hours = n / 3600
+     
+        n %= 3600
+        let minutes = n / 60
+     
+        n %= 60
+        let seconds = n
+        StatsLabel.text = String(days) + " days" + String(hours) + " hours" + String(minutes) + " minutes" + String(seconds) + " seconds"
 
     }
     
@@ -83,7 +96,7 @@ class ShopViewController: UIViewController {
     
     // Reset Button
     @IBAction func ResetAction(sender: AnyObject) {
-        TotalDrops = 1999
+        TotalDrops = 369121517
         let DropDefault = UserDefaults.standard
         DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
         DropDefault.synchronize()
