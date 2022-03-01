@@ -22,13 +22,44 @@ class ShopViewController: UIViewController {
     // Score labels
     var TotalDrops = 0
     
-
-    // 1. Create the AnimationView
-    private var animationView: AnimationView?
+    // Badge Declaration
+    let button = UIButton(frame: CGRect(x: 100, y: 200, width: 75, height: 75))
+    @objc func buttonAction(sender: UIButton!) {
+      print("Button tapped")
+    }
     
     
-    // When code launches
-    // The high score label should be the last saved High Score from previous use
+    // Happens everytime view appears
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dropToTime()
+        
+        // Badge Appearance
+        if (TotalDrops > 0) {
+            button.backgroundColor = .blue
+            button.setTitle("Test Button", for: .normal)
+            button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+            view.addSubview(button)
+            }
+        if (TotalDrops == 0) {
+            button.removeFromSuperview()
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    // When code launches Only happens once
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,41 +70,28 @@ class ShopViewController: UIViewController {
             TotalDrops = DropDefault.value(forKey: "TotalDrops") as! NSInteger
             TotalDropsLabel.text = String(TotalDrops)
         }
-        
-//        let n = TotalDrops
-//        let days =  n / (24 * 3600)
-//        let hours =  (n % (24 * 3600)) / 3600
-//        let minutes =  (n % (24 * 3600 * 3600)) / 60
-//        let seconds =  (n % (24 * 3600 * 3600 * 60)) / 60
-//        StatsLabel.text = String(days) + " days" + String(hours) + " hours" + String(minutes) + " minutes" + String(seconds) + " seconds"
-        var n = TotalDrops * 2
-        let days = n / (24 * 3600)
-     
-        n = n % (24 * 3600)
-        let hours = n / 3600
-     
-        n %= 3600
-        let minutes = n / 60
-     
-        n %= 60
-        let seconds = n
-        StatsLabel.text = String(days) + " days" + String(hours) + " hours" + String(minutes) + " minutes" + String(seconds) + " seconds"
-    }
+        dropToTime()
+
+        }
+
     
     // notification thing for the stopwatch
     @objc func notificationForStopwatch(_ notification: Notification) {
         let text = notification.object as! String?
         TotalDropsLabel.text = String(Int(text!)! + TotalDrops)
         TotalDrops = Int(TotalDropsLabel.text!)!
-        
 
-    
         let DropDefault = UserDefaults.standard
         DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
         DropDefault.synchronize()
         TotalDropsLabel.text = String(TotalDrops)
         
-        
+        dropToTime()
+    }
+    
+    
+    // convert Total Drops to time
+    func dropToTime() {
         var n = TotalDrops * 2
         let days = n / (24 * 3600)
      
@@ -85,8 +103,7 @@ class ShopViewController: UIViewController {
      
         n %= 60
         let seconds = n
-        StatsLabel.text = String(days) + " days" + String(hours) + " hours" + String(minutes) + " minutes" + String(seconds) + " seconds"
-
+        StatsLabel.text = String(days) + "d " + String(hours) + "h " + String(minutes) + "m " + String(seconds) + "s"
     }
     
     // override "didReceiveMemoryWarning" function
@@ -96,15 +113,7 @@ class ShopViewController: UIViewController {
     
     // Reset Button
     @IBAction func ResetAction(sender: AnyObject) {
-        TotalDrops = 369121517
-        let DropDefault = UserDefaults.standard
-        DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
-        DropDefault.synchronize()
-        TotalDropsLabel.text = String(TotalDrops)
-    }
-    
-    @IBAction func ExpandUpgrade(_ sender: Any) {
-        TotalDrops -= 100
+        TotalDrops = 0
         let DropDefault = UserDefaults.standard
         DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
         DropDefault.synchronize()
