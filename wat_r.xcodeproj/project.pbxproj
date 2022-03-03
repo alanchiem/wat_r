@@ -23,6 +23,7 @@
 		E75C750225AEDB1B00071F18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C750125AEDB1B00071F18 /* SceneDelegate.swift */; };
 		E7A19BA126800BD9003E354E /* newWaterdrop.json in Resources */ = {isa = PBXBuildFile; fileRef = E7A19BA026800BD9003E354E /* newWaterdrop.json */; };
 		E7A19BA326800CB9003E354E /* newWave.json in Resources */ = {isa = PBXBuildFile; fileRef = E7A19BA226800CB9003E354E /* newWave.json */; };
+		E7A5DA1B27D093DA00C151B9 /* 1x1-00000000.png in Resources */ = {isa = PBXBuildFile; fileRef = E7A5DA1A27D093DA00C151B9 /* 1x1-00000000.png */; };
 		EA0E4BD9EA7120B26A87D044 /* Pods_wat_r.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D094E509F8A78CDE62164D84 /* Pods_wat_r.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		E75C750125AEDB1B00071F18 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E7A19BA026800BD9003E354E /* newWaterdrop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newWaterdrop.json; sourceTree = "<group>"; };
 		E7A19BA226800CB9003E354E /* newWave.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newWave.json; sourceTree = "<group>"; };
+		E7A5DA1A27D093DA00C151B9 /* 1x1-00000000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1x1-00000000.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				E75C74CF25AED25500071F18 /* StopwatchModeViewController.swift */,
 				40946D63266C80CB00E44B06 /* ShopViewController.swift */,
 				E75C74D125AED25500071F18 /* Main.storyboard */,
+				E7A5DA1A27D093DA00C151B9 /* 1x1-00000000.png */,
 				E75C74D425AED25500071F18 /* Assets.xcassets */,
 				E75C74D925AED25500071F18 /* Info.plist */,
 			);
@@ -296,6 +299,7 @@
 			files = (
 				E75C74D525AED25500071F18 /* Assets.xcassets in Resources */,
 				E72F5B43267E945200BFE14B /* storage_water.json in Resources */,
+				E7A5DA1B27D093DA00C151B9 /* 1x1-00000000.png in Resources */,
 				E7A19BA126800BD9003E354E /* newWaterdrop.json in Resources */,
 				E7455A942683AA900075C1A9 /* oldWaterDrop(newColor).json in Resources */,
 				E75C74D325AED25500071F18 /* Main.storyboard in Resources */,
