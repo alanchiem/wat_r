@@ -28,7 +28,7 @@ class ShopViewController: UIViewController {
     // Drops | Time Button (Functionality), would be visible
     // Allows for the user to switch from displaying drop to displaying time by just tapping
     var showingDrops = true
-    let button = UIButton(frame: CGRect(x: 100, y: 200, width: 200, height: 40))
+    let button = UIButton(frame: CGRect(x: 100, y: 200, width: 250, height: 40))
     // when button is tapped
     @objc func buttonAction(sender: UIButton!) {
         if (showingDrops) {
@@ -50,11 +50,11 @@ class ShopViewController: UIViewController {
         animationView = .init(name: "newWave")
         animationView!.frame = CGRect(x: 0, y: 0, width: 420, height: 420)
         
-        // bottomish area
-        animationView!.center = CGPoint(x: 208, y: 660)
+        // bottom y = max - 62
+        //animationView!.center = CGPoint(x: Int(self.view.frame.maxX) / 2, y: Int(self.view.frame.maxY) - 62)
         
-        // middleish area
-        //animationView!.center = CGPoint(x: 208, y: 260)
+        // top y = min - 97
+        animationView!.center = CGPoint(x: Int(self.view.frame.maxX) / 2, y: Int(self.view.frame.minY) - 96)
         
         // 3. Set animation content mode
         animationView!.contentMode = .scaleAspectFit
@@ -71,11 +71,9 @@ class ShopViewController: UIViewController {
         var waveColor = Color(r: (66/255), g: (130/255), b: (174/255), a: 1)
         
         if UITraitCollection.current.userInterfaceStyle == .dark {
-                print("Dark mode")
                 waveColor = Color(r: (27/255), g: (83/255), b: (132/255), a: 1)
             }
             else {
-                print("Light mode")
                 
             }
         

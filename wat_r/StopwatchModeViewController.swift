@@ -38,8 +38,8 @@ class StopwatchModeViewController: UIViewController {
         // Animation cont
         setupAnimation()
         animationView.pause()
-        StartButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
-        PauseButton.setTitleColor(UIColor.cyan, for: UIControl.State.normal)
+        StartButton.setTitleColor(.green, for: UIControl.State.normal)
+        PauseButton.setTitleColor(.cyan, for: UIControl.State.normal)
     }
     
     // Start button, starts the timer
@@ -63,7 +63,7 @@ class StopwatchModeViewController: UIViewController {
             timerActivated = true
             paused = false
             StartButton.setTitle("Reset", for: UIControl.State.normal)
-            StartButton.setTitleColor(UIColor.red, for: UIControl.State.normal)
+            StartButton.setTitleColor(.red, for: UIControl.State.normal)
         }
         
         // when timer is already activated, just reset 
@@ -85,9 +85,9 @@ class StopwatchModeViewController: UIViewController {
             setupAnimation()
             animationView.pause()
             PauseButton.setTitle("Pause", for: UIControl.State.normal)
-            PauseButton.setTitleColor(UIColor.cyan, for: UIControl.State.normal)
+            PauseButton.setTitleColor(.cyan, for: UIControl.State.normal)
             StartButton.setTitle("Start", for: UIControl.State.normal)
-            StartButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
+            StartButton.setTitleColor(.green, for: UIControl.State.normal)
         }
     }
     
@@ -102,7 +102,7 @@ class StopwatchModeViewController: UIViewController {
             paused = true
             timerActivated = true
             PauseButton.setTitle("Play", for: UIControl.State.normal)
-            PauseButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
+            PauseButton.setTitleColor(.green, for: UIControl.State.normal)
         }
         
         // if the stopwatch is currently paused and timer has been activated
@@ -124,7 +124,7 @@ class StopwatchModeViewController: UIViewController {
             animationView.play() // play animation
             paused = false // timer isn't paused
             PauseButton.setTitle("Pause", for: UIControl.State.normal)
-            PauseButton.setTitleColor(UIColor.cyan, for: UIControl.State.normal)
+            PauseButton.setTitleColor(.cyan, for: UIControl.State.normal)
         }
     }
     
