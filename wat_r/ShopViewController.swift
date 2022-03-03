@@ -21,9 +21,23 @@ class ShopViewController: UIViewController {
     
     var TotalDrops = 0
     
-    
-    // 36 million drops == 10,000 hours
-
+    func updateWaterPos() {
+        // 18 million drops == 10,000 hours
+        let waterRatio = Float(TotalDrops) / Float(18000000)
+        // opposite because newWave animation is upside down
+        let oppositeRatio = 1 - waterRatio
+        let bot = Int(self.view.frame.maxY) - 62
+        let top = Int(self.view.frame.minY) - 97
+        let yPos = Float(bot - top) * oppositeRatio
+        animationView!.center = CGPoint(x: Int(self.view.frame.maxX) / 2, y: Int(yPos) - 97)
+        
+        // prevents from covering up drops/time label
+        self.view.sendSubviewToBack(animationView!)
+        
+        
+        // water rectangle
+        
+    }
     
     // Drops | Time Button (Functionality), would be visible
     // Allows for the user to switch from displaying drop to displaying time by just tapping
@@ -52,9 +66,9 @@ class ShopViewController: UIViewController {
         
         // bottom y = max - 62
         //animationView!.center = CGPoint(x: Int(self.view.frame.maxX) / 2, y: Int(self.view.frame.maxY) - 62)
-        
+        updateWaterPos()
         // top y = min - 97
-        animationView!.center = CGPoint(x: Int(self.view.frame.maxX) / 2, y: Int(self.view.frame.minY) - 96)
+        //animationView!.center = CGPoint(x: Int(self.view.frame.maxX) / 2, y: Int(self.view.frame.minY) - 97)
         
         // 3. Set animation content mode
         animationView!.contentMode = .scaleAspectFit
@@ -92,6 +106,7 @@ class ShopViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         dropToTime()
+        updateWaterPos()
         
         // Drops | Time Button (Atrributes), would be visible
         if (TotalDrops > 0) {
@@ -180,7 +195,7 @@ class ShopViewController: UIViewController {
     
     // Reset Button
     @IBAction func ResetAction(sender: AnyObject) {
-        TotalDrops = 123456789
+        TotalDrops = 9000000
         let DropDefault = UserDefaults.standard
         DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
         DropDefault.synchronize()
