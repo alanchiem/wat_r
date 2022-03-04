@@ -51,7 +51,12 @@ Never.
 ### Are there in-app purchases?
 Never.
 
-## Features soon to be added
+## Features/Fixes soon to be added
+### Fixes
+- stabilize stopwatch clock display since it moves side to side when reaching different size numbers
+
+### Features
 - remove tab bar at the bottom, instead just have the user swipe left and right
 - a soft bell sound at the 1 hour mark (maybe 30 min mark)
 - add more conversions
+- add a scroll feature to storage for better visualization
