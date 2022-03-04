@@ -36,7 +36,13 @@ class ShopViewController: UIViewController {
         
         
         // water rectangle
-        
+        var waterRectangle: UIView!
+        let rectBot = Int(self.view.frame.maxY) - 1
+        let rectYPos = oppositeRatio * Float(rectBot) + 50.0
+        waterRectangle = UIView(frame: CGRect(x: 0, y: Int(rectYPos), width: Int(self.view.frame.maxX), height: Int(self.view.frame.maxY)))
+        waterRectangle.backgroundColor = UIColor(named: "water color")
+        view.addSubview(waterRectangle)
+        self.view.sendSubviewToBack(waterRectangle)
     }
     
     // Drops | Time Button (Functionality), would be visible
@@ -62,7 +68,7 @@ class ShopViewController: UIViewController {
     func animationFunction() {
         // 2. Start AnimationView with animation name (without extension)
         animationView = .init(name: "newWave")
-        animationView!.frame = CGRect(x: 0, y: 0, width: 420, height: 420)
+        animationView!.frame = CGRect(x: 0, y: 0, width: self.view.frame.maxX + 2, height: self.view.frame.maxX + 2)
         
         // bottom y = max - 62
         //animationView!.center = CGPoint(x: Int(self.view.frame.maxX) / 2, y: Int(self.view.frame.maxY) - 62)
@@ -78,7 +84,7 @@ class ShopViewController: UIViewController {
         animationView!.loopMode = .loop
         
         // 5. Adjust animation speed
-        animationView!.animationSpeed = 0.5
+        animationView!.animationSpeed = 1
         view.addSubview(animationView!)
         
         // 6. Create ColorValueProvider using Lottie's Color class
@@ -195,7 +201,7 @@ class ShopViewController: UIViewController {
     
     // Reset Button
     @IBAction func ResetAction(sender: AnyObject) {
-        TotalDrops = 9000000
+        TotalDrops = 13000000
         let DropDefault = UserDefaults.standard
         DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
         DropDefault.synchronize()
