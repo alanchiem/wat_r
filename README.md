@@ -10,7 +10,7 @@ A simple way to focus on the things that matter to you.
 
 # Why it works.
 The human brain can be illogical. Sometimes we don't want to do the things we know we should do. This is likely do to the fact that the rewards appear too far into the future.
-This app tackles this issue by representing progress down to the second. This essentially provides a sense of constant instant gratification where some long-term goals
+This app tackles this issue by representing progress down to the second. It essentially provides a sense of constant instant gratification where some long-term goals
 lack.
 
 # What to use this app for?
