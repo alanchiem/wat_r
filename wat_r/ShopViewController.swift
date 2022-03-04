@@ -10,6 +10,11 @@ import Foundation
 import Lottie
 
 class ShopViewController: UIViewController {
+    // Hides Time, Wifi, Battery
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     // Shows Drops, would be hidden but is used for debugging
     @IBOutlet var TotalDropsLabel: UILabel!
 
@@ -84,7 +89,7 @@ class ShopViewController: UIViewController {
         animationView!.loopMode = .loop
         
         // 5. Adjust animation speed
-        animationView!.animationSpeed = 1
+        animationView!.animationSpeed = 0.7
         view.addSubview(animationView!)
         
         // 6. Create ColorValueProvider using Lottie's Color class

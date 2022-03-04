@@ -11,6 +11,11 @@ import Foundation
 import Lottie
 
 class StopwatchModeViewController: UIViewController {
+    // Hides Time, Wifi, Battery
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     // Labels
     @IBOutlet weak var DropsLabel: UILabel! // displays number of droplets
     @IBOutlet weak var TimerLabel: UILabel! // displays time
@@ -47,8 +52,7 @@ class StopwatchModeViewController: UIViewController {
     // Start / Pause
     @objc func singleTap() {
         if (paused == true) {
-        // play animation
-        animationView.play()
+
             
         // increment water droplets by 2
         droplets = Timer.scheduledTimer(timeInterval: 2,
@@ -64,7 +68,9 @@ class StopwatchModeViewController: UIViewController {
                                          userInfo: nil,
                                          repeats: true)
         
-
+        // play animation
+        animationView.play()
+            
         // Timer is NOT paused
         paused = false
         }
