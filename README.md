@@ -5,7 +5,7 @@ A simple way to focus on the things that matter to you.
 # How to use this app.
 
 - Find something meaningful to do, and start the stopwatch. Note that during this time, you should be completely focused on your chosen activity.
-- When the stopwatch is activated, a drop of water falls every two seconds.
+- When the stopwatch is activated, a drop of water will every two seconds.
 - Reset the stopwatch when you're done. The water you accumulated will now be added towards your total amount of drops in the drops tab.
 
 # Why it works.
