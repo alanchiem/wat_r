@@ -29,8 +29,8 @@ Basically any long term habit/goal in which progress can be sometimes difficult 
 
 # FAQ
 
-### Why a stopwatch instead of a timer? (Counts up instead of counting down)
-A timer involves thinking about when to stop before even starting. I don't want that. In terms of user experience, I want the act of starting to be as effortless as possible.
+### Why a stopwatch instead of a timer?
+A timer involves thinking about when to stop before even starting. In terms of user experience, I want the act of starting to be as effortless as possible. 
 
 ### Why have it drop every two seconds instead of one?
 A drop every second was visually too fast making it distracting.
