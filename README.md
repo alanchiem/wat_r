@@ -20,7 +20,7 @@ This app tackles this issue by representing progress down to the second. It esse
 Basically any long term habit/goal in which progress can be sometimes difficult to visualize. Some examples below.
 - Language Learning
 - Practing an instrument
-- Exercise
+- Exercise / Sport
 - Studying for school
 - Reading
 - Meditation
@@ -35,15 +35,8 @@ A timer involves thinking about when to stop before even starting. I don't want 
 ### Why have it drop every two seconds instead of one?
 A drop every second was visually too fast making it distracting.
 
-### Why can't I see any water in the drops tab?
-You likely haven't accumulated enough water yet. The maximum amount of water it can hold is 18 million drops which is 10 thousand hours.
-
 ### Why doesn't the stopwatch continue to count when I exit the app?
 This prevents users from using their phone during the time they should be focused on your chosen activity.
-
-### If I do one thing for 10,000 hours will I acquire world class ability?
-It depends on a lot of things, so there's no guarantee. However, if you're able spend that much time perfecting your craft, you'll at least be somewhat good at it.
-If you do become amazing at something and this app helped you stay motivated, then I'll know that the time I spent making this was worth it.
 
 ### Will there be ads?
 Never.
@@ -60,3 +53,4 @@ Never.
 - a soft bell sound at the 1 hour mark (maybe 30 min mark)
 - add more conversions
 - add a scroll feature to storage for better visualization
+- unlockables (customizable backgrounds, intersting conversions: money, spoon)
