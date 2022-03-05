@@ -41,9 +41,6 @@ This prevents users from using their phone during the time they should be focuse
 ### Will there be ads?
 Never.
 
-### Are there in-app purchases?
-Never.
-
 ## Features/Fixes soon to be added
 ### Fixes
 - stabilize stopwatch clock display since it moves side to side when reaching different size numbers
