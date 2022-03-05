@@ -17,7 +17,7 @@ The human brain can be illogical. Sometimes we don't want to do the things we kn
 This app tackles this issue by representing progress down to the second. It essentially provides a sense of constant instant gratification where some long-term goals lack.
 
 # What to use this app for?
-Basically any long term habit/goal in which progress can be sometimes difficult to visualize. Some examples below.
+Any long term habit/goal in which progress can be sometimes difficult to visualize. Some examples below.
 - Language Learning
 - Practing an instrument
 - Exercise / Sport
