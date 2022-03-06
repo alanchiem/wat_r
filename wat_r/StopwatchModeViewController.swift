@@ -84,9 +84,15 @@ class StopwatchModeViewController: UIViewController {
         }
     }
     
+
+    // Using Segue to pass data (name of segue: "dropsSegue")
+    var earnedDrops = 0
+    
     // Reset
     @objc func doubleTapped() {
-        NotificationCenter.default.post(name: Notification.Name("text"), object: DropsLabel.text)
+        //NotificationCenter.default.post(name: Notification.Name("text"), object: DropsLabel.text)
+        self.earnedDrops = dropsDisplayed
+        performSegue(withIdentifier: "dropsSegue", sender: self)
         
         droplets.invalidate()
         dropsDisplayed = 0
@@ -101,6 +107,10 @@ class StopwatchModeViewController: UIViewController {
         paused = true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! ShopViewController
+        vc.transferredDrops = self.earnedDrops
+    }
     
     // increments the water droplet count displayed
     @objc func Action() {

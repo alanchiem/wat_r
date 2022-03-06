@@ -1,36 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NVI-fC-MtL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Initial View-->
-        <scene sceneID="2zM-RL-s4C">
-            <objects>
-                <tabBarController title="Initial View" id="NVI-fC-MtL" sceneMemberID="viewController">
-                    <tabBar key="tabBar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="1x1-00000000" shadowImage="1x1-00000000.png" id="XJH-Uz-SR4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" red="1" green="0.77927889449999999" blue="0.44718021000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="vey-fU-pr2"/>
-                        <segue destination="wZT-lq-1sU" kind="relationship" relationship="viewControllers" id="oNa-lX-puq"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I9o-uW-Is2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="845" y="-697"/>
-        </scene>
         <!--Stopwatch-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -63,6 +41,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="Background"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="EQq-xh-8Po" appends="YES" id="c8d-9p-ezL"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="stopwatch" catalog="system" selectedImage="stopwatch" id="ETq-22-J9D">
                         <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -74,15 +56,20 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="EQq-xh-8Po">
+                    <connections>
+                        <segue destination="wZT-lq-1sU" kind="presentation" identifier="dropsSegue" id="B5h-Wh-LQt"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="571" y="92"/>
         </scene>
         <!--StorageViewController-->
         <scene sceneID="CJr-wg-HXZ">
             <objects>
-                <viewController title="StorageViewController" id="wZT-lq-1sU" customClass="ShopViewController" customModule="wat_r" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" title="StorageViewController" id="wZT-lq-1sU" customClass="ShopViewController" customModule="wat_r" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ta6-h0-jds">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdV-uR-bvR">
@@ -120,10 +107,6 @@
                         <viewLayoutGuide key="safeArea" id="sI9-w2-Jhz"/>
                         <color key="backgroundColor" name="Background"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="drop" catalog="system" id="R5R-KM-e1s">
-                        <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <imageReference key="selectedImage" image="drop.fill" catalog="system" symbolScale="large"/>
-                    </tabBarItem>
                     <connections>
                         <outlet property="Reset" destination="bHO-PD-ozD" id="U9h-9M-CqW"/>
                         <outlet property="StatsLabel" destination="q1w-yw-cee" id="1kH-hB-Rv3"/>
@@ -136,10 +119,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1x1-00000000" width="128" height="128"/>
-        <image name="1x1-00000000.png" width="1" height="1"/>
-        <image name="drop" catalog="system" width="101" height="128"/>
-        <image name="drop.fill" catalog="system" width="101" height="128"/>
         <image name="stopwatch" catalog="system" width="121" height="128"/>
         <namedColor name="Background">
             <color red="0.99599999189376831" green="1" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

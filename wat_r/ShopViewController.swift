@@ -14,7 +14,6 @@ class ShopViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
     // Shows Drops, would be hidden but is used for debugging
     @IBOutlet var TotalDropsLabel: UILabel!
 
@@ -24,21 +23,23 @@ class ShopViewController: UIViewController {
     // Reset Button: resets total drops accumulated
     @IBOutlet var Reset: UIButton!
     
-    var TotalDrops = 0
+    
     
     func updateWaterPos() {
-        // 18 million drops == 10,000 hours
-        let waterRatio = Float(TotalDrops) / Float(18000000)
+        let defaults = UserDefaults.standard
+        let drops = defaults.integer(forKey: "drops")
+        
+        let waterRatio = Float(drops) / Float(100)
         // opposite because newWave animation is upside down
         let oppositeRatio = 1 - waterRatio
-        let bot = Int(self.view.frame.maxY) - 62
-        let top = Int(self.view.frame.minY) - 97
+        let bot = Int(self.view.frame.maxY) - 55
+        let top = Int(self.view.frame.minY) - 87
         let yPos = Float(bot - top) * oppositeRatio
-        animationView!.center = CGPoint(x: Int(self.view.frame.maxX) / 2, y: Int(yPos) - 97)
+        // Int(yPos) - 87
+        animationView!.center = CGPoint(x: Int(self.view.frame.maxX) / 2, y: Int(yPos) - 87)
         
         // prevents from covering up drops/time label
         self.view.sendSubviewToBack(animationView!)
-        
         
         // water rectangle
         var waterRectangle: UIView!
@@ -52,20 +53,26 @@ class ShopViewController: UIViewController {
     
     // Drops | Time Button (Functionality), would be visible
     // Allows for the user to switch from displaying drop to displaying time by just tapping
-    var showingDrops = true
     let button = UIButton(frame: CGRect(x: 100, y: 200, width: 250, height: 40))
+    var showingDrops = true
+    var showingTime = false
+    
     // when button is tapped
     @objc func buttonAction(sender: UIButton!) {
         if (showingDrops) {
             showingDrops = false
+            showingTime = true
             button.setTitle(StatsLabel.text, for: .normal)
         }
-        else {
+        else if (showingTime) {
+            showingTime = false
             showingDrops = true
-            button.setTitle(String(TotalDrops), for: .normal)
+            let defaults = UserDefaults.standard
+            let newDrops = defaults.integer(forKey: "drops")
+            button.setTitle(String(newDrops), for: .normal)
+            
         }
     }
-    
     
     // 1. Create the AnimationView
     private var animationView: AnimationView?
@@ -75,11 +82,9 @@ class ShopViewController: UIViewController {
         animationView = .init(name: "newWave")
         animationView!.frame = CGRect(x: 0, y: 0, width: self.view.frame.maxX + 2, height: self.view.frame.maxX + 2)
         
-        // bottom y = max - 62
-        //animationView!.center = CGPoint(x: Int(self.view.frame.maxX) / 2, y: Int(self.view.frame.maxY) - 62)
+        
         updateWaterPos()
-        // top y = min - 97
-        //animationView!.center = CGPoint(x: Int(self.view.frame.maxX) / 2, y: Int(self.view.frame.minY) - 97)
+   
         
         // 3. Set animation content mode
         animationView!.contentMode = .scaleAspectFit
@@ -112,6 +117,7 @@ class ShopViewController: UIViewController {
         animationView!.play()
         animationView!.backgroundBehavior = .pauseAndRestore
     }
+
     
     // Happens everytime view appears
     override func viewWillAppear(_ animated: Bool) {
@@ -119,8 +125,11 @@ class ShopViewController: UIViewController {
         dropToTime()
         updateWaterPos()
         
+        
         // Drops | Time Button (Atrributes), would be visible
-        if (TotalDrops > 0) {
+        let defaults = UserDefaults.standard
+        let drops = defaults.integer(forKey: "drops")
+        if (drops > 0) {
             // Color
             button.backgroundColor = .clear
             if UITraitCollection.current.userInterfaceStyle == .dark {
@@ -134,7 +143,7 @@ class ShopViewController: UIViewController {
             }
             
             // Text
-            button.setTitle(String(TotalDrops), for: .normal)
+            button.setTitle(String(drops), for: .normal)
             button.titleLabel!.font = UIFont(name: "AppleSDGothicNeo-Thin" , size: 25)
             
             // Action
@@ -143,49 +152,34 @@ class ShopViewController: UIViewController {
             button.center = self.view.center
             
             view.addSubview(button)
-            
- 
         
     }
+    
+    // Transgerred Data using Segue
+    var transferredDrops = 0
     
     // When code launches Only happens once
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let defaults = UserDefaults.standard
+        let drops = defaults.integer(forKey: "drops")
+        defaults.set(drops + transferredDrops, forKey: "drops")
+        let newDrops = defaults.integer(forKey: "drops")
         
-        
-        // set up exchange data for stopwatch
-        NotificationCenter.default.addObserver(self, selector: #selector(notificationForStopwatch(_:)), name: Notification.Name("text"), object: nil)
-        let DropDefault = UserDefaults.standard
-        if (DropDefault.value(forKey: "TotalDrops") != nil) {
-            TotalDrops = DropDefault.value(forKey: "TotalDrops") as! NSInteger
-            TotalDropsLabel.text = String(TotalDrops)
-        }
-        dropToTime()
+        print(newDrops)
+        TotalDropsLabel.text = String(newDrops)
         
         animationFunction()
-        
+        updateWaterPos()
         }
 
-    
-    // notification thing for the stopwatch
-    @objc func notificationForStopwatch(_ notification: Notification) {
-        let text = notification.object as! String?
-        TotalDropsLabel.text = String(Int(text!)! + TotalDrops)
-        TotalDrops = Int(TotalDropsLabel.text!)!
-
-        let DropDefault = UserDefaults.standard
-        DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
-        DropDefault.synchronize()
-        TotalDropsLabel.text = String(TotalDrops)
-        
-        dropToTime()
-    }
-    
     
     // convert Total Drops to time
     func dropToTime() {
-        var n = TotalDrops * 2
+        let defaults = UserDefaults.standard
+        let drops = defaults.integer(forKey: "drops")
+        var n = drops * 2
         let days = n / (24 * 3600)
      
         n = n % (24 * 3600)
@@ -206,12 +200,6 @@ class ShopViewController: UIViewController {
     
     // Reset Button
     @IBAction func ResetAction(sender: AnyObject) {
-        TotalDrops = 13000000
-        let DropDefault = UserDefaults.standard
-        DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
-        DropDefault.synchronize()
-        TotalDropsLabel.text = String(TotalDrops)
-        button.setTitle(String(TotalDrops), for: .normal)
     }
     
 }
