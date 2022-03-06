@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		403ED9CE25E3755800422DFC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403ED9CD25E3755800422DFC /* ContentView.swift */; };
 		40946D64266C80CB00E44B06 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40946D63266C80CB00E44B06 /* ShopViewController.swift */; };
-		44BA1546DE3D404BEEE6986E /* Pods_wat_r_wat_rUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875BA4EE13043436C02764E1 /* Pods_wat_r_wat_rUITests.framework */; };
-		80914F6926E1F0241F95972E /* Pods_wat_rTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D35A3C1127F253A06A04B0 /* Pods_wat_rTests.framework */; };
 		E72623EB25B560FD00BDEACF /* falling-drop-of-water.json in Resources */ = {isa = PBXBuildFile; fileRef = E72623EA25B560FD00BDEACF /* falling-drop-of-water.json */; };
 		E72F5B43267E945200BFE14B /* storage_water.json in Resources */ = {isa = PBXBuildFile; fileRef = E72F5B42267E945200BFE14B /* storage_water.json */; };
 		E7455A942683AA900075C1A9 /* oldWaterDrop(newColor).json in Resources */ = {isa = PBXBuildFile; fileRef = E7455A932683AA900075C1A9 /* oldWaterDrop(newColor).json */; };
@@ -18,31 +16,12 @@
 		E75C74D025AED25500071F18 /* StopwatchModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C74CF25AED25500071F18 /* StopwatchModeViewController.swift */; };
 		E75C74D325AED25500071F18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E75C74D125AED25500071F18 /* Main.storyboard */; };
 		E75C74D525AED25500071F18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E75C74D425AED25500071F18 /* Assets.xcassets */; };
-		E75C74E325AED25600071F18 /* wat_rTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C74E225AED25600071F18 /* wat_rTests.swift */; };
-		E75C74EE25AED25600071F18 /* wat_rUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C74ED25AED25600071F18 /* wat_rUITests.swift */; };
 		E75C750225AEDB1B00071F18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C750125AEDB1B00071F18 /* SceneDelegate.swift */; };
 		E7A19BA126800BD9003E354E /* newWaterdrop.json in Resources */ = {isa = PBXBuildFile; fileRef = E7A19BA026800BD9003E354E /* newWaterdrop.json */; };
 		E7A19BA326800CB9003E354E /* newWave.json in Resources */ = {isa = PBXBuildFile; fileRef = E7A19BA226800CB9003E354E /* newWave.json */; };
 		E7A5DA1B27D093DA00C151B9 /* 1x1-00000000.png in Resources */ = {isa = PBXBuildFile; fileRef = E7A5DA1A27D093DA00C151B9 /* 1x1-00000000.png */; };
 		EA0E4BD9EA7120B26A87D044 /* Pods_wat_r.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D094E509F8A78CDE62164D84 /* Pods_wat_r.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		E75C74DF25AED25600071F18 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E75C74C025AED25500071F18 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E75C74C725AED25500071F18;
-			remoteInfo = wat_r;
-		};
-		E75C74EA25AED25600071F18 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E75C74C025AED25500071F18 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E75C74C725AED25500071F18;
-			remoteInfo = wat_r;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		19D35A3C1127F253A06A04B0 /* Pods_wat_rTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wat_rTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,12 +44,6 @@
 		E75C74D225AED25500071F18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E75C74D425AED25500071F18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E75C74D925AED25500071F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E75C74DE25AED25600071F18 /* wat_rTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wat_rTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E75C74E225AED25600071F18 /* wat_rTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wat_rTests.swift; sourceTree = "<group>"; };
-		E75C74E425AED25600071F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E75C74E925AED25600071F18 /* wat_rUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wat_rUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E75C74ED25AED25600071F18 /* wat_rUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wat_rUITests.swift; sourceTree = "<group>"; };
-		E75C74EF25AED25600071F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E75C750125AEDB1B00071F18 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E7A19BA026800BD9003E354E /* newWaterdrop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newWaterdrop.json; sourceTree = "<group>"; };
 		E7A19BA226800CB9003E354E /* newWave.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newWave.json; sourceTree = "<group>"; };
@@ -83,22 +56,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA0E4BD9EA7120B26A87D044 /* Pods_wat_r.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E75C74DB25AED25600071F18 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				80914F6926E1F0241F95972E /* Pods_wat_rTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E75C74E625AED25600071F18 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				44BA1546DE3D404BEEE6986E /* Pods_wat_r_wat_rUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,8 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				E75C74CA25AED25500071F18 /* wat_r */,
-				E75C74E125AED25600071F18 /* wat_rTests */,
-				E75C74EC25AED25600071F18 /* wat_rUITests */,
 				E75C74C925AED25500071F18 /* Products */,
 				77C98D6B5B408A85D7C1542C /* Pods */,
 				F1B5EF5BC133A42F8446BEF7 /* Frameworks */,
@@ -134,8 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				E75C74C825AED25500071F18 /* wat_r.app */,
-				E75C74DE25AED25600071F18 /* wat_rTests.xctest */,
-				E75C74E925AED25600071F18 /* wat_rUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,24 +112,6 @@
 				E75C74D925AED25500071F18 /* Info.plist */,
 			);
 			path = wat_r;
-			sourceTree = "<group>";
-		};
-		E75C74E125AED25600071F18 /* wat_rTests */ = {
-			isa = PBXGroup;
-			children = (
-				E75C74E225AED25600071F18 /* wat_rTests.swift */,
-				E75C74E425AED25600071F18 /* Info.plist */,
-			);
-			path = wat_rTests;
-			sourceTree = "<group>";
-		};
-		E75C74EC25AED25600071F18 /* wat_rUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E75C74ED25AED25600071F18 /* wat_rUITests.swift */,
-				E75C74EF25AED25600071F18 /* Info.plist */,
-			);
-			path = wat_rUITests;
 			sourceTree = "<group>";
 		};
 		F1B5EF5BC133A42F8446BEF7 /* Frameworks */ = {
@@ -211,45 +146,6 @@
 			productReference = E75C74C825AED25500071F18 /* wat_r.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E75C74DD25AED25600071F18 /* wat_rTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E75C74F525AED25600071F18 /* Build configuration list for PBXNativeTarget "wat_rTests" */;
-			buildPhases = (
-				DB4643A6C7B591BE3677632F /* [CP] Check Pods Manifest.lock */,
-				E75C74DA25AED25600071F18 /* Sources */,
-				E75C74DB25AED25600071F18 /* Frameworks */,
-				E75C74DC25AED25600071F18 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E75C74E025AED25600071F18 /* PBXTargetDependency */,
-			);
-			name = wat_rTests;
-			productName = wat_rTests;
-			productReference = E75C74DE25AED25600071F18 /* wat_rTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		E75C74E825AED25600071F18 /* wat_rUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E75C74F825AED25600071F18 /* Build configuration list for PBXNativeTarget "wat_rUITests" */;
-			buildPhases = (
-				28798D8B7DF391DD243B52F0 /* [CP] Check Pods Manifest.lock */,
-				E75C74E525AED25600071F18 /* Sources */,
-				E75C74E625AED25600071F18 /* Frameworks */,
-				E75C74E725AED25600071F18 /* Resources */,
-				942EB252035A8F97EB36A4D9 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E75C74EB25AED25600071F18 /* PBXTargetDependency */,
-			);
-			name = wat_rUITests;
-			productName = wat_rUITests;
-			productReference = E75C74E925AED25600071F18 /* wat_rUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -261,14 +157,6 @@
 				TargetAttributes = {
 					E75C74C725AED25500071F18 = {
 						CreatedOnToolsVersion = 12.3;
-					};
-					E75C74DD25AED25600071F18 = {
-						CreatedOnToolsVersion = 12.3;
-						TestTargetID = E75C74C725AED25500071F18;
-					};
-					E75C74E825AED25600071F18 = {
-						CreatedOnToolsVersion = 12.3;
-						TestTargetID = E75C74C725AED25500071F18;
 					};
 				};
 			};
@@ -286,8 +174,6 @@
 			projectRoot = "";
 			targets = (
 				E75C74C725AED25500071F18 /* wat_r */,
-				E75C74DD25AED25600071F18 /* wat_rTests */,
-				E75C74E825AED25600071F18 /* wat_rUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -308,45 +194,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E75C74DC25AED25600071F18 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E75C74E725AED25600071F18 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		28798D8B7DF391DD243B52F0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-wat_r-wat_rUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2E9B86CE97773A9F29D54D36 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -386,45 +236,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		942EB252035A8F97EB36A4D9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-wat_r-wat_rUITests/Pods-wat_r-wat_rUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-wat_r-wat_rUITests/Pods-wat_r-wat_rUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-wat_r-wat_rUITests/Pods-wat_r-wat_rUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DB4643A6C7B591BE3677632F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-wat_rTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -440,36 +251,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E75C74DA25AED25600071F18 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E75C74E325AED25600071F18 /* wat_rTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E75C74E525AED25600071F18 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E75C74EE25AED25600071F18 /* wat_rUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E75C74E025AED25600071F18 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E75C74C725AED25500071F18 /* wat_r */;
-			targetProxy = E75C74DF25AED25600071F18 /* PBXContainerItemProxy */;
-		};
-		E75C74EB25AED25600071F18 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E75C74C725AED25500071F18 /* wat_r */;
-			targetProxy = E75C74EA25AED25600071F18 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E75C74D125AED25500071F18 /* Main.storyboard */ = {
@@ -643,94 +425,6 @@
 			};
 			name = Release;
 		};
-		E75C74F625AED25600071F18 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CB5EB3CE29F0794462C8032 /* Pods-wat_rTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N7XTJ3T26Z;
-				INFOPLIST_FILE = wat_rTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mycompany.wat-rTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wat_r.app/wat_r";
-			};
-			name = Debug;
-		};
-		E75C74F725AED25600071F18 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5944601B461011E01AC0F47 /* Pods-wat_rTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N7XTJ3T26Z;
-				INFOPLIST_FILE = wat_rTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mycompany.wat-rTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wat_r.app/wat_r";
-			};
-			name = Release;
-		};
-		E75C74F925AED25600071F18 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2063DA373D5DC02BB534CFE5 /* Pods-wat_r-wat_rUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N7XTJ3T26Z;
-				INFOPLIST_FILE = wat_rUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mycompany.wat-rUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = wat_r;
-			};
-			name = Debug;
-		};
-		E75C74FA25AED25600071F18 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65A7CF1790BEA4A6CC0535BC /* Pods-wat_r-wat_rUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N7XTJ3T26Z;
-				INFOPLIST_FILE = wat_rUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mycompany.wat-rUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = wat_r;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -748,24 +442,6 @@
 			buildConfigurations = (
 				E75C74F325AED25600071F18 /* Debug */,
 				E75C74F425AED25600071F18 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E75C74F525AED25600071F18 /* Build configuration list for PBXNativeTarget "wat_rTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E75C74F625AED25600071F18 /* Debug */,
-				E75C74F725AED25600071F18 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E75C74F825AED25600071F18 /* Build configuration list for PBXNativeTarget "wat_rUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E75C74F925AED25600071F18 /* Debug */,
-				E75C74FA25AED25600071F18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
