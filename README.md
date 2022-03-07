@@ -46,8 +46,6 @@ Never.
 - stabilize stopwatch clock display since it moves side to side when reaching different size numbers
 
 ### Features
-- remove tab bar at the bottom, instead just have the user swipe left and right
 - a soft bell sound at the 1 hour mark (maybe 30 min mark)
 - add more conversions
-- add a scroll feature to storage for better visualization
-- unlockables (customizable backgrounds, intersting conversions: money, spoon)
+- unlockables (customizable backgrounds, intersting conversions: money, spoons)
