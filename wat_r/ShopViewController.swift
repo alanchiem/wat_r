@@ -29,7 +29,9 @@ class ShopViewController: UIViewController {
         let defaults = UserDefaults.standard
         let drops = defaults.integer(forKey: "drops")
         
-        let waterRatio = Float(drops) / Float(100)
+        // 18,000 drops is 10 hours
+        
+        let waterRatio = Float(drops) / Float(2000)
         // opposite because newWave animation is upside down
         let oppositeRatio = 1 - waterRatio
         let bot = Int(self.view.frame.maxY) - 55
@@ -46,7 +48,8 @@ class ShopViewController: UIViewController {
         let rectBot = Int(self.view.frame.maxY) - 1
         let rectYPos = oppositeRatio * Float(rectBot) + 50.0
         waterRectangle = UIView(frame: CGRect(x: 0, y: Int(rectYPos), width: Int(self.view.frame.maxX), height: Int(self.view.frame.maxY)))
-        waterRectangle.backgroundColor = UIColor(named: "water color")
+        // pocari sweat color
+        waterRectangle.backgroundColor = UIColor(named: "color")
         view.addSubview(waterRectangle)
         self.view.sendSubviewToBack(waterRectangle)
     }
@@ -98,15 +101,15 @@ class ShopViewController: UIViewController {
         view.addSubview(animationView!)
         
         // 6. Create ColorValueProvider using Lottie's Color class
-        var waveColor = Color(r: (66/255), g: (130/255), b: (174/255), a: 1)
+//        var waveColor = Color(r: (66/255), g: (130/255), b: (174/255), a: 1)
         
-        if UITraitCollection.current.userInterfaceStyle == .dark {
-                waveColor = Color(r: (27/255), g: (83/255), b: (132/255), a: 1)
-            }
-            else {
-                
-            }
-        
+//        if UITraitCollection.current.userInterfaceStyle == .dark {
+//                waveColor = Color(r: (27/255), g: (83/255), b: (132/255), a: 1)
+//            }
+//            else {
+//
+//            }
+        let waveColor = Color(r: (27/255), g: (83/255), b: (132/255), a: 1)
         let waveColorValueProvider = ColorValueProvider(waveColor)
 
         // Set color value provider to animation view
@@ -130,13 +133,13 @@ class ShopViewController: UIViewController {
         let defaults = UserDefaults.standard
         let drops = defaults.integer(forKey: "drops")
         if (drops > 0) {
-            // Color
+            // Button Color
             button.backgroundColor = .clear
             if UITraitCollection.current.userInterfaceStyle == .dark {
                 button.setTitleColor(.white, for: .normal)
             }
             else {
-                button.setTitleColor(.black, for: .normal)
+                button.setTitleColor(.gray, for: .normal)
             }
             button.setTitleColor(.lightGray, for: .highlighted)
             
@@ -167,7 +170,6 @@ class ShopViewController: UIViewController {
         defaults.set(drops + transferredDrops, forKey: "drops")
         let newDrops = defaults.integer(forKey: "drops")
         
-        print(newDrops)
         TotalDropsLabel.text = String(newDrops)
         
         animationFunction()
@@ -200,6 +202,11 @@ class ShopViewController: UIViewController {
     
     // Reset Button
     @IBAction func ResetAction(sender: AnyObject) {
+        let defaults = UserDefaults.standard
+        defaults.set(0, forKey: "drops")
+        
+        TotalDropsLabel.text = String(0)
+        button.setTitle("0", for: .normal)
     }
     
 }

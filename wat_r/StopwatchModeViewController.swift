@@ -11,6 +11,8 @@ import Foundation
 import Lottie
 
 class StopwatchModeViewController: UIViewController {
+    
+    
     // Hides Time, Wifi, Battery
     override var prefersStatusBarHidden: Bool {
         return true
@@ -32,13 +34,18 @@ class StopwatchModeViewController: UIViewController {
     // Animation
     let animationView = AnimationView()
     
+    // Logic
+    var ifDoubleTapped = false
+    
     // when the app launches
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Prevents Phone from sleeping
+        UIApplication.shared.isIdleTimerDisabled = true
+
         // Animation cont
         setupAnimation()
         animationView.pause()
-        
         
         let oneTap = UITapGestureRecognizer(target: self, action: #selector(singleTap))
             oneTap.numberOfTapsRequired = 1
@@ -92,7 +99,10 @@ class StopwatchModeViewController: UIViewController {
     @objc func doubleTapped() {
         //NotificationCenter.default.post(name: Notification.Name("text"), object: DropsLabel.text)
         self.earnedDrops = dropsDisplayed
+        
+        ifDoubleTapped = true
         performSegue(withIdentifier: "dropsSegue", sender: self)
+        ifDoubleTapped = false
         
         droplets.invalidate()
         dropsDisplayed = 0
@@ -108,8 +118,10 @@ class StopwatchModeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! ShopViewController
-        vc.transferredDrops = self.earnedDrops
+        if (ifDoubleTapped) {
+            let vc = segue.destination as! ShopViewController
+            vc.transferredDrops = self.earnedDrops
+        }
     }
     
     // increments the water droplet count displayed
@@ -154,14 +166,17 @@ class StopwatchModeViewController: UIViewController {
         animationView.center = CGPoint(x: xValue, y: yValue)
         
         //Changing Color of the droplet
+        // og color pocari sweat
+//        var dropColor = Color(r: (66/255), g: (130/255), b: (174/255), a: 1)
+//
+//        if UITraitCollection.current.userInterfaceStyle == .dark {
+//            // og pocari sweat
+//                dropColor = Color(r: (27/255), g: (83/255), b: (132/255), a: 1)
+//            }
+//            else {
+//            }
         var dropColor = Color(r: (66/255), g: (130/255), b: (174/255), a: 1)
-        
-        if UITraitCollection.current.userInterfaceStyle == .dark {
-                dropColor = Color(r: (27/255), g: (83/255), b: (132/255), a: 1)
-            }
-            else {
-            }
-        
+        dropColor = Color(r: (27/255), g: (83/255), b: (132/255), a: 1)
         let waveColorValueProvider = ColorValueProvider(dropColor)
 
         // Set color value provider to animation view
