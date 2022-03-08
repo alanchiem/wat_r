@@ -11,8 +11,6 @@ import Foundation
 import Lottie
 
 class StopwatchModeViewController: UIViewController {
-    
-    
     // Hides Time, Wifi, Battery
     override var prefersStatusBarHidden: Bool {
         return true
@@ -54,7 +52,9 @@ class StopwatchModeViewController: UIViewController {
         let twoTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
             twoTap.numberOfTapsRequired = 2
             view.addGestureRecognizer(twoTap)
+
     }
+    
     
     // Start / Pause
     @objc func singleTap() {

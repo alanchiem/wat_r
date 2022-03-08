@@ -6,9 +6,43 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Settings View Controller-->
+        <scene sceneID="aKA-Gu-gTm">
+            <objects>
+                <viewController id="9KF-V9-aqh" customClass="SettingsViewController" customModule="wat_r" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WFQ-jf-mIv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4UO-jp-lQW">
+                                <rect key="frame" x="60" y="44" width="261" height="201"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rLD-g3-ckZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="d03-Lg-n3f" appends="YES" id="pQM-fu-laY"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QFd-ge-8P3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="d03-Lg-n3f">
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="8aK-te-qAU"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-246.37681159420291" y="91.741071428571431"/>
+        </scene>
         <!--Stopwatch-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -44,6 +78,7 @@
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="EQq-xh-8Po" appends="YES" id="c8d-9p-ezL"/>
+                            <outletCollection property="gestureRecognizers" destination="gVZ-fx-cxV" appends="YES" id="ei0-1B-KC8"/>
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="stopwatch" catalog="system" selectedImage="stopwatch" id="ETq-22-J9D">
@@ -61,8 +96,13 @@
                         <segue destination="wZT-lq-1sU" kind="presentation" identifier="dropsSegue" id="B5h-Wh-LQt"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="gVZ-fx-cxV">
+                    <connections>
+                        <segue destination="9KF-V9-aqh" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="26B-we-10z"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="571" y="92"/>
+            <point key="canvasLocation" x="599" y="92"/>
         </scene>
         <!--StorageViewController-->
         <scene sceneID="CJr-wg-HXZ">
@@ -115,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PqR-NA-AFu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1398.5507246376812" y="91.741071428571431"/>
+            <point key="canvasLocation" x="599" y="840"/>
         </scene>
     </scenes>
     <resources>
@@ -123,5 +163,8 @@
         <namedColor name="Background">
             <color red="0.99599999189376831" green="1" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

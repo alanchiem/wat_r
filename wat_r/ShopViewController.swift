@@ -31,7 +31,7 @@ class ShopViewController: UIViewController {
         
         // 18,000 drops is 10 hours
         
-        let waterRatio = Float(drops) / Float(2000)
+        let waterRatio = Float(drops) / Float(100)
         // opposite because newWave animation is upside down
         let oppositeRatio = 1 - waterRatio
         let bot = Int(self.view.frame.maxY) - 55
@@ -137,11 +137,13 @@ class ShopViewController: UIViewController {
             button.backgroundColor = .clear
             if UITraitCollection.current.userInterfaceStyle == .dark {
                 button.setTitleColor(.white, for: .normal)
+                button.setTitleColor(.lightGray, for: .highlighted)
             }
             else {
-                button.setTitleColor(.gray, for: .normal)
+                button.setTitleColor(.lightGray, for: .normal)
+                button.setTitleColor(.white, for: .highlighted)
             }
-            button.setTitleColor(.lightGray, for: .highlighted)
+            
             
             }
             
