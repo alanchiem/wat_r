@@ -31,7 +31,7 @@ class ShopViewController: UIViewController {
         
         // 18,000 drops is 10 hours
         
-        let waterRatio = Float(drops) / Float(100)
+        let waterRatio = Float(drops) / Float(18000)
         // opposite because newWave animation is upside down
         let oppositeRatio = 1 - waterRatio
         let bot = Int(self.view.frame.maxY) - 55

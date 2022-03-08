@@ -7,23 +7,41 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UITextViewDelegate {
+    
+    @IBOutlet weak var numCharLabel: UILabel!
+    @IBOutlet weak var futureTextView: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.futureTextView.delegate = self
+        let defaults = UserDefaults.standard
+        let text = defaults.object(forKey: "futureText")
+        
+        futureTextView.text = text as? String
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.futureTextView.resignFirstResponder()
     }
-    */
 
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        numCharLabel.textColor = UIColor(named: "Text")
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        numCharLabel.textColor = UIColor(named: "Background")
+        let defaults = UserDefaults.standard
+        let text = futureTextView.text
+        defaults.set(text, forKey: "futureText")
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        numCharLabel.text = "\(futureTextView.text.count)"
+        return futureTextView.text.count + (text.count - range.length) <= 200
+    }
 }
