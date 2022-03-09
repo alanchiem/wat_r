@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 import Lottie
 
-class ShopViewController: UIViewController {
+class StorageViewController: UIViewController {
     // Hides Time, Wifi, Battery
     override var prefersStatusBarHidden: Bool {
         return true

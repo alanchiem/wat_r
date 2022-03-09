@@ -119,7 +119,7 @@ class StopwatchModeViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (ifDoubleTapped) {
-            let vc = segue.destination as! ShopViewController
+            let vc = segue.destination as! StorageViewController
             vc.transferredDrops = self.earnedDrops
         }
     }

@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		403ED9CE25E3755800422DFC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403ED9CD25E3755800422DFC /* ContentView.swift */; };
-		40946D64266C80CB00E44B06 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40946D63266C80CB00E44B06 /* ShopViewController.swift */; };
+		40946D64266C80CB00E44B06 /* StorageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40946D63266C80CB00E44B06 /* StorageViewController.swift */; };
+		E716B5FD27D86892005F2881 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E716B5FC27D86892005F2881 /* SettingsViewController.swift */; };
+		E716B5FF27D8788B005F2881 /* DonationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E716B5FE27D8788B005F2881 /* DonationViewController.swift */; };
 		E72623EB25B560FD00BDEACF /* falling-drop-of-water.json in Resources */ = {isa = PBXBuildFile; fileRef = E72623EA25B560FD00BDEACF /* falling-drop-of-water.json */; };
 		E72F5B43267E945200BFE14B /* storage_water.json in Resources */ = {isa = PBXBuildFile; fileRef = E72F5B42267E945200BFE14B /* storage_water.json */; };
 		E7455A942683AA900075C1A9 /* oldWaterDrop(newColor).json in Resources */ = {isa = PBXBuildFile; fileRef = E7455A932683AA900075C1A9 /* oldWaterDrop(newColor).json */; };
@@ -20,7 +22,7 @@
 		E7A19BA126800BD9003E354E /* newWaterdrop.json in Resources */ = {isa = PBXBuildFile; fileRef = E7A19BA026800BD9003E354E /* newWaterdrop.json */; };
 		E7A19BA326800CB9003E354E /* newWave.json in Resources */ = {isa = PBXBuildFile; fileRef = E7A19BA226800CB9003E354E /* newWave.json */; };
 		E7A5DA1B27D093DA00C151B9 /* 1x1-00000000.png in Resources */ = {isa = PBXBuildFile; fileRef = E7A5DA1A27D093DA00C151B9 /* 1x1-00000000.png */; };
-		E7F9822127D731C1003AC5AC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F9822027D731C1003AC5AC /* SettingsViewController.swift */; };
+		E7F9822127D731C1003AC5AC /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F9822027D731C1003AC5AC /* InfoViewController.swift */; };
 		EA0E4BD9EA7120B26A87D044 /* Pods_wat_r.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D094E509F8A78CDE62164D84 /* Pods_wat_r.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +30,7 @@
 		19D35A3C1127F253A06A04B0 /* Pods_wat_rTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wat_rTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2063DA373D5DC02BB534CFE5 /* Pods-wat_r-wat_rUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wat_r-wat_rUITests.debug.xcconfig"; path = "Target Support Files/Pods-wat_r-wat_rUITests/Pods-wat_r-wat_rUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		403ED9CD25E3755800422DFC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		40946D63266C80CB00E44B06 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		40946D63266C80CB00E44B06 /* StorageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageViewController.swift; sourceTree = "<group>"; };
 		50F70F4244D92CC5F69DD6E6 /* Pods-wat_r.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wat_r.release.xcconfig"; path = "Target Support Files/Pods-wat_r/Pods-wat_r.release.xcconfig"; sourceTree = "<group>"; };
 		577ABBA5A4D4B7DDB5C40AAC /* Pods-wat_r.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wat_r.debug.xcconfig"; path = "Target Support Files/Pods-wat_r/Pods-wat_r.debug.xcconfig"; sourceTree = "<group>"; };
 		5CB5EB3CE29F0794462C8032 /* Pods-wat_rTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wat_rTests.debug.xcconfig"; path = "Target Support Files/Pods-wat_rTests/Pods-wat_rTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		875BA4EE13043436C02764E1 /* Pods_wat_r_wat_rUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wat_r_wat_rUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5944601B461011E01AC0F47 /* Pods-wat_rTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wat_rTests.release.xcconfig"; path = "Target Support Files/Pods-wat_rTests/Pods-wat_rTests.release.xcconfig"; sourceTree = "<group>"; };
 		D094E509F8A78CDE62164D84 /* Pods_wat_r.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wat_r.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E716B5FC27D86892005F2881 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E716B5FE27D8788B005F2881 /* DonationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationViewController.swift; sourceTree = "<group>"; };
 		E72623EA25B560FD00BDEACF /* falling-drop-of-water.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "falling-drop-of-water.json"; sourceTree = "<group>"; };
 		E72F5B42267E945200BFE14B /* storage_water.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = storage_water.json; sourceTree = "<group>"; };
 		E7455A932683AA900075C1A9 /* oldWaterDrop(newColor).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "oldWaterDrop(newColor).json"; sourceTree = "<group>"; };
@@ -49,7 +53,7 @@
 		E7A19BA026800BD9003E354E /* newWaterdrop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newWaterdrop.json; sourceTree = "<group>"; };
 		E7A19BA226800CB9003E354E /* newWave.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newWave.json; sourceTree = "<group>"; };
 		E7A5DA1A27D093DA00C151B9 /* 1x1-00000000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1x1-00000000.png"; sourceTree = "<group>"; };
-		E7F9822027D731C1003AC5AC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E7F9822027D731C1003AC5AC /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +111,10 @@
 				403ED9CD25E3755800422DFC /* ContentView.swift */,
 				E75C750125AEDB1B00071F18 /* SceneDelegate.swift */,
 				E75C74CF25AED25500071F18 /* StopwatchModeViewController.swift */,
-				40946D63266C80CB00E44B06 /* ShopViewController.swift */,
-				E7F9822027D731C1003AC5AC /* SettingsViewController.swift */,
+				40946D63266C80CB00E44B06 /* StorageViewController.swift */,
+				E7F9822027D731C1003AC5AC /* InfoViewController.swift */,
+				E716B5FC27D86892005F2881 /* SettingsViewController.swift */,
+				E716B5FE27D8788B005F2881 /* DonationViewController.swift */,
 				E75C74D125AED25500071F18 /* Main.storyboard */,
 				E7A5DA1A27D093DA00C151B9 /* 1x1-00000000.png */,
 				E75C74D425AED25500071F18 /* Assets.xcassets */,
@@ -248,10 +254,12 @@
 			files = (
 				E75C74D025AED25500071F18 /* StopwatchModeViewController.swift in Sources */,
 				403ED9CE25E3755800422DFC /* ContentView.swift in Sources */,
-				40946D64266C80CB00E44B06 /* ShopViewController.swift in Sources */,
+				E716B5FF27D8788B005F2881 /* DonationViewController.swift in Sources */,
+				E716B5FD27D86892005F2881 /* SettingsViewController.swift in Sources */,
+				40946D64266C80CB00E44B06 /* StorageViewController.swift in Sources */,
 				E75C74CC25AED25500071F18 /* AppDelegate.swift in Sources */,
 				E75C750225AEDB1B00071F18 /* SceneDelegate.swift in Sources */,
-				E7F9822127D731C1003AC5AC /* SettingsViewController.swift in Sources */,
+				E7F9822127D731C1003AC5AC /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
