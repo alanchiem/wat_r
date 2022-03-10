@@ -20,6 +20,8 @@ class InfoViewController: UIViewController, UITextViewDelegate {
         let text = defaults.object(forKey: "futureText")
         
         futureTextView.text = text as? String
+        futureTextView.layer.borderWidth = 0.5
+        futureTextView.layer.borderColor = UIColor(named: "Text")?.cgColor
         
     }
     
@@ -37,7 +39,7 @@ class InfoViewController: UIViewController, UITextViewDelegate {
         numCharLabel.textColor = UIColor(named: "Background")
         let defaults = UserDefaults.standard
         if (futureTextView.text.count == 0) {
-            let text = "To Future Me:"
+            let text = "To Future Self:"
             defaults.set(text, forKey: "futureText")
 
         } else {

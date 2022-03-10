@@ -53,11 +53,18 @@ class StopwatchModeViewController: UIViewController {
             twoTap.numberOfTapsRequired = 2
             view.addGestureRecognizer(twoTap)
 
+        
+        let defaults = UserDefaults.standard
+        defaults.set(UIScreen.main.brightness, forKey: "ogBrightness")
     }
     
     
     // Start / Pause
     @objc func singleTap() {
+        let defaults = UserDefaults.standard
+        let ogBright = defaults.float(forKey: "ogBrightness")
+        UIScreen.main.brightness = CGFloat(ogBright)
+        
         if (paused == true) {
 
             
@@ -136,6 +143,13 @@ class StopwatchModeViewController: UIViewController {
         counter += 1
         let time = convertToHourMinSecond(seconds: counter)
         TimerLabel.text = getStringOfTime(hours: time.0, minutes: time.1, seconds: time.2)
+        
+        // battery saving mode
+        let defaults = UserDefaults.standard
+        let battBool = defaults.bool(forKey: "batteryBool")
+        if (counter > 3 && battBool) {
+            UIScreen.main.brightness = CGFloat(0.0)
+        }
     }
     
     // converts numbers of seconds to "hour : min : second" format
