@@ -100,6 +100,7 @@ class StorageViewController: UIViewController {
         }
         if (index == 1) {
             button.setTitle(StatsLabel.text, for: .normal)
+            defaults.set(StatsLabel.text, forKey: "timeConversion")
         }
         if (index == 2) {
             let money = Float(drops) / 100

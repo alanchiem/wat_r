@@ -12,6 +12,11 @@ class InfoViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var numCharLabel: UILabel!
     @IBOutlet weak var futureTextView: UITextView!
 
+    @IBOutlet weak var totalTimeLabel: UILabel!
+    
+    @IBOutlet weak var totalDropsLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +28,12 @@ class InfoViewController: UIViewController, UITextViewDelegate {
         futureTextView.layer.borderWidth = 0.3
         futureTextView.layer.borderColor = UIColor(named: "Text")?.cgColor
         
+        
+        let time = defaults.object(forKey: "timeConversion")
+        totalTimeLabel.text = time as? String
+        
+        let drops = defaults.integer(forKey: "drops")
+        totalDropsLabel.text = String(drops)
     }
     
     
