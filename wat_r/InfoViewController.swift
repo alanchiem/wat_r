@@ -20,7 +20,7 @@ class InfoViewController: UIViewController, UITextViewDelegate {
         let text = defaults.object(forKey: "futureText")
         
         futureTextView.text = text as? String
-        futureTextView.layer.borderWidth = 0.5
+        futureTextView.layer.borderWidth = 0.3
         futureTextView.layer.borderColor = UIColor(named: "Text")?.cgColor
         
     }

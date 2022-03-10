@@ -56,24 +56,54 @@ class StorageViewController: UIViewController {
     
     // Drops | Time Button (Functionality), would be visible
     // Allows for the user to switch from displaying drop to displaying time by just tapping
+    let conversions = ["drops", "time", "money"]
+    
+    
+    
     let button = UIButton(frame: CGRect(x: 100, y: 200, width: 250, height: 40))
-    var showingDrops = true
-    var showingTime = false
+
     
     // when button is tapped
     @objc func buttonAction(sender: UIButton!) {
-        if (showingDrops) {
-            showingDrops = false
-            showingTime = true
+        let defaults = UserDefaults.standard
+        let monBool = defaults.bool(forKey: "moneyBool")
+        
+        let index = defaults.integer(forKey: "conversionIndex")
+        
+        if (index == 0) {
+            defaults.set(index + 1, forKey: "conversionIndex")
+            displayCorrectConversion()
+        }
+        else if (index == 1) {
+            if (monBool) {
+                defaults.set(index + 1, forKey: "conversionIndex")
+                displayCorrectConversion()
+            }
+            else {
+                defaults.set(index - 1, forKey: "conversionIndex")
+                displayCorrectConversion()
+            }
+        }
+        else if (index == 2) {
+            defaults.set(0, forKey: "conversionIndex")
+            displayCorrectConversion()
+        }
+    }
+    
+    func displayCorrectConversion() {
+        let defaults = UserDefaults.standard
+        let index = defaults.integer(forKey: "conversionIndex")
+        let drops = defaults.integer(forKey: "drops")
+        
+        if (index == 0) {
+            button.setTitle(String(drops), for: .normal)
+        }
+        if (index == 1) {
             button.setTitle(StatsLabel.text, for: .normal)
         }
-        else if (showingTime) {
-            showingTime = false
-            showingDrops = true
-            let defaults = UserDefaults.standard
-            let newDrops = defaults.integer(forKey: "drops")
-            button.setTitle(String(newDrops), for: .normal)
-            
+        if (index == 2) {
+            let money = Float(drops) / 100
+            button.setTitle("$" + String(money), for: .normal)
         }
     }
     
@@ -143,20 +173,25 @@ class StorageViewController: UIViewController {
                 button.setTitleColor(.lightGray, for: .normal)
                 button.setTitleColor(.white, for: .highlighted)
             }
-            
-            
-            }
-            
-            // Text
-            button.setTitle(String(drops), for: .normal)
-            button.titleLabel!.font = UIFont(name: "AppleSDGothicNeo-Thin" , size: 25)
-            
-            // Action
-            button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-            // Positioning
-            button.center = self.view.center
-            
-            view.addSubview(button)
+        }
+        
+        // if hidden is on
+        let storageBool = defaults.bool(forKey: "hideStorageBool")
+        if (storageBool) {
+            button.setTitleColor(.clear, for: .normal)
+            button.setTitleColor(.clear, for: .highlighted)
+        }
+        
+        // Text
+        displayCorrectConversion()
+        button.titleLabel!.font = UIFont(name: "AppleSDGothicNeo-Thin" , size: 25)
+        
+        // Action
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        // Positioning
+        button.center = self.view.center
+        
+        view.addSubview(button)
         
     }
     
@@ -204,11 +239,7 @@ class StorageViewController: UIViewController {
     
     // Reset Button
     @IBAction func ResetAction(sender: AnyObject) {
-        let defaults = UserDefaults.standard
-        defaults.set(0, forKey: "drops")
-        
-        TotalDropsLabel.text = String(0)
-        button.setTitle("0", for: .normal)
+
     }
     
 }
