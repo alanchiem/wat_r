@@ -10,211 +10,238 @@ import Foundation
 import Lottie
 
 class StorageViewController: UIViewController {
-    // Labels
+    // Hides Time, Wifi, Battery
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    // Shows Drops, would be hidden but is used for debugging
     @IBOutlet var TotalDropsLabel: UILabel!
-    
-    @IBOutlet weak var MeasurementLabel: UILabel!
-    
-    @IBOutlet weak var fullLabel: UILabel!
-    @IBOutlet weak var threeFourthsLabel: UILabel!
-    @IBOutlet weak var halfLabel: UILabel!
-    @IBOutlet weak var quarterLabel: UILabel!
+
+    // Shows Time, would be hidden but is used for debugging
+    @IBOutlet weak var StatsLabel: UILabel!
     
     // Reset Button: resets total drops accumulated
     @IBOutlet var Reset: UIButton!
     
-    @IBOutlet weak var waterRectangle: UIImageView!
+    var containerSize = 450
     
-    // Score labels
-    var TotalDrops = 0
+    func updateContainerSize() {
+        let defaults = UserDefaults.standard
+        let drops = defaults.integer(forKey: "drops")
+        
+        while (containerSize < drops) {
+            containerSize = containerSize * 2
+        }
+        
+        defaults.set(containerSize, forKey: "containerSizeName")
+    }
     
-    // container
-    var measurementInt = 2000
+    func updateWaterPos() {
+        let defaults = UserDefaults.standard
+        let drops = defaults.integer(forKey: "drops")
+        
+        // 18,000 drops is 10 hours
+        updateContainerSize()
+        let waterRatio = Float(drops) / Float(containerSize)
+        // opposite because newWave animation is upside down
+        let oppositeRatio = 1 - waterRatio
+        let bot = Int(self.view.frame.maxY) - 55
+        let top = Int(self.view.frame.minY) - 87
+        let yPos = Float(bot - top) * oppositeRatio
+        // Int(yPos) - 87
+        animationView!.center = CGPoint(x: Int(self.view.frame.maxX) / 2, y: Int(yPos) - 87)
+        
+        // prevents from covering up drops/time label
+        self.view.sendSubviewToBack(animationView!)
+        
+        // water rectangle
+        var waterRectangle: UIView!
+        let rectBot = Int(self.view.frame.maxY) - 1
+        let rectYPos = oppositeRatio * Float(rectBot) + 50.0
+        waterRectangle = UIView(frame: CGRect(x: 0, y: Int(rectYPos), width: Int(self.view.frame.maxX), height: Int(self.view.frame.maxY)))
+        // pocari sweat color
+        waterRectangle.backgroundColor = UIColor(named: "color")
+        view.addSubview(waterRectangle)
+        self.view.sendSubviewToBack(waterRectangle)
+    }
+    
+    // Drops | Time Button (Functionality), would be visible
+    // Allows for the user to switch from displaying drop to displaying time by just tapping
+    let conversions = ["drops", "time", "money"]
+    
+    
+    
+    let button = UIButton(frame: CGRect(x: 100, y: 200, width: 250, height: 40))
 
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateAnimation()
-    }
-    
-    // Changes the MeasurementLabel based on # of TotalDrops
-    func updateMeasurement () {
-//        if (TotalDrops < 296) {
-//            MeasurementLabel.text = "1TBSP"
-//            measurementInt = 296
-//        }
-//
-//        else if (TotalDrops >= 296 && TotalDrops < 567) {
-//            MeasurementLabel.text = "OUNCE"
-//            measurementInt = 567
-//        }
-//
-//
-//        else if (TotalDrops >= 567 && TotalDrops < 4732) {
-//            MeasurementLabel.text = "1 CUP"
-//            measurementInt = 4732
-//        }
-//
-//        else if (TotalDrops >= 4732 && TotalDrops < 6804) {
-//            MeasurementLabel.text = "12 OUNCES"
-//            measurementInt = 6804
-//        }
-//
-//        else if (TotalDrops >= 6804 && TotalDrops < 10206) {
-//            MeasurementLabel.text = "18 OUNCES"
-//            measurementInt = 10206
-//        }
-//
-//        else if (TotalDrops >= 10206 && TotalDrops < 11340) {
-//            MeasurementLabel.text = "20 OUNCES"
-//            measurementInt = 11340
-//        }
-//
-//        else if (TotalDrops >= 11340 && TotalDrops < 11970) {
-//            MeasurementLabel.text = "21 OUNCES"
-//            measurementInt = 11970
-//        }
-    }
-    
-    func updateAnimation() {
-        //Water Ratio is adjusted to account for spacing
-        let currentWater = TotalDrops % 2000
-        let waterRatio = Float(currentWater) / Float(measurementInt)
-        //FOR TROUBLESSHOOTING
-        //let waterRatio = Float(1)
-        let waterRatioAdjusted = waterRatio * Float(0.7)
-        let screenHeight: CGFloat = UIScreen.main.bounds.height
-        //FOR TROUBLESHOOTING
-        print("Water Ratio: " + String(waterRatio))
-        print("Water Ratio Adjusted: " + String(waterRatioAdjusted))
-        print(screenHeight)
+    // when button is tapped
+    @objc func buttonAction(sender: UIButton!) {
+        let defaults = UserDefaults.standard
+        let monBool = defaults.bool(forKey: "moneyBool")
         
-        let yValue = Float(screenHeight) - waterRatioAdjusted * Float(screenHeight) - 145
-        print(yValue)
-        animationView!.center = CGPoint(x: 208, y: Int(yValue))
-        waterRectangle.center = CGPoint(x: 208, y: Int(yValue) + 500)
+        let index = defaults.integer(forKey: "conversionIndex")
         
-        // Create ColorValueProvider using Lottie's Color class
-        var waveColor = Color(r: (66/255), g: (130/255), b: (174/255), a: 1)
-        
-        if UITraitCollection.current.userInterfaceStyle == .dark {
-                print("Dark mode")
-                waveColor = Color(r: (27/255), g: (83/255), b: (132/255), a: 1)
+        if (index == 0) {
+            defaults.set(index + 1, forKey: "conversionIndex")
+            displayCorrectConversion()
+        }
+        else if (index == 1) {
+            if (monBool) {
+                defaults.set(index + 1, forKey: "conversionIndex")
+                displayCorrectConversion()
             }
             else {
-                print("Light mode")
-                
+                defaults.set(index - 1, forKey: "conversionIndex")
+                displayCorrectConversion()
             }
+        }
+        else if (index == 2) {
+            defaults.set(0, forKey: "conversionIndex")
+            displayCorrectConversion()
+        }
+    }
+    
+    func displayCorrectConversion() {
+        let defaults = UserDefaults.standard
+        let index = defaults.integer(forKey: "conversionIndex")
+        let drops = defaults.integer(forKey: "drops")
         
-        let waveColorValueProvider = ColorValueProvider(waveColor)
-
-        // Set color value provider to animation view
-        let keyPath = AnimationKeypath(keypath: "**.Color")
-        animationView!.setValueProvider(waveColorValueProvider, keypath: keyPath)
+        if (index == 0) {
+            button.setTitle(String(drops), for: .normal)
+        }
+        if (index == 1) {
+            button.setTitle(StatsLabel.text, for: .normal)
+            defaults.set(StatsLabel.text, forKey: "timeConversion")
+        }
+        if (index == 2) {
+            let money = Float(drops) / 100
+            button.setTitle("$" + String(money), for: .normal)
+        }
     }
     
     // 1. Create the AnimationView
     private var animationView: AnimationView?
     
-    
-    // When code launches
-    // The high score label should be the last saved High Score from previous use
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // set up exchange data for stopwatch
-        NotificationCenter.default.addObserver(self, selector: #selector(notificationForStopwatch(_:)), name: Notification.Name("text"), object: nil)
-        let DropDefault = UserDefaults.standard
-        if (DropDefault.value(forKey: "TotalDrops") != nil) {
-            TotalDrops = DropDefault.value(forKey: "TotalDrops") as! NSInteger
-            TotalDropsLabel.text = String(TotalDrops)
-        }
-        
-        // set up exchange data for timer
-        NotificationCenter.default.addObserver(self, selector: #selector(notificationForTimer(_:)), name: Notification.Name("timer"), object: nil)
-        
+    func animationFunction() {
         // 2. Start AnimationView with animation name (without extension)
         animationView = .init(name: "newWave")
-        animationView!.frame = CGRect(x: 0, y: 0, width: 420, height: 420)
-        animationView!.center = CGPoint(x: 208, y: 660)
+        animationView!.frame = CGRect(x: 0, y: 0, width: self.view.frame.width + 15, height: self.view.frame.maxX + 2)
         
         
+        updateWaterPos()
+   
         
         // 3. Set animation content mode
-        animationView!.contentMode = .scaleAspectFit
+        animationView!.contentMode = .scaleAspectFill
         animationView!.transform = CGAffineTransform(rotationAngle: .pi)
-        
-        updateMeasurement()
-        updateAnimation()
         
         // 4. Set animation loop mode
         animationView!.loopMode = .loop
         
         // 5. Adjust animation speed
-        animationView!.animationSpeed = 0.5
+        animationView!.animationSpeed = 0.7
         view.addSubview(animationView!)
         
-        // 6. Play animation
+        // 6. Create ColorValueProvider using Lottie's Color class
+//        var waveColor = Color(r: (66/255), g: (130/255), b: (174/255), a: 1)
+        
+//        if UITraitCollection.current.userInterfaceStyle == .dark {
+//                waveColor = Color(r: (27/255), g: (83/255), b: (132/255), a: 1)
+//            }
+//            else {
+//
+//            }
+        let waveColor = Color(r: (27/255), g: (83/255), b: (132/255), a: 1)
+        let waveColorValueProvider = ColorValueProvider(waveColor)
+
+        // Set color value provider to animation view
+        let keyPath = AnimationKeypath(keypath: "**.Color")
+        animationView!.setValueProvider(waveColorValueProvider, keypath: keyPath)
+        
+        // 7. Play animation
         animationView!.play()
         animationView!.backgroundBehavior = .pauseAndRestore
-        
-        updateMeasurement()
-        updateAnimation()
-        
-        view.bringSubviewToFront(Reset)
-        view.bringSubviewToFront(halfLabel)
-        view.bringSubviewToFront(quarterLabel)
-        view.bringSubviewToFront(threeFourthsLabel)
-        view.bringSubviewToFront(fullLabel)
-        view.bringSubviewToFront(MeasurementLabel)
     }
-    
-    // notification thing for the stopwatch
-    @objc func notificationForStopwatch(_ notification: Notification) {
-        let text = notification.object as! String?
-        TotalDropsLabel.text = String(Int(text!)! + TotalDrops)
-        TotalDrops = Int(TotalDropsLabel.text!)!
-        
 
     
-        let DropDefault = UserDefaults.standard
-        DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
-        DropDefault.synchronize()
-        TotalDropsLabel.text = String(TotalDrops)
+    // Happens everytime view appears
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dropToTime()
+        updateWaterPos()
         
-        updateMeasurement()
-        updateAnimation()
         
-        view.bringSubviewToFront(Reset)
-        view.bringSubviewToFront(halfLabel)
-        view.bringSubviewToFront(quarterLabel)
-        view.bringSubviewToFront(threeFourthsLabel)
-        view.bringSubviewToFront(fullLabel)
-        view.bringSubviewToFront(MeasurementLabel)
+        // Drops | Time Button (Atrributes), would be visible
+        let defaults = UserDefaults.standard
+        let drops = defaults.integer(forKey: "drops")
+        if (drops > 0) {
+            // Button Color
+            button.backgroundColor = .clear
+            if UITraitCollection.current.userInterfaceStyle == .dark {
+                button.setTitleColor(.white, for: .normal)
+                button.setTitleColor(.lightGray, for: .highlighted)
+            }
+            else {
+                button.setTitleColor(.lightGray, for: .normal)
+                button.setTitleColor(.white, for: .highlighted)
+            }
+        }
+        
+        // if hidden is on
+        let storageBool = defaults.bool(forKey: "hideStorageBool")
+        if (storageBool) {
+            button.setTitleColor(.clear, for: .normal)
+            button.setTitleColor(.clear, for: .highlighted)
+        }
+        
+        // Text
+        displayCorrectConversion()
+        button.titleLabel!.font = UIFont(name: "AppleSDGothicNeo-Thin" , size: 25)
+        
+        // Action
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        // Positioning
+        button.center = self.view.center
+        
+        view.addSubview(button)
+        
     }
     
-    // add notification thing for the timer
-    @objc func notificationForTimer(_ notification: Notification) {
-        let text = notification.object as! String?
-        TotalDropsLabel.text = String(Int(text!)! + TotalDrops)
-        TotalDrops = Int(TotalDropsLabel.text!)!
-       
-        let DropDefault = UserDefaults.standard
-        DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
-        DropDefault.synchronize()
-        TotalDropsLabel.text = String(TotalDrops)
+    // Transgerred Data using Segue
+    var transferredDrops = 0
+    
+    // When code launches Only happens once
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        updateMeasurement()
+        let defaults = UserDefaults.standard
+        let drops = defaults.integer(forKey: "drops")
+        defaults.set(drops + transferredDrops, forKey: "drops")
+        let newDrops = defaults.integer(forKey: "drops")
         
-        updateAnimation()
+        TotalDropsLabel.text = String(newDrops)
+        
+        animationFunction()
+        updateWaterPos()
+        }
 
-        
-        view.bringSubviewToFront(Reset)
-        view.bringSubviewToFront(halfLabel)
-        view.bringSubviewToFront(quarterLabel)
-        view.bringSubviewToFront(threeFourthsLabel)
-        view.bringSubviewToFront(fullLabel)
-        view.bringSubviewToFront(MeasurementLabel)
+    
+    // convert Total Drops to time
+    func dropToTime() {
+        let defaults = UserDefaults.standard
+        let drops = defaults.integer(forKey: "drops")
+        var n = drops * 2
+        let days = n / (24 * 3600)
+     
+        n = n % (24 * 3600)
+        let hours = n / 3600
+     
+        n %= 3600
+        let minutes = n / 60
+     
+        n %= 60
+        let seconds = n
+        StatsLabel.text = String(days) + "d " + String(hours) + "h " + String(minutes) + "m " + String(seconds) + "s"
     }
     
     // override "didReceiveMemoryWarning" function
@@ -224,13 +251,7 @@ class StorageViewController: UIViewController {
     
     // Reset Button
     @IBAction func ResetAction(sender: AnyObject) {
-        TotalDrops = 1999
-        let DropDefault = UserDefaults.standard
-        DropDefault.setValue(TotalDrops, forKey: "TotalDrops")
-        DropDefault.synchronize()
-        TotalDropsLabel.text = String(TotalDrops)
-        
-        updateMeasurement()
-        updateAnimation()
+
     }
+    
 }

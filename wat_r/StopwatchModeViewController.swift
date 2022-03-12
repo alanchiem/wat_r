@@ -9,20 +9,42 @@
 import UIKit
 import Foundation
 import Lottie
+import SwiftUI
+import AVKit
 
+class SoundManager {
+    static let instance = SoundManager()
+    
+    var player: AVAudioPlayer?
+    
+    func playSound() {
+        
+        guard let url = Bundle.main.url(forResource: "bell", withExtension: ".mp3") else { return}
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
+        }
+        catch let error{
+            print("Error playing sound. \(error.localizedDescription)")
+        }
+    }
+    
+    
+}
 class StopwatchModeViewController: UIViewController {
+    // Hides Time, Wifi, Battery
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     // Labels
     @IBOutlet weak var DropsLabel: UILabel! // displays number of droplets
     @IBOutlet weak var TimerLabel: UILabel! // displays time
     
-    // Buttons
-    @IBOutlet var PauseButton: UIButton!
-    @IBOutlet var StartButton: UIButton!
-    
     // For the water droplets counter
     var droplets = Timer()
     var dropsDisplayed = 0
-    var timerActivated = false
     var paused = true
     
     // For the stopwatch timer
@@ -32,99 +54,119 @@ class StopwatchModeViewController: UIViewController {
     // Animation
     let animationView = AnimationView()
     
+    // Logic
+    var ifDoubleTapped = false
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let defaults = UserDefaults.standard
+        defaults.set(UIScreen.main.brightness, forKey: "ogBrightness")
+    }
+    
     // when the app launches
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Prevents Phone from sleeping
+        UIApplication.shared.isIdleTimerDisabled = true
+
         // Animation cont
         setupAnimation()
         animationView.pause()
-        StartButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
-        PauseButton.setTitleColor(UIColor.cyan, for: UIControl.State.normal)
+        
+        let oneTap = UITapGestureRecognizer(target: self, action: #selector(singleTap))
+            oneTap.numberOfTapsRequired = 1
+            view.addGestureRecognizer(oneTap)
+        
+        let twoTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+            twoTap.numberOfTapsRequired = 2
+            view.addGestureRecognizer(twoTap)
+
+
     }
     
-    // Start button, starts the timer
-    @IBAction func StartBTN(_ sender: Any) {
-        if (timerActivated == false) {
-            // increment water droplets by 2
-            droplets = Timer.scheduledTimer(timeInterval: 2,
-                                            target: self,
-                                            selector: #selector(Action),
-                                            userInfo: nil,
-                                            repeats: true)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let defaults = UserDefaults.standard
+        let ogBright = defaults.float(forKey: "ogBrightness")
+        UIScreen.main.brightness = CGFloat(ogBright)
+       }
+    
+    // Start / Pause
+    @objc func singleTap() {
+        if (paused == true) {
+
             
-            // increment stopwatch by 1
-            stopWatch = Timer.scheduledTimer(timeInterval: 1,
-                                             target: self,
-                                             selector: #selector(timerCounter),
-                                             userInfo: nil,
-                                             repeats: true)
+        // increment water droplets by 2
+        droplets = Timer.scheduledTimer(timeInterval: 2,
+                                        target: self,
+                                        selector: #selector(Action),
+                                        userInfo: nil,
+                                        repeats: true)
+        
+        // increment stopwatch by 1
+        stopWatch = Timer.scheduledTimer(timeInterval: 1,
+                                         target: self,
+                                         selector: #selector(timerCounter),
+                                         userInfo: nil,
+                                         repeats: true)
+        
+        // play animation
+        animationView.play()
             
-            // timer is activated, timer is NOT paused
-            timerActivated = true
-            paused = false
-            StartButton.setTitle("Reset", for: UIControl.State.normal)
-            StartButton.setTitleColor(UIColor.red, for: UIControl.State.normal)
+        // Timer is NOT paused
+        paused = false
         }
         
-        // when timer is already activated, just reset 
-        else if (timerActivated == true)
-        {
-            droplets.invalidate()
-            paused = true
-            timerActivated = false
-            
-            NotificationCenter.default.post(name: Notification.Name("text"), object: DropsLabel.text)
-            
-            dropsDisplayed = 0
-            DropsLabel.text = "0"
-            
-            stopWatch.invalidate()
-            counter = 0
-            TimerLabel.text = "00 : 00 : 00"
-            
-            setupAnimation()
-            animationView.pause()
-            PauseButton.setTitle("Pause", for: UIControl.State.normal)
-            PauseButton.setTitleColor(UIColor.cyan, for: UIControl.State.normal)
-            StartButton.setTitle("Start", for: UIControl.State.normal)
-            StartButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
-        }
-    }
-    
-    
-    // Pause button, stops the timer
-    @IBAction func PauseBTN(_ sender: Any) {
         // if stopwatch is in play
-        if (paused == false) {
+        else if (paused == false) {
             droplets.invalidate()
             stopWatch.invalidate()
             animationView.pause()
             paused = true
-            timerActivated = true
-            PauseButton.setTitle("Play", for: UIControl.State.normal)
-            PauseButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
         }
+    }
+    
+
+    // Using Segue to pass data (name of segue: "dropsSegue")
+    var earnedDrops = 0
+    
+    // Reset
+    @objc func doubleTapped() {
+        // updates Todays Drops in infoViewController
+        let defaults = UserDefaults.standard
+        let todaysDrops = defaults.integer(forKey: "todaysDrops")
+        defaults.set(todaysDrops + dropsDisplayed, forKey: "todaysDrops")
         
-        // if the stopwatch is currently paused and timer has been activated
-        else if (paused == true && timerActivated == true) {
-            // for the drops
-            droplets = Timer.scheduledTimer(timeInterval: 2,
-                                            target: self,
-                                            selector: #selector(Action),
-                                            userInfo: nil,
-                                            repeats: true)
-            
-            // for the time
-            stopWatch = Timer.scheduledTimer(timeInterval: 1,
-                                             target: self,
-                                             selector: #selector(timerCounter),
-                                             userInfo: nil,
-                                             repeats: true)
-            
-            animationView.play() // play animation
-            paused = false // timer isn't paused
-            PauseButton.setTitle("Pause", for: UIControl.State.normal)
-            PauseButton.setTitleColor(UIColor.cyan, for: UIControl.State.normal)
+        // updates Storage
+        self.earnedDrops = dropsDisplayed
+        
+        ifDoubleTapped = true
+        performSegue(withIdentifier: "dropsSegue", sender: self)
+        ifDoubleTapped = false
+        
+        droplets.invalidate()
+        dropsDisplayed = 0
+        DropsLabel.text = "0"
+        
+        stopWatch.invalidate()
+        counter = 0
+        TimerLabel.text = "00 : 00 : 00"
+        
+        setupAnimation()
+        animationView.pause()
+        paused = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (ifDoubleTapped) {
+            let vc = segue.destination as! StorageViewController
+            vc.transferredDrops = self.earnedDrops
+        }
+        // if stopwatch is in play
+        else if (paused == false) {
+            droplets.invalidate()
+            stopWatch.invalidate()
+            animationView.pause()
+            paused = true
+
         }
     }
     
@@ -133,6 +175,24 @@ class StopwatchModeViewController: UIViewController {
         dropsDisplayed += 1
         setupAnimation()
         DropsLabel.text = String(dropsDisplayed)
+        
+        let defaults = UserDefaults.standard
+        // if drops != 0 AND drops mod (bellMin * 30) == 0, then play sound
+        let bellBool = defaults.bool(forKey: "bellSoundBool")
+        let bellMin = defaults.integer(forKey: "bellMinInput")
+        if (bellBool && bellMin != 0) {
+            let intervalReached = dropsDisplayed % (bellMin * 30)
+            if (dropsDisplayed != 0 && intervalReached == 0) {
+                // Allows for sound even when phone on silent
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(.playback)
+                } catch(let error) {
+                    print(error.localizedDescription)
+                }
+                // plays sound
+                SoundManager.instance.playSound()
+            }
+        }
     }
     
     // increments the stopwatch displayed
@@ -140,6 +200,16 @@ class StopwatchModeViewController: UIViewController {
         counter += 1
         let time = convertToHourMinSecond(seconds: counter)
         TimerLabel.text = getStringOfTime(hours: time.0, minutes: time.1, seconds: time.2)
+        
+        // battery saving mode
+        let defaults = UserDefaults.standard
+        let battBool = defaults.bool(forKey: "batteryBool")
+        if (counter > 3 && battBool) {
+            UIScreen.main.brightness = CGFloat(0.0)
+        }
+        
+ 
+
     }
     
     // converts numbers of seconds to "hour : min : second" format
@@ -170,14 +240,17 @@ class StopwatchModeViewController: UIViewController {
         animationView.center = CGPoint(x: xValue, y: yValue)
         
         //Changing Color of the droplet
+        // og color pocari sweat
+//        var dropColor = Color(r: (66/255), g: (130/255), b: (174/255), a: 1)
+//
+//        if UITraitCollection.current.userInterfaceStyle == .dark {
+//            // og pocari sweat
+//                dropColor = Color(r: (27/255), g: (83/255), b: (132/255), a: 1)
+//            }
+//            else {
+//            }
         var dropColor = Color(r: (66/255), g: (130/255), b: (174/255), a: 1)
-        
-        if UITraitCollection.current.userInterfaceStyle == .dark {
-                dropColor = Color(r: (27/255), g: (83/255), b: (132/255), a: 1)
-            }
-            else {
-            }
-        
+        dropColor = Color(r: (27/255), g: (83/255), b: (132/255), a: 1)
         let waveColorValueProvider = ColorValueProvider(dropColor)
 
         // Set color value provider to animation view
@@ -188,8 +261,5 @@ class StopwatchModeViewController: UIViewController {
         animationView.loopMode = .loop
         animationView.play()
         view.addSubview(animationView)
-        view.bringSubviewToFront(PauseButton)
-        view.bringSubviewToFront(StartButton)
-
     }
 }
