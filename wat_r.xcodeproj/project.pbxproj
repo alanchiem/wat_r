@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		403ED9CE25E3755800422DFC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403ED9CD25E3755800422DFC /* ContentView.swift */; };
 		40946D64266C80CB00E44B06 /* StorageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40946D63266C80CB00E44B06 /* StorageViewController.swift */; };
+		E709109327DBC9CF0033F9EE /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E709109227DBC9CF0033F9EE /* bell.mp3 */; };
+		E709109527DBF4F70033F9EE /* darkEasterEgg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E709109427DBF4F70033F9EE /* darkEasterEgg.jpg */; };
+		E709109727DBF4FF0033F9EE /* lightEasterEgg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E709109627DBF4FF0033F9EE /* lightEasterEgg.jpg */; };
+		E709109927DBF54D0033F9EE /* EasterEggViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E709109827DBF54D0033F9EE /* EasterEggViewController.swift */; };
 		E716B5FD27D86892005F2881 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E716B5FC27D86892005F2881 /* SettingsViewController.swift */; };
 		E716B5FF27D8788B005F2881 /* DonationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E716B5FE27D8788B005F2881 /* DonationViewController.swift */; };
 		E72623EB25B560FD00BDEACF /* falling-drop-of-water.json in Resources */ = {isa = PBXBuildFile; fileRef = E72623EA25B560FD00BDEACF /* falling-drop-of-water.json */; };
@@ -38,6 +42,10 @@
 		875BA4EE13043436C02764E1 /* Pods_wat_r_wat_rUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wat_r_wat_rUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5944601B461011E01AC0F47 /* Pods-wat_rTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wat_rTests.release.xcconfig"; path = "Target Support Files/Pods-wat_rTests/Pods-wat_rTests.release.xcconfig"; sourceTree = "<group>"; };
 		D094E509F8A78CDE62164D84 /* Pods_wat_r.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wat_r.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E709109227DBC9CF0033F9EE /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
+		E709109427DBF4F70033F9EE /* darkEasterEgg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = darkEasterEgg.jpg; sourceTree = "<group>"; };
+		E709109627DBF4FF0033F9EE /* lightEasterEgg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lightEasterEgg.jpg; sourceTree = "<group>"; };
+		E709109827DBF54D0033F9EE /* EasterEggViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEggViewController.swift; sourceTree = "<group>"; };
 		E716B5FC27D86892005F2881 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E716B5FE27D8788B005F2881 /* DonationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationViewController.swift; sourceTree = "<group>"; };
 		E72623EA25B560FD00BDEACF /* falling-drop-of-water.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "falling-drop-of-water.json"; sourceTree = "<group>"; };
@@ -81,6 +89,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E709109127DBC9AB0033F9EE /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				E709109227DBC9CF0033F9EE /* bell.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		E75C74BF25AED25500071F18 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +123,8 @@
 				E7A19BA026800BD9003E354E /* newWaterdrop.json */,
 				E72F5B42267E945200BFE14B /* storage_water.json */,
 				E7A19BA226800CB9003E354E /* newWave.json */,
+				E709109427DBF4F70033F9EE /* darkEasterEgg.jpg */,
+				E709109627DBF4FF0033F9EE /* lightEasterEgg.jpg */,
 				E75C74CB25AED25500071F18 /* AppDelegate.swift */,
 				403ED9CD25E3755800422DFC /* ContentView.swift */,
 				E75C750125AEDB1B00071F18 /* SceneDelegate.swift */,
@@ -115,6 +133,8 @@
 				E7F9822027D731C1003AC5AC /* InfoViewController.swift */,
 				E716B5FC27D86892005F2881 /* SettingsViewController.swift */,
 				E716B5FE27D8788B005F2881 /* DonationViewController.swift */,
+				E709109827DBF54D0033F9EE /* EasterEggViewController.swift */,
+				E709109127DBC9AB0033F9EE /* Sounds */,
 				E75C74D125AED25500071F18 /* Main.storyboard */,
 				E7A5DA1A27D093DA00C151B9 /* 1x1-00000000.png */,
 				E75C74D425AED25500071F18 /* Assets.xcassets */,
@@ -194,12 +214,15 @@
 			files = (
 				E75C74D525AED25500071F18 /* Assets.xcassets in Resources */,
 				E72F5B43267E945200BFE14B /* storage_water.json in Resources */,
+				E709109327DBC9CF0033F9EE /* bell.mp3 in Resources */,
 				E7A5DA1B27D093DA00C151B9 /* 1x1-00000000.png in Resources */,
 				E7A19BA126800BD9003E354E /* newWaterdrop.json in Resources */,
+				E709109727DBF4FF0033F9EE /* lightEasterEgg.jpg in Resources */,
 				E7455A942683AA900075C1A9 /* oldWaterDrop(newColor).json in Resources */,
 				E75C74D325AED25500071F18 /* Main.storyboard in Resources */,
 				E72623EB25B560FD00BDEACF /* falling-drop-of-water.json in Resources */,
 				E7A19BA326800CB9003E354E /* newWave.json in Resources */,
+				E709109527DBF4F70033F9EE /* darkEasterEgg.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E75C74D025AED25500071F18 /* StopwatchModeViewController.swift in Sources */,
+				E709109927DBF54D0033F9EE /* EasterEggViewController.swift in Sources */,
 				403ED9CE25E3755800422DFC /* ContentView.swift in Sources */,
 				E716B5FF27D8788B005F2881 /* DonationViewController.swift in Sources */,
 				E716B5FD27D86892005F2881 /* SettingsViewController.swift in Sources */,

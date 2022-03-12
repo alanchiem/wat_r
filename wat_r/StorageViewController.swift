@@ -23,15 +23,26 @@ class StorageViewController: UIViewController {
     // Reset Button: resets total drops accumulated
     @IBOutlet var Reset: UIButton!
     
+    var containerSize = 450
     
+    func updateContainerSize() {
+        let defaults = UserDefaults.standard
+        let drops = defaults.integer(forKey: "drops")
+        
+        while (containerSize < drops) {
+            containerSize = containerSize * 2
+        }
+        
+        defaults.set(containerSize, forKey: "containerSizeName")
+    }
     
     func updateWaterPos() {
         let defaults = UserDefaults.standard
         let drops = defaults.integer(forKey: "drops")
         
         // 18,000 drops is 10 hours
-        
-        let waterRatio = Float(drops) / Float(18000)
+        updateContainerSize()
+        let waterRatio = Float(drops) / Float(containerSize)
         // opposite because newWave animation is upside down
         let oppositeRatio = 1 - waterRatio
         let bot = Int(self.view.frame.maxY) - 55
@@ -114,14 +125,14 @@ class StorageViewController: UIViewController {
     func animationFunction() {
         // 2. Start AnimationView with animation name (without extension)
         animationView = .init(name: "newWave")
-        animationView!.frame = CGRect(x: 0, y: 0, width: self.view.frame.maxX + 2, height: self.view.frame.maxX + 2)
+        animationView!.frame = CGRect(x: 0, y: 0, width: self.view.frame.width + 15, height: self.view.frame.maxX + 2)
         
         
         updateWaterPos()
    
         
         // 3. Set animation content mode
-        animationView!.contentMode = .scaleAspectFit
+        animationView!.contentMode = .scaleAspectFill
         animationView!.transform = CGAffineTransform(rotationAngle: .pi)
         
         // 4. Set animation loop mode

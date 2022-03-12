@@ -9,7 +9,29 @@
 import UIKit
 import Foundation
 import Lottie
+import SwiftUI
+import AVKit
 
+class SoundManager {
+    static let instance = SoundManager()
+    
+    var player: AVAudioPlayer?
+    
+    func playSound() {
+        
+        guard let url = Bundle.main.url(forResource: "bell", withExtension: ".mp3") else { return}
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
+        }
+        catch let error{
+            print("Error playing sound. \(error.localizedDescription)")
+        }
+    }
+    
+    
+}
 class StopwatchModeViewController: UIViewController {
     // Hides Time, Wifi, Battery
     override var prefersStatusBarHidden: Bool {
@@ -34,6 +56,11 @@ class StopwatchModeViewController: UIViewController {
     
     // Logic
     var ifDoubleTapped = false
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let defaults = UserDefaults.standard
+        defaults.set(UIScreen.main.brightness, forKey: "ogBrightness")
+    }
     
     // when the app launches
     override func viewDidLoad() {
@@ -53,18 +80,17 @@ class StopwatchModeViewController: UIViewController {
             twoTap.numberOfTapsRequired = 2
             view.addGestureRecognizer(twoTap)
 
-        
-        let defaults = UserDefaults.standard
-        defaults.set(UIScreen.main.brightness, forKey: "ogBrightness")
+
     }
     
-    
-    // Start / Pause
-    @objc func singleTap() {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let defaults = UserDefaults.standard
         let ogBright = defaults.float(forKey: "ogBrightness")
         UIScreen.main.brightness = CGFloat(ogBright)
-        
+       }
+    
+    // Start / Pause
+    @objc func singleTap() {
         if (paused == true) {
 
             
@@ -104,7 +130,12 @@ class StopwatchModeViewController: UIViewController {
     
     // Reset
     @objc func doubleTapped() {
-        //NotificationCenter.default.post(name: Notification.Name("text"), object: DropsLabel.text)
+        // updates Todays Drops in infoViewController
+        let defaults = UserDefaults.standard
+        let todaysDrops = defaults.integer(forKey: "todaysDrops")
+        defaults.set(todaysDrops + dropsDisplayed, forKey: "todaysDrops")
+        
+        // updates Storage
         self.earnedDrops = dropsDisplayed
         
         ifDoubleTapped = true
@@ -129,6 +160,14 @@ class StopwatchModeViewController: UIViewController {
             let vc = segue.destination as! StorageViewController
             vc.transferredDrops = self.earnedDrops
         }
+        // if stopwatch is in play
+        else if (paused == false) {
+            droplets.invalidate()
+            stopWatch.invalidate()
+            animationView.pause()
+            paused = true
+
+        }
     }
     
     // increments the water droplet count displayed
@@ -136,6 +175,24 @@ class StopwatchModeViewController: UIViewController {
         dropsDisplayed += 1
         setupAnimation()
         DropsLabel.text = String(dropsDisplayed)
+        
+        let defaults = UserDefaults.standard
+        // if drops != 0 AND drops mod (bellMin * 30) == 0, then play sound
+        let bellBool = defaults.bool(forKey: "bellSoundBool")
+        let bellMin = defaults.integer(forKey: "bellMinInput")
+        if (bellBool && bellMin != 0) {
+            let intervalReached = dropsDisplayed % (bellMin * 30)
+            if (dropsDisplayed != 0 && intervalReached == 0) {
+                // Allows for sound even when phone on silent
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(.playback)
+                } catch(let error) {
+                    print(error.localizedDescription)
+                }
+                // plays sound
+                SoundManager.instance.playSound()
+            }
+        }
     }
     
     // increments the stopwatch displayed
@@ -150,6 +207,9 @@ class StopwatchModeViewController: UIViewController {
         if (counter > 3 && battBool) {
             UIScreen.main.brightness = CGFloat(0.0)
         }
+        
+ 
+
     }
     
     // converts numbers of seconds to "hour : min : second" format
