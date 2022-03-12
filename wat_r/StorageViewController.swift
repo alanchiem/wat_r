@@ -10,6 +10,11 @@ import Foundation
 import Lottie
 
 class StorageViewController: UIViewController {
+    
+    @IBOutlet weak var flowerImageView:
+    
+    
+    UIImageView!
     // Hides Time, Wifi, Battery
     override var prefersStatusBarHidden: Bool {
         return true
@@ -166,7 +171,13 @@ class StorageViewController: UIViewController {
     
     // Happens everytime view appears
     override func viewWillAppear(_ animated: Bool) {
+        // adding flower
         super.viewWillAppear(animated)
+        let image = UIImage(named: "flower.png")
+        flowerImageView.image = image
+        flowerImageView.sendSubviewToBack(self.view)
+        
+        
         dropToTime()
         updateWaterPos()
         

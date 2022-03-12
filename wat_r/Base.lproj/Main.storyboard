@@ -104,18 +104,6 @@
                                     <action selector="batteryAction:" destination="B1Y-DV-tUG" eventType="valueChanged" id="2iB-yj-zxJ"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Onboarding / Tutorial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeO-jX-BTl">
-                                <rect key="frame" x="42" y="309" width="166" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="lock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="akb-qq-qDP">
-                                <rect key="frame" x="205" y="321" width="15" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" name="Text"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hide Storage Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLO-sX-7kT">
                                 <rect key="frame" x="42" y="243" width="144" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -164,6 +152,18 @@
                                     <action selector="soundTestAction:" destination="B1Y-DV-tUG" eventType="touchUpInside" id="ImX-sU-iav"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Onboarding / Tutorial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeO-jX-BTl">
+                                <rect key="frame" x="42" y="323" width="166" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="lock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="akb-qq-qDP">
+                                <rect key="frame" x="205" y="335" width="15" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="Text"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Mk-fr-yRh"/>
                         <color key="backgroundColor" name="Background"/>
@@ -339,6 +339,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Backdrop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLU-SN-wNv">
+                                <rect key="frame" x="45" y="581" width="72" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iWy-ra-IJQ">
+                                <rect key="frame" x="20" y="531.66666666666663" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="Text"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rLD-g3-ckZ"/>
                         <color key="backgroundColor" name="Background"/>
@@ -523,6 +535,10 @@
                                     <action selector="ResetActionWithSender:" destination="wZT-lq-1sU" eventType="touchUpInside" id="JOH-9C-XMV"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kf7-TQ-i9Q">
+                                <rect key="frame" x="9" y="169" width="396" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sI9-w2-Jhz"/>
                         <color key="backgroundColor" name="Background"/>
@@ -531,16 +547,17 @@
                         <outlet property="Reset" destination="bHO-PD-ozD" id="U9h-9M-CqW"/>
                         <outlet property="StatsLabel" destination="q1w-yw-cee" id="1kH-hB-Rv3"/>
                         <outlet property="TotalDropsLabel" destination="ecA-u2-kQk" id="L8K-7h-Sjf"/>
+                        <outlet property="flowerImageView" destination="kf7-TQ-i9Q" id="s1S-ED-7iK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PqR-NA-AFu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="599" y="840"/>
+            <point key="canvasLocation" x="598.55072463768124" y="839.73214285714278"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="fe5-gT-UFn"/>
-        <segue reference="RTi-TK-U37"/>
+        <segue reference="8aK-te-qAU"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="clock" catalog="system" width="128" height="121"/>
@@ -551,6 +568,7 @@
         <image name="lightEasterEgg.jpg" width="545" height="503"/>
         <image name="lock" catalog="system" width="128" height="128"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="photo" catalog="system" width="128" height="93"/>
         <image name="volume.2" catalog="system" width="128" height="90"/>
         <namedColor name="Background">
             <color red="0.99599999189376831" green="1" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
