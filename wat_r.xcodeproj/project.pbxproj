@@ -18,6 +18,8 @@
 		E72623EB25B560FD00BDEACF /* falling-drop-of-water.json in Resources */ = {isa = PBXBuildFile; fileRef = E72623EA25B560FD00BDEACF /* falling-drop-of-water.json */; };
 		E72F5B43267E945200BFE14B /* storage_water.json in Resources */ = {isa = PBXBuildFile; fileRef = E72F5B42267E945200BFE14B /* storage_water.json */; };
 		E7455A942683AA900075C1A9 /* oldWaterDrop(newColor).json in Resources */ = {isa = PBXBuildFile; fileRef = E7455A932683AA900075C1A9 /* oldWaterDrop(newColor).json */; };
+		E746C3AC27DD5D8B003A9E43 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746C3AB27DD5D8B003A9E43 /* DrawingViewController.swift */; };
+		E746C3AE27DD6BB4003A9E43 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746C3AD27DD6BB4003A9E43 /* Canvas.swift */; };
 		E75C74CC25AED25500071F18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C74CB25AED25500071F18 /* AppDelegate.swift */; };
 		E75C74D025AED25500071F18 /* StopwatchModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75C74CF25AED25500071F18 /* StopwatchModeViewController.swift */; };
 		E75C74D325AED25500071F18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E75C74D125AED25500071F18 /* Main.storyboard */; };
@@ -52,6 +54,8 @@
 		E72623EA25B560FD00BDEACF /* falling-drop-of-water.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "falling-drop-of-water.json"; sourceTree = "<group>"; };
 		E72F5B42267E945200BFE14B /* storage_water.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = storage_water.json; sourceTree = "<group>"; };
 		E7455A932683AA900075C1A9 /* oldWaterDrop(newColor).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "oldWaterDrop(newColor).json"; sourceTree = "<group>"; };
+		E746C3AB27DD5D8B003A9E43 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
+		E746C3AD27DD6BB4003A9E43 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		E75C74C825AED25500071F18 /* wat_r.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wat_r.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E75C74CB25AED25500071F18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E75C74CF25AED25500071F18 /* StopwatchModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchModeViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 				E716B5FC27D86892005F2881 /* SettingsViewController.swift */,
 				E716B5FE27D8788B005F2881 /* DonationViewController.swift */,
 				E709109827DBF54D0033F9EE /* EasterEggViewController.swift */,
+				E746C3AB27DD5D8B003A9E43 /* DrawingViewController.swift */,
+				E746C3AD27DD6BB4003A9E43 /* Canvas.swift */,
 				E709109127DBC9AB0033F9EE /* Sounds */,
 				E75C74D125AED25500071F18 /* Main.storyboard */,
 				E7A5DA1A27D093DA00C151B9 /* 1x1-00000000.png */,
@@ -280,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E75C74D025AED25500071F18 /* StopwatchModeViewController.swift in Sources */,
+				E746C3AE27DD6BB4003A9E43 /* Canvas.swift in Sources */,
 				E709109927DBF54D0033F9EE /* EasterEggViewController.swift in Sources */,
 				403ED9CE25E3755800422DFC /* ContentView.swift in Sources */,
 				E716B5FF27D8788B005F2881 /* DonationViewController.swift in Sources */,
@@ -288,6 +295,7 @@
 				E75C74CC25AED25500071F18 /* AppDelegate.swift in Sources */,
 				E75C750225AEDB1B00071F18 /* SceneDelegate.swift in Sources */,
 				E7F9822127D731C1003AC5AC /* InfoViewController.swift in Sources */,
+				E746C3AC27DD5D8B003A9E43 /* DrawingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

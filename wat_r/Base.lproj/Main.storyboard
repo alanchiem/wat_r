@@ -10,6 +10,36 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Drawing View Controller-->
+        <scene sceneID="eel-R5-lGE">
+            <objects>
+                <viewController id="gqT-tH-vSy" customClass="DrawingViewController" customModule="wat_r" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DbW-Xy-PTV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xjj-dg-7xu">
+                                <rect key="frame" x="20" y="29" width="56" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                <connections>
+                                    <segue destination="9KF-V9-aqh" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="jwE-5V-0aq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JnY-L4-BFG"/>
+                        <color key="backgroundColor" name="water color"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButtonOutlet" destination="Xjj-dg-7xu" id="PrO-AE-t3H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fmv-NA-0Vv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-246" y="-605"/>
+        </scene>
         <!--Settings View Controller-->
         <scene sceneID="tjH-Zg-vMG">
             <objects>
@@ -351,6 +381,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" name="Text"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57p-gH-S7T">
+                                <rect key="frame" x="45" y="576" width="323" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="Text"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system" title=""/>
+                                <connections>
+                                    <action selector="backdropButton:" destination="9KF-V9-aqh" eventType="touchUpInside" id="axB-mi-HiJ"/>
+                                    <segue destination="gqT-tH-vSy" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="dRl-XR-o7O"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rLD-g3-ckZ"/>
                         <color key="backgroundColor" name="Background"/>
@@ -383,7 +424,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-246.37681159420291" y="91.741071428571431"/>
+            <point key="canvasLocation" x="-246" y="171"/>
         </scene>
         <!--Stopwatch-->
         <scene sceneID="tne-QT-ifu">
@@ -558,8 +599,10 @@
     <inferredMetricsTieBreakers>
         <segue reference="fe5-gT-UFn"/>
         <segue reference="8aK-te-qAU"/>
+        <segue reference="jwE-5V-0aq"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="drop" catalog="system" width="101" height="128"/>
         <image name="exclamationmark.triangle" catalog="system" width="128" height="112"/>
@@ -578,6 +621,9 @@
         </namedColor>
         <namedColor name="color">
             <color red="0.10599999874830246" green="0.32499998807907104" blue="0.51800000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="water color">
+            <color red="0.25900000333786011" green="0.50999999046325684" blue="0.68199998140335083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
