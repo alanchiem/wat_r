@@ -24,6 +24,7 @@ class DrawingViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Undo", for: .normal)
         button.addTarget(self, action: #selector(handleUndo), for: .touchUpInside)
+        button.setTitleColor(.white, for: .normal)
         return button
     } ()
     
@@ -38,6 +39,7 @@ class DrawingViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Clear", for: .normal)
         button.addTarget(self, action: #selector(handleClear), for: .touchUpInside)
+        button.setTitleColor(.white, for: .normal)
         return button
     } ()
     
