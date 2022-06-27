@@ -9,7 +9,7 @@ A simple way to focus on the things that matter to you. Stop procrastinating and
 - When the stopwatch is activated, a drop of water will fall every two seconds. You can pause/play the clock with another single tap.
 - Reset the stopwatch when you're done by tapping twice. The water you accumulated will now be added towards your total amount of drops.
 
-![dropDemo](https://user-images.githubusercontent.com/62784950/175849212-52569633-5ed4-4691-869a-39a1c04d0b7e.gif) - hi
+![dropDemo](https://user-images.githubusercontent.com/62784950/175849212-52569633-5ed4-4691-869a-39a1c04d0b7e.gif) Start/Pause: 1 tap, Reset: 2 taps
 
 
 
