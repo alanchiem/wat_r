@@ -16,7 +16,7 @@ A simple way to focus on the things that matter to you. Stop procrastinating and
 ### Navigation
 - Swipe Up, Down, Left, and Right to switch between screens. 
 
-![navigationDemo](https://user-images.githubusercontent.com/62784950/175851047-07eaec0e-0848-4b4a-994b-48e0dcb5a7ee.gif)
+![navigationDemo](https://user-images.githubusercontent.com/62784950/175851654-94a5591c-a266-4e97-9a09-2dbb10f2e68d.gif)
 
 
 ## Storage
