@@ -5,7 +5,7 @@ A simple way to focus on the things that matter to you. Stop procrastinating and
 # How to use this app.
 
 ### Stopwatch
-- Find something meaningful to do, and tap anywhere on the screen to start the stopwatch. Note that during this time, you should be completely focused on your chosen activity.
+- Find something meaningful to do and tap anywhere on the screen to start the stopwatch. Note that during this time, you should be completely focused on your chosen activity.
 - When the stopwatch is activated, a drop of water will fall every two seconds. You can pause/play the clock with another single tap.
 - Reset the stopwatch when you're done by tapping twice. The water you accumulated will now be added towards your total amount of drops.
 
@@ -18,17 +18,12 @@ A simple way to focus on the things that matter to you. Stop procrastinating and
 
 ![navigationDemo](https://user-images.githubusercontent.com/62784950/175851654-94a5591c-a266-4e97-9a09-2dbb10f2e68d.gif)
 
-
 ### Storage
 - View your total amount of drops here. Tap the number to see alternate conversions.
 
 ### Info
 - Here you can find additional info / statistics. 
 - There is also a text box in which you can write encouraging words to yourself.
-
-
-
-
 
 
 # Why it works.
@@ -47,10 +42,9 @@ Any long term habit/goal in which progress can be sometimes difficult to visuali
 - Creating Art
 
 ## Features
-- a soft bell sound at an adjustable time interval
-- a money conversion since time is money!
-- statistics
-
+- soft bell sound at an adjustable time interval
+- money conversion since time is money!
+- personal statistics
 
 # FAQ
 
@@ -62,8 +56,4 @@ A drop every second was visually too fast, making it distracting.
 
 ### Why doesn't the stopwatch continue to count when I exit the app?
 This prevents users from using their phone during the time they should be focused on your chosen activity.
-
-### Will there be ads?
-Never.
-
 
