@@ -16,14 +16,16 @@ A simple way to focus on the things that matter to you. Stop procrastinating and
 ### Navigation
 - Swipe Up, Down, Left, and Right to switch between screens. 
 
-![navigationDemo](https://user-images.githubusercontent.com/62784950/175851654-94a5591c-a266-4e97-9a09-2dbb10f2e68d.gif)
-
 ### Storage
 - View your total amount of drops here. Tap the number to see alternate conversions.
 
 ### Info
 - Here you can find additional info / statistics. 
-- There is also a text box in which you can write encouraging words to yourself.
+- There is also a text box in which you can write encouraging words to yourself that you can look back on.
+
+![navigationDemo](https://user-images.githubusercontent.com/62784950/175851654-94a5591c-a266-4e97-9a09-2dbb10f2e68d.gif)
+
+
 
 
 # Why it works.
