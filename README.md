@@ -30,7 +30,7 @@ A simple way to focus on the things that matter to you. Stop procrastinating and
 
 # Why it works.
 The human brain can be illogical. Sometimes we don't want to do the things we know we should do. This is likely do to the fact that the rewards appear too far into the future and/or are difficult to see in the present.
-This app tackles this issue by representing progress down to the second. It essentially provides a sense of constant instant gratification where some long-term goals lack.
+This app tackles this issue by representing progress down to the second. It essentially provides a sense of constant tiny instant gratification to keep users motivated on their long-term goals.
 
 # What to use this app for?
 Any long term habit/goal in which progress can be sometimes difficult to visualize. Some examples below.
