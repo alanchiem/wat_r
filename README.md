@@ -15,7 +15,7 @@ A simple way to focus on the things that matter to you. Stop procrastinating and
 ### Navigation
 - Swipe Up, Down, Left, and Right to switch between screens. 
 
-![navigationDemo](https://user-images.githubusercontent.com/62784950/175850661-59fcf295-96f0-49eb-95e0-4f9e7c62586d.gif)
+# ![navigationDemo](https://user-images.githubusercontent.com/62784950/175850661-59fcf295-96f0-49eb-95e0-4f9e7c62586d.gif)
 
 ## Storage
 - View your total amount of drops here. Tap the number to see alternate conversions.
